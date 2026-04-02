@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live GIF — Sam Mantell</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    :root {
+      --bg:#0A0A0A; --bg2:#141414; --text:#E8E8E8; --dim:#8A8A8A;
+      --accent:#00FF94; --border:#2A2A2A;
+      --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--fb); background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; width:100%; background:rgba(10,10,10,0.95); backdrop-filter:blur(12px); z-index:100; border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:var(--fd); font-size:1rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:0.05em; }
+    .back { font-size:0.85rem; color:var(--dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
+    .back:hover { color:var(--accent); }
+
+    .page-header { padding:5.5rem 2.5rem 2.5rem; border-bottom:1px solid var(--border); }
+    .label { font-size:0.72rem; color:var(--accent); font-weight:600; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.5rem; }
+    .page-header h1 { font-family:var(--fd); font-size:clamp(2rem,5vw,3.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1.05; margin-bottom:0.75rem; }
+    .page-header p { font-size:0.95rem; color:var(--dim); max-width:560px; line-height:1.7; }
+
+    .campaign { border-top:1px solid var(--border); }
+    .campaign-header { display:flex; justify-content:space-between; align-items:flex-end; padding:1.25rem 2.5rem 1rem; border-bottom:1px solid var(--border); }
+    .campaign-name { font-family:var(--fd); font-size:clamp(1.5rem,3vw,2.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1; }
+    .campaign-meta { font-size:0.72rem; color:var(--dim); letter-spacing:0.08em; text-transform:uppercase; text-align:right; line-height:1.7; }
+
+    .cat-carousel { position:relative; overflow:hidden; }
+    .cat-carousel-track { display:flex; transition:transform 0.45s ease; }
+
+    .grid-card { position:relative; aspect-ratio:16/9; overflow:hidden; flex:0 0 33.333%; display:block; text-decoration:none; color:inherit; }
+    .grid-card-square { aspect-ratio:1/1; }
+    .grid-card:not(:last-child) { border-right:1px solid rgba(255,255,255,0.06); }
+    .grid-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+    .grid-card:hover img { transform:scale(1.05); }
+
+    .grid-card-foot { position:absolute; top:0.75rem; left:0.75rem; opacity:0; transition:opacity 0.3s ease; }
+    .grid-card:hover .grid-card-foot { opacity:1; }
+    .label-block { background:rgba(0,0,0,0.72); padding:0.35rem 0.75rem; border-top:2px solid var(--accent); }
+    .label-block h3 { font-family:var(--fd); font-size:0.85rem; font-weight:700; color:#fff; letter-spacing:-0.01em; }
+
+    .cat-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background:rgba(10,10,10,0.75); border:2px solid var(--accent); color:var(--accent); width:56px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:2rem; transition:all 0.2s ease; line-height:1; }
+    .cat-arrow:hover { background:var(--accent); color:var(--bg); }
+    .cat-arrow.cat-prev { left:0.75rem; }
+    .cat-arrow.cat-next { right:0.75rem; }
+
+    footer { padding:2.5rem 2rem; text-align:center; color:var(--dim); font-size:0.8rem; border-top:1px solid var(--border); margin-top:3px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../../index.html" class="logo">SAM MANTELL</a>
+    <a href="../../index.html" class="back">← Portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="label">Brands · Giphy Studios</div>
+    <h1>Live GIF</h1>
+    <p>Real-time GIF production at Giphy Studios — capturing live moments from major cultural events and publishing within minutes for instant platform distribution.</p>
+  </div>
+
+  <!-- ── NFL ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">NFL</div>
+      <div class="campaign-meta">National Football League · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="NFL 01"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-02.gif" alt="NFL 02"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-03.gif" alt="NFL 03"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-04.gif" alt="NFL 04"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-05.gif" alt="NFL 05"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-06.gif" alt="NFL 06"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-07.gif" alt="NFL 07"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── NBC PARIS OLYMPICS ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">NBC Paris Olympics</div>
+      <div class="campaign-meta">NBC · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-01.gif" alt="Olympics 01"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-02.gif" alt="Olympics 02"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-03.gif" alt="Olympics 03"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-04.gif" alt="Olympics 04"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-05.gif" alt="Olympics 05"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── SNL ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Saturday Night Live</div>
+      <div class="campaign-meta">NBC · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-01.gif" alt="SNL 01"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-02.gif" alt="SNL 02"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-03.gif" alt="SNL 03"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-04.gif" alt="SNL 04"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-05.gif" alt="SNL 05"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-06.gif" alt="SNL 06"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── THE OSCARS ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">The Oscars</div>
+      <div class="campaign-meta">Academy Awards · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-01.gif" alt="Oscars 01"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-02.gif" alt="Oscars 02"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-03.gif" alt="Oscars 03"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-04.gif" alt="Oscars 04"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-05.gif" alt="Oscars 05"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-06.gif" alt="Oscars 06"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── BIG BROTHER ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Big Brother</div>
+      <div class="campaign-meta">CBS · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-01.gif" alt="Big Brother 01"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-02.gif" alt="Big Brother 02"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-03.gif" alt="Big Brother 03"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── EUROVISION ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Eurovision</div>
+      <div class="campaign-meta">Eurovision Song Contest · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-01.gif" alt="Eurovision 01"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-02.gif" alt="Eurovision 02"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-03.gif" alt="Eurovision 03"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-04.gif" alt="Eurovision 04"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-05.gif" alt="Eurovision 05"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── INDIAN SUPER LEAGUE ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Indian Super League</div>
+      <div class="campaign-meta">ISL · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-01.gif" alt="ISL 01"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-02.gif" alt="ISL 02"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-03.gif" alt="ISL 03"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-04.gif" alt="ISL 04"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-05.gif" alt="ISL 05"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── LATIN GRAMMYS ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Latin Grammys</div>
+      <div class="campaign-meta">Latin Recording Academy · Live GIF</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-01.gif" alt="Latin Grammys 01"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-02.gif" alt="Latin Grammys 02"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-03.gif" alt="Latin Grammys 03"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-04.gif" alt="Latin Grammys 04"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-05.gif" alt="Latin Grammys 05"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+    function initCarousels() {
+      document.querySelectorAll('.cat-carousel').forEach(carousel => {
+        const track = carousel.querySelector('.cat-carousel-track');
+        const origCards = [...track.querySelectorAll('.grid-card')];
+        const n = origCards.length;
+        let pos = 0;
+
+        origCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          track.appendChild(clone);
+        });
+
+        function cardWidth() { return carousel.offsetWidth / 3; }
+
+        function go(animated) {
+          track.style.transition = animated ? 'transform 0.45s ease' : 'none';
+          track.style.transform = 'translateX(-' + (pos * cardWidth()) + 'px)';
+        }
+
+        function next() {
+          pos++;
+          go(true);
+          if (pos >= n) {
+            setTimeout(() => { pos = 0; go(false); }, 460);
+          }
+        }
+
+        function prev() {
+          if (pos <= 0) {
+            pos = n; go(false);
+            requestAnimationFrame(() => requestAnimationFrame(() => { pos--; go(true); }));
+          } else { pos--; go(true); }
+        }
+
+        carousel.querySelector('.cat-prev').addEventListener('click', prev);
+        carousel.querySelector('.cat-next').addEventListener('click', next);
+        window.addEventListener('resize', () => go(false));
+        go(false);
+      });
+    }
+
+    initCarousels();
+  </script>
+
+</body>
+</html>

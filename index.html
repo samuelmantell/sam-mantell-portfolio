@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sam Mantell — Creative Producer &amp; Project Manager</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        :root {
+            --color-bg: #0A0A0A;
+            --color-text: #E8E8E8;
+            --color-text-dim: #8A8A8A;
+            --color-accent: #00FF94;
+            --color-border: #2A2A2A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV: solid banner, always visible ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 68px;
+            padding: 0 2.5rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+        }
+
+        nav .nav-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .nav-subtitle {
+            font-size: 0.65rem;
+            color: var(--color-text-dim);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav ul a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            transition: color 0.2s ease;
+        }
+
+        nav ul a:hover { color: var(--color-accent); }
+
+        /* ── HERO: FILM STRIP ── */
+        /* Sits below the 68px nav. Leaves ~80px at bottom so featured card peeks. */
+        .hero {
+            position: relative;
+            margin-top: 68px;
+            height: 50vh;
+            min-height: 280px;
+            overflow: hidden;
+        }
+
+        .hero-strip-wrap {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-strip {
+            display: flex;
+            align-items: center;
+            will-change: transform;
+        }
+
+        
+
+
+
+        .hero-strip img,
+        .hero-strip video {
+            height: 50vh;
+            min-height: 280px;
+            width: auto;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            border-right: none;
+        }
+
+        /* No gradient overlay — images are fully crisp */
+        .hero-gradient { display: none; }
+
+        /* ── STRIP CLIP WRAPPER + LABEL ── */
+        .strip-clip {
+            position: relative;
+            display: flex;
+            flex-shrink: 0;
+            border-right: 3px solid var(--color-bg);
+        }
+
+
+        .strip-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-family: var(--font-body);
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 1.0);
+            line-height: 1.7;
+            pointer-events: none;
+        }
+
+        /* Scroll cue pinned to bottom of strip */
+        .hero-scroll {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            pointer-events: none;
+        }
+
+        .hero-scroll span {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .scroll-line {
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(to bottom, var(--color-accent), transparent);
+            animation: pulse-line 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.4; }
+            50%       { opacity: 1; }
+        }
+
+        /* ── PROJECTS ── */
+        .projects {
+            /* No padding — images go edge to edge */
+        }
+
+        /* FEATURED: full-width, tall */
+        .featured-wrap {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 440px;
+            overflow: hidden;
+        }
+
+        .featured-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            display: block;
+        }
+
+        .featured-wrap:hover img {
+            transform: scale(1.04);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            inset: 0;
+            /* Gradient left→right: opaque on left, clear on right */
+            background: linear-gradient(
+                105deg,
+                rgba(10,10,10,0.88) 0%,
+                rgba(10,10,10,0.45) 50%,
+                rgba(10,10,10,0.05) 100%
+            );
+            display: flex;
+            align-items: flex-end;
+            padding: 3rem 3.5rem;
+        }
+
+        .featured-meta {
+            max-width: 520px;
+        }
+
+        .featured-eyebrow {
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        .featured-wrap h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 4vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-role {
+            font-size: 0.95rem;
+            color: var(--color-text-dim);
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            font-size: 0.65rem;
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 0.25rem 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* CATEGORY CAROUSEL */
+        .cat-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cat-carousel-track {
+            display: flex;
+            transition: transform 0.45s ease;
+        }
+
+        .grid-card {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            flex: 0 0 33.333%;
+        }
+
+        /* Cat carousel arrow buttons */
+        .cat-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(10,10,10,0.75);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .cat-arrow:hover {
+            background: var(--color-accent);
+            color: var(--color-bg);
+        }
+
+        .cat-arrow.cat-prev { left: 0.75rem; }
+        .cat-arrow.cat-next { right: 0.75rem; }
+
+        .grid-card img,
+        .grid-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.55s ease;
+            display: block;
+        }
+
+        .grid-card:hover img,
+        .grid-card:hover video {
+            transform: scale(1.07);
+        }
+
+        /* Title label — top-left */
+        .grid-card-foot {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0;
+            background: none;
+        }
+
+        .grid-card-foot h3 {
+            font-family: var(--font-display);
+            font-size: 1.44rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.15rem;
+            color: #FFFFFF;
+        }
+
+        /* Tags appear on hover */
+        .grid-card-hover {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,10,10,0.15);
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 1rem 1.25rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .grid-card:hover .grid-card-hover {
+            opacity: 1;
+        }
+
+        /* Thin border between grid cells */
+        .grid-card:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* VIEW ALL STRIP */
+        .view-all-strip {
+            padding: 1.1rem 3rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .view-all-link {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: gap 0.2s ease;
+        }
+
+        .view-all-link:hover { gap: 1rem; }
+
+        /* ── CATEGORY SECTIONS ── */
+        .cat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 1.25rem 2.5rem 1rem;
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .cat-label {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--color-text);
+        }
+
+        .cat-projects {
+            font-size: 0.72rem;
+            color: var(--color-text-dim);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: right;
+            line-height: 1.7;
+            padding-bottom: 0.2rem;
+        }
+
+        /* ── ABOUT ── */
+        /* Image fills the section, text lives on top */
+        .about-section {
+            position: relative;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .about-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .about-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Dark enough to read text against */
+            filter: brightness(0.28) saturate(0.7);
+        }
+
+        /* Left fade so text block always reads */
+        .about-fade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(10,10,10,0.92) 0%,
+                rgba(10,10,10,0.55) 55%,
+                rgba(10,10,10,0.1)  100%
+            );
+            z-index: 1;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 3.5rem;
+            max-width: 640px;
+        }
+
+        .about-content h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--color-accent);
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--color-text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .about-content p:last-child {
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .contact-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-section h2 .accent { color: var(--color-accent); }
+
+        .contact-section p {
+            font-size: 1rem;
+            color: var(--color-text-dim);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            border: 1px solid;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border-color: var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-accent);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-text);
+            border-color: #3A3A3A;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            color: var(--color-text-dim);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .hero-content { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding-bottom: 5rem; }
+            .hero-right { text-align: left; border-right: none; border-left: 2px solid var(--color-accent); padding-right: 0; padding-left: 1rem; }
+            .hero-right p { border: none; padding: 0; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-card:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        }
+
+        @media (max-width: 600px) {
+            .featured-wrap { height: 50vh; }
+            .featured-overlay { padding: 2rem; }
+            nav ul { gap: 1.5rem; }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="mainNav">
+<div class="nav-inner">
+<div>
+<a class="nav-logo" href="#home">Sam Mantell</a>
+<div class="nav-subtitle">Producer + Project Manager</div>
+</div>
+<ul>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<!-- ── HERO: FILM STRIP ── -->
+<section class="hero" id="home">
+<div class="hero-strip-wrap">
+<div class="hero-strip" id="heroStrip"></div>
+</div>
+<div class="hero-gradient"></div>
+<div class="hero-scroll">
+<span>Scroll</span>
+<div class="scroll-line"></div>
+</div>
+</section>
+<!-- ── PORTFOLIO ── -->
+<section class="projects" id="portfolio">
+<!-- ── BRANDS ── -->
+<div class="cat-header">
+<div class="cat-label">Brands</div>
+<div class="cat-projects">Digital Ads · Brand Partnerships · Social Activations</div>
+</div>
+<div class="cat-carousel">
+<button class="cat-arrow cat-prev">&#8249;</button>
+<div class="cat-carousel-track">
+<a class="grid-card" href="content-pages/brands.html">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/giphy-ads-bachelorette-rose.mp4"></video>
+<div class="grid-card-foot"><h3>ABC's Bachelorette</h3></div>
+</a>
+<a class="grid-card" href="content-pages/brands.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="NFL" decoding="async" loading="lazy" : src="images/Branded-Content/Live-Gif/NFL/Nfl-live-gif-01.gif"/>
+<div class="grid-card-foot"><h3>NFL</h3></div>
+</a>
+<a class="grid-card" href="content-pages/brands.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="Hot Ones" decoding="async" loading="lazy" : src="images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif"/>
+<div class="grid-card-foot"><h3>Hot Ones</h3></div>
+</a>
+<a class="grid-card" href="content-pages/brands.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/Branded-Content/T-Mobile/TMO_PLN_image-highlight.mp4"></video>
+<div class="grid-card-foot"><h3>T-Mobile</h3></div>
+</a>
+<a class="grid-card" href="content-pages/brands.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="Starbucks" decoding="async" loading="lazy" : src="images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif"/>
+<div class="grid-card-foot"><h3>Starbucks</h3></div>
+</a>
+</div>
+<button class="cat-arrow cat-next">&#8250;</button>
+</div>
+<!-- ── DIGITAL ── -->
+<div class="cat-header">
+<div class="cat-label">Digital</div>
+<div class="cat-projects">ByteSyzeTV · Giphy · USC</div>
+</div>
+<div class="cat-carousel">
+<button class="cat-arrow cat-prev">&#8249;</button>
+<div class="cat-carousel-track">
+<a class="grid-card" href="content-pages/digital.html">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video>
+<div class="grid-card-foot"><h3>ByteSyzeTV</h3></div>
+</a>
+<a class="grid-card" href="content-pages/digital.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="Artist-Commissions" decoding="async" loading="lazy" : src="images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif"/>
+<div class="grid-card-foot"><h3>Artist-Commissions</h3></div>
+</a>
+<a class="grid-card" href="content-pages/digital.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="Stamps" decoding="async" loading="lazy" : src="images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif"/>
+<div class="grid-card-foot"><h3>Stamps</h3></div>
+</a>
+<a class="grid-card" href="content-pages/digital.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<img alt="S.W.A.G." decoding="async" loading="lazy" : src="images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif"/>
+<div class="grid-card-foot"><h3>S.W.A.G.</h3></div>
+</a>
+<a class="grid-card" href="content-pages/digital.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/Digital-Content/USC/Fellowship_Spotlight.mp4"></video>
+<div class="grid-card-foot"><h3>USC</h3></div>
+</a>
+</div>
+<button class="cat-arrow cat-next">&#8250;</button>
+</div>
+<!-- ── ORIGINAL ── -->
+<div class="cat-header">
+<div class="cat-label">Original</div>
+<div class="cat-projects">Zips · Kaleb & Ms. Kelsey · Influence · Disco'd</div>
+</div>
+<div class="cat-carousel">
+<button class="cat-arrow cat-prev">&#8249;</button>
+<div class="cat-carousel-track">
+<a class="grid-card" href="content-pages/original.html">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/ZIPS_Teaser_Vertical_V3_3.mp4"></video>
+<div class="grid-card-foot"><h3>Zips (2026)</h3></div>
+</a>
+<a class="grid-card" href="content-pages/original.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/KAMK_Situationship_GIF.mp4"></video>
+<div class="grid-card-foot"><h3>Kaleb &amp; Ms. Kelsey</h3></div>
+</a>
+<a class="grid-card" href="content-pages/original.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/Trlr_Influence_2025_1x1.mp4"></video>
+<div class="grid-card-foot"><h3>Influence (2023)</h3></div>
+</a>
+<a class="grid-card" href="content-pages/original.html" style="border-left:1px solid rgba(255,255,255,0.06);">
+<video autoplay loop muted playsinline decoding="async" loading="lazy" : src="images/strip/Discod_trailer_1x1.mp4"></video>
+<div class="grid-card-foot"><h3>Disco'd (2019)</h3></div>
+</a>
+</div>
+<button class="cat-arrow cat-next">&#8250;</button>
+</div>
+<!-- VIEW ALL -->
+<div class="view-all-strip">
+<a class="view-all-link" href="all-projects.html">View All Projects →</a>
+</div>
+</section>
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+<h2>Let's Work <span class="accent">Together</span></h2>
+<div class="contact-links">
+<a class="btn btn-primary" href="mailto:samuel.mantell@gmail.com">Email Me</a>
+<a class="btn btn-secondary" href="https://linkedin.com/in/sam-mantell" target="_blank">LinkedIn</a>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Sam Mantell. Built with Claude AI.</p>
+</footer>
+<script>
+  // ── FILM STRIP CONFIGURATION ──
+  // To reorder: move lines up or down.
+  const stripClips = [
+    { src: "images/strip/ByteSyze_Genius-Verified_Samara-Cyn.MP4",  label: "Genius Verified, @ByteSyzeTV" },
+    { src: "images/strip/ByteSyze_Subway-Takes_Rosalia.MP4",         label: "Subway Takes, @ByteSyzeTV" },
+    { src: "images/strip/ByteSyze_The-Voice_Reba-McEntire.MP4",      label: "NBC's The Voice, @ByteSyzeTV" },
+    { src: "images/strip/Giphy_ads_starbucks_confetti.mp4",          label: "Starbucks, Giphy Studios" },
+    { src: "images/strip/giphy-ads-bachelorette-rose.mp4",           label: "ABC's The Bachelorette, Giphy Studios" },
+    { src: "images/strip/giphy-ads-hulu.mp4",                        label: "Hits-on-Hulu, Giphy Studios" },
+    { src: "images/strip/TMO_PLN_Rapid-Fire.MP4",                    label: "T-Mobile, Premio Lo Nuestro Social" },
+    { src: "images/strip/Original_KAMK_rizz.MP4",                    label: "\"Rizz\", Kaleb & Ms. Kelsey" },
+    { src: "images/strip/ZIPS_Teaser_Vertical_V3_3.mp4",             label: "Zips (2026)" },
+    { src: "images/strip/Trlr_Influence_2025_1x1.mp4",               label: "Influence (2023)" },
+    { src: "images/strip/Discod_trailer_1x1.mp4",                    label: "Disco'd (2019)" },
+  ];
+
+  function renderLabel(str) {
+    const i = str.indexOf(',');
+    if (i === -1) return str;
+    return str.slice(0, i).trim() + '<br>' + str.slice(i + 1).trim();
+  }
+
+  // ── STRIP BUILD ──
+  function buildStrip() {
+    const strip = document.getElementById('heroStrip');
+    [...stripClips, ...stripClips].forEach((clip, i) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'strip-clip';
+      const v = document.createElement('video');
+      v.src = clip.src;
+      v.autoplay = true; v.loop = true; v.muted = true;
+      v.setAttribute('playsinline', '');
+      v.setAttribute('decoding', 'async');
+      if (i >= stripClips.length) v.setAttribute('loading', 'lazy');
+      const lbl = document.createElement('div');
+      lbl.className = 'strip-label';
+      lbl.innerHTML = renderLabel(clip.label);
+      wrapper.appendChild(v);
+      wrapper.appendChild(lbl);
+      strip.appendChild(wrapper);
+    });
+  }
+
+  // ── STRIP ANIMATION (JS-driven for full control) ──
+  let stripPos = 0;
+  let stripPlaying = true;
+  const STRIP_SPEED = 0.6; // px per frame
+
+  function getHalfWidth() {
+    return document.getElementById('heroStrip').scrollWidth / 2;
+  }
+
+  function tickStrip() {
+    if (stripPlaying) {
+      stripPos -= STRIP_SPEED;
+      if (Math.abs(stripPos) >= getHalfWidth()) stripPos = 0;
+      document.getElementById('heroStrip').style.transform = 'translateX(' + stripPos + 'px)';
+    }
+    requestAnimationFrame(tickStrip);
+  }
+
+  function togglePlayPause() {
+    stripPlaying = !stripPlaying;
+  }
+
+  function nudgeStrip(dir) {
+    const half = getHalfWidth();
+    const clipW = half / stripClips.length;
+    stripPos += dir * clipW;
+    if (stripPos > 0) stripPos = -(half - clipW);
+    if (Math.abs(stripPos) >= half) stripPos = 0;
+    document.getElementById('heroStrip').style.transform = 'translateX(' + stripPos + 'px)';
+  }
+
+  // ── CATEGORY CAROUSELS ──
+  function initCarousels() {
+    document.querySelectorAll('.cat-carousel').forEach(carousel => {
+      const track = carousel.querySelector('.cat-carousel-track');
+      const origCards = [...track.querySelectorAll('.grid-card')];
+      const n = origCards.length;
+      let pos = 0;
+
+      // Clone cards for seamless loop
+      origCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.querySelectorAll('video').forEach(v => { v.muted = true; v.autoplay = true; v.loop = true; v.load(); });
+        track.appendChild(clone);
+      });
+
+      function cardWidth() { return carousel.offsetWidth / 3; }
+
+      function go(animated) {
+        track.style.transition = animated ? 'transform 0.45s ease' : 'none';
+        track.style.transform = 'translateX(-' + (pos * cardWidth()) + 'px)';
+      }
+
+      function next() {
+        pos++;
+        go(true);
+        if (pos >= n) {
+          setTimeout(() => { pos = 0; go(false); }, 460);
+        }
+      }
+
+      function prev() {
+        if (pos <= 0) {
+          pos = n; go(false);
+          requestAnimationFrame(() => requestAnimationFrame(() => { pos--; go(true); }));
+        } else { pos--; go(true); }
+      }
+
+      carousel.querySelector('.cat-prev').addEventListener('click', prev);
+      carousel.querySelector('.cat-next').addEventListener('click', next);
+      window.addEventListener('resize', () => go(false));
+      go(false);
+    });
+  }
+
+  // ── INIT ──
+  buildStrip();
+  requestAnimationFrame(tickStrip);
+  initCarousels();
+</script>
+</body>
+</html>

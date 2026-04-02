@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giphy Ads — Sam Mantell</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    :root {
+      --bg:#0A0A0A; --bg2:#141414; --text:#E8E8E8; --dim:#8A8A8A;
+      --accent:#00FF94; --border:#2A2A2A;
+      --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--fb); background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; width:100%; background:rgba(10,10,10,0.95); backdrop-filter:blur(12px); z-index:100; border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:var(--fd); font-size:1rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:0.05em; }
+    .back { font-size:0.85rem; color:var(--dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
+    .back:hover { color:var(--accent); }
+
+    .page-header { padding:5.5rem 2.5rem 2.5rem; border-bottom:1px solid var(--border); }
+    .label { font-size:0.72rem; color:var(--accent); font-weight:600; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.5rem; }
+    .page-header h1 { font-family:var(--fd); font-size:clamp(2rem,5vw,3.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1.05; margin-bottom:0.75rem; }
+    .page-header p { font-size:0.95rem; color:var(--dim); max-width:560px; line-height:1.7; }
+
+    .campaign { border-top:1px solid var(--border); }
+    .campaign-header { display:flex; justify-content:space-between; align-items:flex-end; padding:1.25rem 2.5rem 1rem; border-bottom:1px solid var(--border); }
+    .campaign-name { font-family:var(--fd); font-size:clamp(1.5rem,3vw,2.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1; }
+    .campaign-meta { font-size:0.72rem; color:var(--dim); letter-spacing:0.08em; text-transform:uppercase; text-align:right; line-height:1.7; }
+
+    .cat-carousel { position:relative; overflow:hidden; }
+    .cat-carousel-track { display:flex; transition:transform 0.45s ease; }
+
+    .grid-card { position:relative; aspect-ratio:1/1; overflow:hidden; flex:0 0 33.333%; display:block; text-decoration:none; color:inherit; }
+    .grid-card:not(:last-child) { border-right:1px solid rgba(255,255,255,0.06); }
+    .grid-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
+    .grid-card:hover img { transform:scale(1.05); }
+
+    .grid-card-foot { position:absolute; top:0.75rem; left:0.75rem; opacity:0; transition:opacity 0.3s ease; }
+    .grid-card:hover .grid-card-foot { opacity:1; }
+    .label-block { background:rgba(0,0,0,0.72); padding:0.35rem 0.75rem; border-top:2px solid var(--accent); }
+    .label-block h3 { font-family:var(--fd); font-size:0.85rem; font-weight:700; color:#fff; letter-spacing:-0.01em; }
+
+    .cat-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background:rgba(10,10,10,0.75); border:2px solid var(--accent); color:var(--accent); width:56px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:2rem; transition:all 0.2s ease; line-height:1; }
+    .cat-arrow:hover { background:var(--accent); color:var(--bg); }
+    .cat-arrow.cat-prev { left:0.75rem; }
+    .cat-arrow.cat-next { right:0.75rem; }
+
+    footer { padding:2.5rem 2rem; text-align:center; color:var(--dim); font-size:0.8rem; border-top:1px solid var(--border); margin-top:3px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../../index.html" class="logo">SAM MANTELL</a>
+    <a href="../../index.html" class="back">← Portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="label">Brands · Giphy Studios</div>
+    <h1>Giphy Ads</h1>
+    <p>Branded GIF campaigns produced at Giphy Studios for clients including ABC, Hulu, Starbucks, and Pure Leaf — reaching billions of views across the Giphy platform.</p>
+  </div>
+
+  <!-- ── ABC'S THE BACHELORETTE ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">ABC's The Bachelorette</div>
+      <div class="campaign-meta">Season 21 · Giphy Ads</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/ABC-The-Bachelorette-S21/giphy-ads-bachelorette-rose.gif" alt="Rose"><div class="grid-card-foot"><div class="label-block"><h3>Rose</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/ABC-The-Bachelorette-S21/giphy-ads-bachelorette-okay.gif" alt="Okay"><div class="grid-card-foot"><div class="label-block"><h3>Okay</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/ABC-The-Bachelorette-S21/giphy-ads-bachelorette-tongue.gif" alt="Tongue"><div class="grid-card-foot"><div class="label-block"><h3>Tongue</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/ABC-The-Bachelorette-S21/giphy-ads-bachelorette.gif" alt="Bachelorette"><div class="grid-card-foot"><div class="label-block"><h3>Bachelorette</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/ABC-The-Bachelorette-S21/Puppies_GIF_Bachelorette.gif" alt="Puppies"><div class="grid-card-foot"><div class="label-block"><h3>Puppies</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── HITS ON HULU ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Hits on Hulu</div>
+      <div class="campaign-meta">Hulu · Giphy Ads</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Hits-on-Hulu/giphy-ads-hulu.gif" alt="Hulu"><div class="grid-card-foot"><div class="label-block"><h3>Hulu</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Hits-on-Hulu/giphy-ads-HIMYM-daddys-home.gif" alt="HIMYM"><div class="grid-card-foot"><div class="label-block"><h3>How I Met Your Mother</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Hits-on-Hulu/giphy-ads-hulu-modern-family-treble.gif" alt="Modern Family"><div class="grid-card-foot"><div class="label-block"><h3>Modern Family</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Hits-on-Hulu/giphy-ads-hulu-schitts-creek-worse.gif" alt="Schitt's Creek"><div class="grid-card-foot"><div class="label-block"><h3>Schitt's Creek</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── PURE LEAF ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Pure Leaf</div>
+      <div class="campaign-meta">Pure Leaf Tea · Giphy Ads</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_letsdance_v1.gif" alt="Let's Dance"><div class="grid-card-foot"><div class="label-block"><h3>Let's Dance</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_congrats_v1.gif" alt="Congrats"><div class="grid-card-foot"><div class="label-block"><h3>Congrats</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_friday_v1.gif" alt="Friday"><div class="grid-card-foot"><div class="label-block"><h3>Friday</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_lets_go_v1.gif" alt="Let's Go"><div class="grid-card-foot"><div class="label-block"><h3>Let's Go</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_morning_goodmorning_v1.gif" alt="Good Morning"><div class="grid-card-foot"><div class="label-block"><h3>Good Morning</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_TTYL_v1.gif" alt="TTYL"><div class="grid-card-foot"><div class="label-block"><h3>TTYL</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- ── STARBUCKS MONDAY ── -->
+  <div class="campaign">
+    <div class="campaign-header">
+      <div class="campaign-name">Starbucks Monday</div>
+      <div class="campaign-meta">Starbucks · Giphy Ads</div>
+    </div>
+    <div class="cat-carousel">
+      <button class="cat-arrow cat-prev">&#8249;</button>
+      <div class="cat-carousel-track">
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Confetti"><div class="grid-card-foot"><div class="label-block"><h3>Confetti</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_go-team.gif" alt="Go Team"><div class="grid-card-foot"><div class="label-block"><h3>Go Team</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_Starbucks_Lets-go.gif" alt="Let's Go"><div class="grid-card-foot"><div class="label-block"><h3>Let's Go</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_Monday.gif" alt="Monday"><div class="grid-card-foot"><div class="label-block"><h3>Monday</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_mug-hug.gif" alt="Mug Hug"><div class="grid-card-foot"><div class="label-block"><h3>Mug Hug</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_sharing.gif" alt="Sharing"><div class="grid-card-foot"><div class="label-block"><h3>Sharing</h3></div></div></div>
+        <div class="grid-card"><img src="../images/Branded-Content/Giphy-Ads/Starbucks-Monday/giphy-ads-starbucks.gif" alt="Starbucks"><div class="grid-card-foot"><div class="label-block"><h3>Starbucks</h3></div></div></div>
+      </div>
+      <button class="cat-arrow cat-next">&#8250;</button>
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+    function initCarousels() {
+      document.querySelectorAll('.cat-carousel').forEach(carousel => {
+        const track = carousel.querySelector('.cat-carousel-track');
+        const origCards = [...track.querySelectorAll('.grid-card')];
+        const n = origCards.length;
+        let pos = 0;
+
+        origCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          track.appendChild(clone);
+        });
+
+        function cardWidth() { return carousel.offsetWidth / 3; }
+
+        function go(animated) {
+          track.style.transition = animated ? 'transform 0.45s ease' : 'none';
+          track.style.transform = 'translateX(-' + (pos * cardWidth()) + 'px)';
+        }
+
+        function next() {
+          pos++;
+          go(true);
+          if (pos >= n) {
+            setTimeout(() => { pos = 0; go(false); }, 460);
+          }
+        }
+
+        function prev() {
+          if (pos <= 0) {
+            pos = n; go(false);
+            requestAnimationFrame(() => requestAnimationFrame(() => { pos--; go(true); }));
+          } else { pos--; go(true); }
+        }
+
+        carousel.querySelector('.cat-prev').addEventListener('click', prev);
+        carousel.querySelector('.cat-next').addEventListener('click', next);
+        window.addEventListener('resize', () => go(false));
+        go(false);
+      });
+    }
+
+    initCarousels();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stamps — Sam Mantell</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    :root {
+      --bg:#0A0A0A; --bg2:#141414; --text:#E8E8E8; --dim:#8A8A8A;
+      --accent:#00FF94; --border:#2A2A2A;
+      --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--fb); background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; width:100%; background:rgba(10,10,10,0.95); backdrop-filter:blur(12px); z-index:100; border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:var(--fd); font-size:1rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:0.05em; }
+    .back { font-size:0.85rem; color:var(--dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
+    .back:hover { color:var(--accent); }
+
+    .page-header { padding:5.5rem 2.5rem 2.5rem; border-bottom:1px solid var(--border); }
+    .label { font-size:0.72rem; color:var(--accent); font-weight:600; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.5rem; }
+    .page-header h1 { font-family:var(--fd); font-size:clamp(2rem,5vw,3.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1.05; margin-bottom:0.75rem; }
+    .page-header p { font-size:0.95rem; color:var(--dim); max-width:560px; line-height:1.7; }
+
+    .grid-wrap { padding:3px; }
+    .masonry-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-auto-rows:2px;
+      gap:3px;
+    }
+    @media(max-width:800px){ .masonry-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:480px){ .masonry-grid{ grid-template-columns:1fr; } }
+
+    .tile { position:relative; overflow:hidden; background:var(--bg2); }
+    .tile-inner { position:relative; width:100%; }
+    .tile-inner img { width:100%; height:auto; display:block; transition:transform 0.5s ease; }
+    .tile:hover img { transform:scale(1.04); }
+
+    .tile-overlay {
+      position:absolute; inset:0;
+      background:none;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:flex-start;
+      padding:0.85rem 1rem;
+      opacity:0;
+      transition:opacity 0.3s ease;
+    }
+    .tile:hover .tile-overlay { opacity:1; }
+    .tile-label-block { background:rgba(0,0,0,0.72); padding:0.35rem 0.75rem; border-top:2px solid var(--accent); }
+    .tile-label-block h3 { font-family:var(--fd); font-size:0.85rem; font-weight:700; color:#fff; letter-spacing:-0.01em; }
+
+    footer { padding:2.5rem 2rem; text-align:center; color:var(--dim); font-size:0.8rem; border-top:1px solid var(--border); margin-top:3px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../../index.html" class="logo">SAM MANTELL</a>
+    <a href="../../index.html" class="back">← Portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="label">Digital · Giphy Studios</div>
+    <h1>Stamps</h1>
+    <p>An original animated sticker collection produced at Giphy Studios — multilingual expressions designed for global reach across the Giphy platform.</p>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="masonry-grid" id="grid">
+
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Stamps-GIF.gif" alt="Stamps"><div class="tile-overlay"><div class="tile-label-block"><h3>Stamps</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Studios Originals Stamps"><div class="tile-overlay"><div class="tile-label-block"><h3>Studios Originals</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Stamps-Sticker-(1).gif" alt="Stamps Sticker 1"><div class="tile-overlay"><div class="tile-label-block"><h3>Stamps Sticker</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Stamps-Sticker-(2).gif" alt="Stamps Sticker 2"><div class="tile-overlay"><div class="tile-label-block"><h3>Stamps Sticker</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/French-Francais-Sticker.gif" alt="French Francais"><div class="tile-overlay"><div class="tile-label-block"><h3>French — Français</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/French-Stamps-Sticker.gif" alt="French Stamps"><div class="tile-overlay"><div class="tile-label-block"><h3>French</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/French-Stamps-Sticker-(1).gif" alt="French Stamps 2"><div class="tile-overlay"><div class="tile-label-block"><h3>French</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/German-Stamps-GIF.gif" alt="German Stamps GIF"><div class="tile-overlay"><div class="tile-label-block"><h3>German</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/German-Stamps-Sticker.gif" alt="German Stamps Sticker"><div class="tile-overlay"><div class="tile-label-block"><h3>German</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/German-Stamps-Sticker-(1).gif" alt="German Stamps Sticker 2"><div class="tile-overlay"><div class="tile-label-block"><h3>German</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/German-Stamps-Sticker-(2).gif" alt="German Stamps Sticker 3"><div class="tile-overlay"><div class="tile-label-block"><h3>German</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Italian-Stamps-Sticker.gif" alt="Italian Stamps"><div class="tile-overlay"><div class="tile-label-block"><h3>Italian</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Italian-Stamps-Sticker-(1).gif" alt="Italian Stamps 2"><div class="tile-overlay"><div class="tile-label-block"><h3>Italian</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Italian-Stamps-Sticker-(2).gif" alt="Italian Stamps 3"><div class="tile-overlay"><div class="tile-label-block"><h3>Italian</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Giphy_Digital_Stamps_BuonaSera.gif" alt="Buona Sera"><div class="tile-overlay"><div class="tile-label-block"><h3>Buona Sera</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Boa-Noite-Stamps-GIF.gif" alt="Boa Noite"><div class="tile-overlay"><div class="tile-label-block"><h3>Boa Noite</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Bom-Dia-Stamps-GIF.gif" alt="Bom Dia"><div class="tile-overlay"><div class="tile-label-block"><h3>Bom Dia</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Fin-De-Semana-Stamps-Sticker.gif" alt="Fin de Semana"><div class="tile-overlay"><div class="tile-label-block"><h3>Fin de Semana</h3></div></div></div></div>
+      <div class="tile"><div class="tile-inner"><img src="../images/Digital-Content/Giphy/Stamps/Te-Amo-Stamps-Sticker.gif" alt="Te Amo"><div class="tile-overlay"><div class="tile-label-block"><h3>Te Amo</h3></div></div></div></div>
+
+    </div>
+  </div>
+
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+    const ROW = 2, GAP = 3;
+    function layout() {
+      document.querySelectorAll('#grid .tile').forEach(tile => {
+        tile.style.gridRowEnd = '';
+        const h = tile.querySelector('.tile-inner').getBoundingClientRect().height;
+        if (h > 0) tile.style.gridRowEnd = `span ${Math.ceil((h + GAP) / (ROW + GAP))}`;
+      });
+    }
+    window.addEventListener('load', layout);
+    window.addEventListener('resize', () => { clearTimeout(window._rl); window._rl = setTimeout(layout, 80); });
+    document.querySelectorAll('#grid img').forEach(el => {
+      el.addEventListener('load', layout);
+    });
+    [50, 150, 400, 800, 1500].forEach(t => setTimeout(layout, t));
+  </script>
+
+</body>
+</html>
