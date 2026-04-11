@@ -64,7 +64,7 @@
 
   .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
   .section-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
-  .blurb-block p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+  .blurb-block p{font-size:18px;color:var(--dim);line-height:1.85;font-weight:300;}
 
   .credits-block{padding:28px 36px 48px;}
   .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
@@ -85,6 +85,8 @@
   .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-right:none;border-bottom:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
+  @media(max-width:480px){.video-wrap{max-width:260px;}.c-row,.c-row-right{grid-template-columns:110px 1fr;}}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -114,29 +116,9 @@
         <h1 class="proj-title">Premio Lo Nuestro</h1>
       </div>
 
-      <div class="stats-block">
-        <div class="stats-head">By the Numbers</div>
-        <div class="stats-grid">
-          <div class="stat-cell"><div class="stat-n">#1</div><div class="stat-l">Latin Music Awards Show</div></div>
-          <div class="stat-cell"><div class="stat-n">40M+</div><div class="stat-l">Annual Viewers</div></div>
-          <div class="stat-cell"><div class="stat-n">2 Nights</div><div class="stat-l">Live Production</div></div>
-          <div class="stat-cell"><div class="stat-n">Real-Time</div><div class="stat-l">Social Delivery</div></div>
-        </div>
-      </div>
-
       <div class="blurb-block">
         <div class="section-head">About the project</div>
-        <p>Social content production for T-Mobile's sponsorship of Premio Lo Nuestro — Latin music's premier awards show. Fast-turnaround live event content captured and delivered across social platforms in real time across two nights of live programming.</p>
-      </div>
-
-      <div class="credits-block">
-        <div class="section-head">Credits</div>
-        <div class="credits-grid">
-          <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
-          <div class="c-row-right"><span class="c-role">Client</span><span class="c-name">T-Mobile</span></div>
-          <div class="c-row"><span class="c-role">Event</span><span class="c-name">Premio Lo Nuestro</span></div>
-          <div class="c-row-right"><span class="c-role">Format</span><span class="c-name">Live Social Content</span></div>
-        </div>
+        <p>Social activations featured artist Xavi and select influencers for T-Mobile's sponsorship of Latin music's premiere awards show: Premio Lo Nuestro. Fast-turnaround BTS and fomo-inducing event coverage captured and rapidly distributed across social platforms during the lead up to the main event. Xavi BTS was produced in English and Spanish language. Delivered 16.5M video views across Instagram and TikTok.</p>
       </div>
 
     </div>
@@ -158,6 +140,7 @@ const vids = [
   { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Xavi_BTS.MP4", title: "Xavi BTS", ratio: "9/16" },
   { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Xavi_BTS_SL.MP4", title: "Xavi BTS — SL", ratio: "9/16" },
   { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_image-highlight.mp4", title: "Image Highlights", ratio: "1/1" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Zoom.mp4", title: "Zoom", ratio: "9/16" },
 ];
 let curIdx = 0;
 const n = vids.length;

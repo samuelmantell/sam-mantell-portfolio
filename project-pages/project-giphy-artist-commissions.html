@@ -4,11 +4,11 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
   <title>Artist Commissions — Sam Mantell</title>
-  <meta name="description" content="Artist Commissions at Giphy Studios — sourcing and overseeing independent artists worldwide to produce original GIF content.">
+  <meta name="description" content="Artist Commissions at Giphy Studios — sourcing and overseeing independent artists worldwide, totaling 1.2 billion views.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sam Mantell">
   <meta property="og:title" content="Artist Commissions — Sam Mantell">
-  <meta property="og:description" content="Artist Commissions at Giphy Studios — sourcing and overseeing independent artists worldwide to produce original GIF content.">
+  <meta property="og:description" content="Artist Commissions at Giphy Studios — sourcing and overseeing independent artists worldwide, totaling 1.2 billion views.">
   <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif">
   <meta property="og:url" content="https://samuelmantell.com/project-pages/project-giphy-artist-commissions.html">
   <style>
@@ -24,21 +24,19 @@
   .label{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;opacity:0.9;}
   .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
   .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
-  .commission{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-pale);min-height:200px;transition:background 0.3s ease;}
-  .commission:hover{background:rgba(236,234,244,0.5);}
-  @media(max-width:700px){.commission{grid-template-columns:1fr;}}
-  .commission-info{display:flex;flex-direction:column;justify-content:center;padding:2.5rem 3rem;border-right:1px solid var(--border-pale);}
-  .commission-label{font-size:0.65rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:1rem;opacity:0.9;}
-  .commission-title{font-family:var(--fd);font-size:clamp(1.4rem,2.2vw,2.1rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.5rem;}
-  .commission-artist{font-size:0.88rem;color:var(--dim);margin-bottom:1.75rem;font-weight:300;letter-spacing:0.02em;}
-  .commission-views{display:inline-flex;align-items:baseline;gap:0.5rem;}
-  .views-number{font-family:var(--fd);font-size:2.5rem;font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;}
-  .views-label{font-size:0.65rem;color:var(--muted);font-weight:500;letter-spacing:0.14em;text-transform:uppercase;}
-  .commission-media{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg2);}
-  .commission-media img,.commission-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);}
-  .commission:hover .commission-media img,.commission:hover .commission-media video{transform:scale(1.05);}
-  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
-  
+  .grid-wrap{padding:3px;position:relative;z-index:1;}
+  .masonry-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:2px;gap:3px;}
+  @media(max-width:800px){.masonry-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.masonry-grid{grid-template-columns:1fr;}}
+  .tile{display:block;position:relative;overflow:hidden;background:var(--bg2);text-decoration:none;color:inherit;cursor:pointer;}
+  .tile-inner{position:relative;width:100%;}
+  .tile-inner img,.tile-inner video{width:100%;height:auto;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .tile:hover img,.tile:hover video{transform:scale(1.04);}
+  .tile-overlay{position:absolute;inset:0;background:none;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:0.85rem 1rem;}
+  .tile-label-block{background:rgba(10,8,20,0.80);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:0.4rem 0.85rem;display:flex;flex-direction:column;gap:0.12rem;border-top:2px solid var(--accent);}
+  .tile-title{font-family:var(--fb);font-size:0.88rem;font-weight:500;color:#fff;line-height:1.2;letter-spacing:0.01em;transition:color 0.25s;}
+  .tile-sub{font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:0.15rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;}
+  .tile:hover .tile-title{color:var(--accent);}
   /* MORE WORK */
   .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
   .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
@@ -50,28 +48,51 @@
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
-</style>
+  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);margin-top:3px;font-weight:300;letter-spacing:0.04em;}
+  @media(max-width:640px){nav{padding:0.85rem 1.1rem;}.page-header{padding:4.5rem 1.25rem 1.75rem;}.page-header p{font-size:0.85rem;}}
+  </style>
 </head>
 <body>
-  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
-  <div class="page-header"><div class="label">Digital · Giphy Studios</div><h1>Artist Commissions</h1><p>Managed the full commission pipeline at Giphy Studios — sourcing, briefing, and overseeing independent artists worldwide. Delivered 15 GIFs, 11 clips, and 4 sticker packs in H2 2023, with end-to-end onboarding and quality control on every project.</p></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Golden Week</div><div class="commission-artist">ykerb · ykerb animation</div><div class="commission-views"><span class="views-number">11.5M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_golden_week.gif" alt="Golden Week"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">NDN Car</div><div class="commission-artist">Mangeshig</div><div class="commission-views"><span class="views-number">47.5M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_indigenous_peoples_day.gif" alt="NDN Car"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Japanese New Year</div><div class="commission-artist">Misato Oka</div><div class="commission-views"><span class="views-number">4M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif" alt="Japanese New Year"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Happy Dharma Day</div><div class="commission-artist">Asalha Puja</div><div class="commission-views"><span class="views-number">138M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/Dharma-Day-Square-GIF-File.gif" alt="Happy Dharma Day"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Feliz Día Del Papá</div><div class="commission-artist">Cecilia Roxana Quispe Quisbert</div><div class="commission-views"><span class="views-number">87.5M</span><span class="views-label">Views</span></div></div><div class="commission-media"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/FELIZ-D%C3%8DA-DEL-PADRE-Cecilia%20Quispe.mp4"></video></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Glad Midsommar</div><div class="commission-artist">Ida Brogen</div><div class="commission-views"><span class="views-number">7M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/FRIA_Damer_MIDSOMMAR%20(1).gif" alt="Glad Midsommar"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Happy Diwali</div><div class="commission-artist">Ruchita Bait</div><div class="commission-views"><span class="views-number">95M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/GiphyDiwali_Diya.gif" alt="Happy Diwali"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Still Fighting</div><div class="commission-artist">Zoe Soriano</div><div class="commission-views"><span class="views-number">14.5M</span><span class="views-label">Views</span></div></div><div class="commission-media"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/Roe-V-Wade-Abortion-GIF-by-GIPHY-Studios-2023-downsized_large.gif" alt="Still Fighting"></div></div>
-  <div class="commission"><div class="commission-info"><div class="commission-label">Artist Commission</div><div class="commission-title">Take Pride</div><div class="commission-artist">Carrie Sloane</div><div class="commission-views"><span class="views-number">14M</span><span class="views-label">Views</span></div></div><div class="commission-media"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/TakePride_MP4_V2.MP4"></video></div></div>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../project-pages/project-giphy-umbrella.html" class="back">← Giphy Studios</a></nav>
+  <div class="page-header">
+    <div class="label">Digital · Giphy Studios</div>
+    <h1>Artist Commissions</h1>
+    <p>Managed the full commission pipeline at Giphy Studios — sourcing, briefing, and overseeing independent artists worldwide, and Giphy Studios staff. Delivered 22 animated GIFs, 11 clips, and 8 stickers in 8 different languages, totaling 1.2 billion views.</p>
+  </div>
+  <div class="grid-wrap"><div class="masonry-grid" id="grid">
+    <a href="https://giphy.com/gifs/giphystudios2022-new-year-happy-hny-R0Hx5avD6dgX7T2Lnd" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif" alt="Japanese New Year"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Japanese New Year</span><span class="tile-sub">Misato Oka · 4M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/giphystudios2023-golden-week-ykerb-shibuichi-waika-97sebE3FNltJeNs0zQ" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_golden_week.gif" alt="Golden Week"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Golden Week</span><span class="tile-sub">ykerb · 11.5M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/giphystudios2023-pride-lgbt-history-month-carrie-sloane-7cUk2pqWLllbk84ymw" target="_blank" class="tile"><div class="tile-inner"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/TakePride_MP4_V2.MP4"></video><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Take Pride</span><span class="tile-sub">Carrie Sloane · 14M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/giphystudios2023-abortion-roe-v-wade-zoe-soriano-CnD19aBxsH6z7FCKeH" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/Roe-V-Wade-Abortion-GIF-by-GIPHY-Studios-2023-downsized_large.gif" alt="Still Fighting"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Still Fighting</span><span class="tile-sub">Zoe Soriano · 14.5M Views</span></div></div></div></a>
+    <a href="https://giphy.com/stickers/giphystudios2023-diwali-happy-ruchita-bait-KawR0vpNL650sTkeDk" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/GiphyDiwali_Diya.gif" alt="Happy Diwali"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Happy Diwali</span><span class="tile-sub">Ruchita Bait · 95M Views</span></div></div></div></a>
+    <a href="https://giphy.com/stickers/happy-midsummer-ida-brogren-Y4EcjFvuiwXgDYmASe" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/FRIA_Damer_MIDSOMMAR%20(1).gif" alt="Glad Midsommar"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Glad Midsommar</span><span class="tile-sub">Ida Brogen · 7M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/fathers-day-happy-cecilia-roxana-quispe-quisbert-Oiag3lPKcymB7dVOaC" target="_blank" class="tile"><div class="tile-inner"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/FELIZ-D%C3%8DA-DEL-PADRE-Cecilia%20Quispe.mp4"></video><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Feliz Día Del Papá</span><span class="tile-sub">Cecilia Quispe · 87.5M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/dharma-day-asalha-puja-happy-JHj0alQsnw7TX5zciR" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/Dharma-Day-Square-GIF-File.gif" alt="Happy Dharma Day"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Happy Dharma Day</span><span class="tile-sub">Asalha Puja · 138M Views</span></div></div></div></a>
+    <a href="https://giphy.com/gifs/ride-truck-ndn-car-A6dlCZqpNOVDudO4VI" target="_blank" class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_indigenous_peoples_day.gif" alt="NDN Car"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">NDN Car</span><span class="tile-sub">Mangeshig · 47.5M Views</span></div></div></div></a>
+  </div></div>
   <section class="more-work">
     <div class="more-work-label">More Work</div>
     <div class="more-work-grid">
-    <a href="project-giphy-studios.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif" alt="Studios Originals"><div class="mw-foot"><h3>Studios Originals</h3><span>Giphy Studios</span></div></a>
-    <a href="project-giphy-stamps.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Stamps"><div class="mw-foot"><h3>Stamps</h3><span>Giphy Studios</span></div></a>
-    <a href="project-bytesyzetv.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="mw-foot"><h3>@ByteSyzeTV</h3><span>Digital Series</span></div></a>
+      <a href="project-giphy-studios.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif" alt="Studios Originals"><div class="mw-foot"><h3>Studios Originals</h3><span>Giphy Studios</span></div></a>
+      <a href="project-giphy-stamps.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Stamps"><div class="mw-foot"><h3>Stamps</h3><span>Giphy Studios</span></div></a>
+      <a href="project-bytesyzetv.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="mw-foot"><h3>@ByteSyzeTV</h3><span>Digital Series</span></div></a>
     </div>
   </section>
   <footer><p>&copy; 2026 Sam Mantell</p></footer>
+  <script>
+  const ROW=2,GAP=3;
+  function layout(){document.querySelectorAll("#grid .tile").forEach(tile=>{tile.style.gridRowEnd="";const inner=tile.querySelector(".tile-inner");if(!inner)return;const h=inner.getBoundingClientRect().height;if(h>0)tile.style.gridRowEnd="span "+Math.ceil((h+GAP)/(ROW+GAP));});}
+  function scheduleLayout(){clearTimeout(window._lt);window._lt=setTimeout(layout,60);}
+  window.addEventListener("load",layout);
+  window.addEventListener("resize",scheduleLayout);
+  document.querySelectorAll("#grid img,#grid video").forEach(el=>{
+    el.addEventListener("load",scheduleLayout);
+    el.addEventListener("loadedmetadata",scheduleLayout);
+    el.addEventListener("loadeddata",scheduleLayout);
+    if(el.tagName==="VIDEO"&&el.readyState>=1)scheduleLayout();
+    if(el.tagName==="IMG"&&el.complete)scheduleLayout();
+  });
+  [50,150,300,600,1000,1800,3000].forEach(t=>setTimeout(layout,t));
+  </script>
 </body>
 </html>

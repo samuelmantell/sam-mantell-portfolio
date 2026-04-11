@@ -4,11 +4,11 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
   <title>Brand Partnerships — Sam Mantell</title>
-  <meta name="description" content="Brand Partnership series at Giphy Studios — 200K+ assets delivered with publishers including Hot Ones and Complex.">
+  <meta name="description" content="Brand Partnership series at Giphy Studios — 200K+ assets delivered at 73% above monthly quota, with publishers including Hot Ones, NBC, Complex, and Epic Games.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sam Mantell">
   <meta property="og:title" content="Brand Partnerships — Sam Mantell">
-  <meta property="og:description" content="Brand Partnership series at Giphy Studios — 200K+ assets delivered with publishers including Hot Ones and Complex.">
+  <meta property="og:description" content="Brand Partnership series at Giphy Studios — 200K+ assets delivered at 73% above monthly quota, with publishers including Hot Ones, NBC, Complex, and Epic Games.">
   <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif">
   <meta property="og:url" content="https://samuelmantell.com/project-pages/project-giphy-partnerships.html">
   <style>
@@ -24,25 +24,18 @@
   .label{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;opacity:0.9;}
   .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
   .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
-  .campaign{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
-  .campaign-header{display:flex;justify-content:space-between;align-items:flex-end;padding:1.25rem 2.5rem 1rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
-  .campaign-name{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.02em;line-height:1;}
-  .campaign-meta{font-size:0.68rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:right;line-height:1.7;font-weight:400;}
-  .cat-carousel{position:relative;overflow:hidden;}
-  .cat-carousel-track{display:flex;transition:transform 0.45s ease;}
-  .grid-card{position:relative;overflow:hidden;flex:0 0 33.333%;display:block;text-decoration:none;color:inherit;}
-  .grid-card:not(:last-child){border-right:1px solid rgba(255,255,255,0.06);}
-  .grid-card img{width:100%;height:auto;display:block;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);}
-  .grid-card:hover img{transform:scale(1.05);}
-  .grid-card-foot{position:absolute;top:0.85rem;left:0.85rem;opacity:0;transition:opacity 0.3s ease;}
-  .grid-card:hover .grid-card-foot{opacity:1;}
-  .label-block{background:rgba(10,8,20,0.80);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:0.35rem 0.75rem;border-top:2px solid var(--accent);}
-  .label-block h3{font-family:var(--fb);font-size:0.82rem;font-weight:500;color:#fff;letter-spacing:0.02em;}
-  .cat-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(10,8,20,0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--accent);color:var(--accent);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.75rem;transition:all 0.25s ease;line-height:1;}
-  .cat-arrow:hover{background:var(--accent);color:var(--bg);}
-  .cat-arrow.cat-prev{left:0.75rem;}.cat-arrow.cat-next{right:0.75rem;}
-  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
-  
+  .grid-wrap{padding:3px;position:relative;z-index:1;}
+  .masonry-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:2px;gap:3px;}
+  @media(max-width:800px){.masonry-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:480px){.masonry-grid{grid-template-columns:1fr;}}
+  .tile{display:block;position:relative;overflow:hidden;background:var(--bg2);text-decoration:none;color:inherit;cursor:default;}
+  .tile-inner{position:relative;width:100%;}
+  .tile-inner img,.tile-inner video{width:100%;height:auto;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .tile:hover img,.tile:hover video{transform:scale(1.04);}
+  .tile-overlay{position:absolute;inset:0;background:none;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:0.85rem 1rem;}
+  .tile-label-block{background:rgba(10,8,20,0.80);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:0.4rem 0.85rem;display:flex;flex-direction:column;gap:0.12rem;border-top:2px solid var(--accent);}
+  .tile-title{font-family:var(--fb);font-size:0.88rem;font-weight:500;color:#fff;line-height:1.2;letter-spacing:0.01em;}
+  .tile-sub{font-size:0.65rem;color:rgba(255,255,255,0.55);margin-top:0.15rem;font-weight:400;letter-spacing:0.06em;text-transform:uppercase;}
   /* MORE WORK */
   .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
   .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
@@ -54,50 +47,46 @@
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
-</style>
+  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);margin-top:3px;font-weight:300;letter-spacing:0.04em;}
+  @media(max-width:640px){nav{padding:0.85rem 1.1rem;}.page-header{padding:4.5rem 1.25rem 1.75rem;}.page-header p{font-size:0.85rem;}}
+  </style>
 </head>
 <body>
-  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../project-pages/project-giphy-umbrella.html" class="back">← Giphy Studios</a></nav>
-  <div class="page-header"><div class="label">Digital · Giphy Studios</div><h1>Brand Partnerships</h1><p>Co-produced branded content series at Giphy Studios — partnering with publishers and creators to build GIF-native content formats reaching millions across messaging and social.</p></div>
-
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Hot Ones</div><div class="campaign-meta">First We Feast · Complex Networks</div></div>
-  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Hot Ones 01"><div class="grid-card-foot"><div class="label-block"><h3>Hot Ones</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Hot Ones 02"><div class="grid-card-foot"><div class="label-block"><h3>Hot Ones</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Hot Ones 03"><div class="grid-card-foot"><div class="label-block"><h3>Hot Ones</h3></div></div></div>
-  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Complex</div><div class="campaign-meta">Complex Networks</div></div>
-  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-complex.gif" alt="Complex 01"><div class="grid-card-foot"><div class="label-block"><h3>Complex</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-complex.gif" alt="Complex 02"><div class="grid-card-foot"><div class="label-block"><h3>Complex</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-complex.gif" alt="Complex 03"><div class="grid-card-foot"><div class="label-block"><h3>Complex</h3></div></div></div>
-  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">NBC</div><div class="campaign-meta">National Broadcasting Company · Partnerships</div></div>
-  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Dog%20Show%20Smile%20GIF%20by%20NBC.gif" alt="NBC Dog Show"><div class="grid-card-foot"><div class="label-block"><h3>NBC</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Dog%20Show%20Smile%20GIF%20by%20NBC.gif" alt="NBC Dog Show"><div class="grid-card-foot"><div class="label-block"><h3>NBC</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Dog%20Show%20Smile%20GIF%20by%20NBC.gif" alt="NBC Dog Show"><div class="grid-card-foot"><div class="label-block"><h3>NBC</h3></div></div></div>
-  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Fortnite</div><div class="campaign-meta">Epic Games · Lego Collab</div></div>
-  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Lego%20GIF%20by%20Fortnite.gif" alt="Lego GIF by Fortnite"><div class="grid-card-foot"><div class="label-block"><h3>Fortnite</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Lego%20GIF%20by%20Fortnite.gif" alt="Lego GIF by Fortnite"><div class="grid-card-foot"><div class="label-block"><h3>Fortnite</h3></div></div></div>
-    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Lego%20GIF%20by%20Fortnite.gif" alt="Lego GIF by Fortnite"><div class="grid-card-foot"><div class="label-block"><h3>Fortnite</h3></div></div></div>
-  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
+  <div class="page-header">
+    <div class="label">Digital · Giphy Studios</div>
+    <h1>Brand Partnerships</h1>
+    <p>The sole producer overseeing all partner cutdown requests at Giphy Studios. Managed production end-to-end — brief intake, editor assignment, QC, and delivery — across a concurrent roster of publishers and creators including Hot Ones, NBC, Complex, and Epic Games. In 2023, ran the operation at 73% above monthly quota. During my tenure, I oversaw delivery of over 200,000 assets to our brand partners.</p>
+  </div>
+  <div class="grid-wrap"><div class="masonry-grid" id="grid">
+    <div class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Hot Ones"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Hot Ones</span><span class="tile-sub">First We Feast · Complex Networks</span></div></div></div></div>
+    <div class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-complex.gif" alt="Complex"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Complex</span><span class="tile-sub">Complex Networks</span></div></div></div></div>
+    <div class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Dog%20Show%20Smile%20GIF%20by%20NBC.gif" alt="NBC"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">NBC</span><span class="tile-sub">National Broadcasting Company</span></div></div></div></div>
+    <div class="tile"><div class="tile-inner"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/Lego%20GIF%20by%20Fortnite.gif" alt="Fortnite"><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Fortnite</span><span class="tile-sub">Epic Games · Lego Collab</span></div></div></div></div>
+  </div></div>
   <section class="more-work">
     <div class="more-work-label">More Work</div>
     <div class="more-work-grid">
-    <a href="project-giphy-livegif.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="Live GIF"><div class="mw-foot"><h3>Live GIF</h3><span>Giphy Studios</span></div></a>
-    <a href="project-giphy-ads.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Giphy Ads"><div class="mw-foot"><h3>Giphy Ads</h3><span>Branded Campaigns</span></div></a>
-    <a href="project-aok.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/PRIMITIVE%20TECHNOLOGY.mp4"></video><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
+      <a href="project-giphy-livegif.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="Live GIF"><div class="mw-foot"><h3>Live GIF</h3><span>Giphy Studios</span></div></a>
+      <a href="project-giphy-ads.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Giphy Ads"><div class="mw-foot"><h3>Giphy Ads</h3><span>Branded Campaigns</span></div></a>
+      <a href="project-giphy-studios.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif" alt="Studios Originals"><div class="mw-foot"><h3>Studios Originals</h3><span>Giphy Studios</span></div></a>
     </div>
   </section>
   <footer><p>&copy; 2026 Sam Mantell</p></footer>
   <script>
-  function initCarousels(){document.querySelectorAll(".cat-carousel").forEach(car=>{const track=car.querySelector(".cat-carousel-track");const orig=[...track.querySelectorAll(".grid-card")];const n=orig.length;let p=0;orig.forEach(c=>{track.appendChild(c.cloneNode(true));});function cw(){return car.offsetWidth/3;}function go(a){track.style.transition=a?"transform 0.45s ease":"none";track.style.transform="translateX(-"+(p*cw())+"px)";}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector(".cat-prev").addEventListener("click",prev);car.querySelector(".cat-next").addEventListener("click",next);window.addEventListener("resize",()=>go(false));go(false);});}
-  initCarousels();
+  const ROW=2,GAP=3;
+  function layout(){document.querySelectorAll("#grid .tile").forEach(tile=>{tile.style.gridRowEnd="";const inner=tile.querySelector(".tile-inner");if(!inner)return;const h=inner.getBoundingClientRect().height;if(h>0)tile.style.gridRowEnd="span "+Math.ceil((h+GAP)/(ROW+GAP));});}
+  function scheduleLayout(){clearTimeout(window._lt);window._lt=setTimeout(layout,60);}
+  window.addEventListener("load",layout);
+  window.addEventListener("resize",scheduleLayout);
+  document.querySelectorAll("#grid img,#grid video").forEach(el=>{
+    el.addEventListener("load",scheduleLayout);
+    el.addEventListener("loadedmetadata",scheduleLayout);
+    el.addEventListener("loadeddata",scheduleLayout);
+    if(el.tagName==="VIDEO"&&el.readyState>=1)scheduleLayout();
+    if(el.tagName==="IMG"&&el.complete)scheduleLayout();
+  });
+  [50,150,300,600,1000,1800,3000].forEach(t=>setTimeout(layout,t));
   </script>
 </body>
 </html>
