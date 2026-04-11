@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Kaleb &amp; Ms. Kelsey — Sam Mantell</title>
+  <meta name="description" content="Kaleb </title> Ms. Kelsey — social content production for one of YouTube's fastest-growing kids' channels.">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+
+  .page-wrap{
+    position:relative;z-index:1;
+    padding-top:68px;
+    display:grid;
+    grid-template-columns:40% 60%;
+    min-height:100vh;
+  }
+
+  /* LEFT */
+  .video-col{
+    border-right:1px solid var(--border-pale);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 24px 24px;
+  }
+  .video-wrap{width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;}
+  .video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
+  .v-controls{display:flex;align-items:center;gap:14px;margin-top:14px;}
+  .v-arrow{width:34px;height:34px;background:transparent;border:1px solid var(--border-pale);color:var(--dim);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;transition:all 0.2s;}
+  .v-arrow:hover{border-color:var(--accent);color:var(--accent);}
+  .g-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:120px;}
+  .g-dot{width:5px;height:5px;background:var(--border-pale);border-radius:50%;cursor:pointer;transition:background 0.2s;}
+  .g-dot.on{background:var(--accent);}
+  .g-label{font-size:9px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-top:8px;text-align:center;}
+
+  /* RIGHT */
+  .content-col{display:flex;flex-direction:column;}
+
+  .title-block{padding:32px 36px;border-bottom:1px solid var(--border-pale);}
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
+  .social-links{display:flex;gap:12px;}
+  .social-links a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--border-pale);color:var(--dim);text-decoration:none;transition:all 0.2s;}
+  .social-links a:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* laurels: 3 columns, images scale to fill */
+  .laurels-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
+  .laurels-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;margin-bottom:20px;}
+  .laurels-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px 32px;
+  }
+  .laurel-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .laurel-item img{width:100%;max-width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 1px 6px rgba(0,0,0,0.1));}
+  .laurel-caption{font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .laurel-winner .laurel-caption{color:var(--accent);}
+
+  .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
+  .section-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-block p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  .credits-block{padding:28px 36px 48px;}
+  .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .c-row{display:grid;grid-template-columns:140px 1fr;padding:9px 0;border-bottom:1px solid var(--border-pale);}
+  .c-row-right{display:grid;grid-template-columns:140px 1fr;padding:9px 0 9px 24px;border-bottom:1px solid var(--border-pale);}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-right:none;border-bottom:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.laurels-block{padding:20px;}.laurels-grid{grid-template-columns:repeat(3,1fr);gap:16px 20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
+  @media(max-width:480px){.video-wrap{max-width:260px;}.laurels-grid{grid-template-columns:repeat(2,1fr);}.c-row,.c-row-right{grid-template-columns:110px 1fr;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/original.html" class="back">← Original</a></nav>
+
+  <div class="page-wrap">
+
+    <div class="video-col">
+      <div class="video-wrap">
+        <video id="mainVideo" controls playsinline>
+          <source id="mainSrc" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="v-controls">
+        <button class="v-arrow" id="prevBtn">&#8249;</button>
+        <div class="g-dots" id="gDots"></div>
+        <button class="v-arrow" id="nextBtn">&#8250;</button>
+      </div>
+      <div class="g-label" id="gLabel"></div>
+    </div>
+
+    <div class="content-col">
+
+      <div class="title-block">
+        <div class="breadcrumb">Original Content · Digital Series</div>
+        <h1 class="proj-title">Kaleb &amp; Ms. Kelsey</h1>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kalebandmskelsey/" target="_blank" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@heydawniemarie" target="_blank" title="TikTok">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@heydawniemarie/shorts" target="_blank" title="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="laurels-block">
+        <div class="laurels-head">Festival Recognition</div>
+        <div class="laurels-grid">
+          <div class="laurel-item laurel-winner">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/Winner-IndianaShortFilmFestival-2025%20(1).png" alt="Winner — Indiana Short Film Festival 2025">
+            <div class="laurel-caption">★ Winner<br>Indiana SFF · 2025</div>
+          </div>
+          <div class="laurel-item">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/ISA_Silver_Feb-Mar25_-_Black.png" alt="ISA Silver Feb/Mar 2025">
+            <div class="laurel-caption">ISA Silver<br>Feb/Mar · 2025</div>
+          </div>
+          <div class="laurel-item">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/IX_HM_Mar-Apr25_-_Gold.png" alt="HM Gold Mar/Apr 2025">
+            <div class="laurel-caption">HM Gold<br>Mar/Apr · 2025</div>
+          </div>
+          <div class="laurel-item">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/IX_OS_May25_-_Black.png" alt="Official Selection May 2025">
+            <div class="laurel-caption">Official Selection<br>May · 2025</div>
+          </div>
+          <div class="laurel-item">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/SemiFinalist-ParisInternationalShortFestival-May2025.png" alt="Semi-Finalist Paris Intl 2025">
+            <div class="laurel-caption">Semi-Finalist<br>Paris Intl · 2025</div>
+          </div>
+          <div class="laurel-item">
+            <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Laurels/official_selection_laurels_official_selection_colour.png" alt="Official Selection">
+            <div class="laurel-caption">Official Selection</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="blurb-block">
+        <div class="section-head">About the project</div>
+        <p>It's a kid's show for adults! Join Kaleb & Ms. Kelsey as they learn about all the popular slang words we hear on the internet.</p>
+      </div>
+
+      <div class="credits-block">
+        <div class="section-head">Credits</div>
+        <div class="credits-grid">
+          <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
+          <div class="c-row-right"><span class="c-role">Creator, Executive Producer</span><span class="c-name">Dawnie Marie</span></div>
+          <div class="c-row"><span class="c-role">Director</span><span class="c-name">Andrew Cano</span></div>
+          <div class="c-row-right"><span class="c-role">Starring</span><span class="c-name">Kelsey Guy, Dawnie Marie, Andrew Cano</span></div>
+          <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Dawnie Marie, Sam Mantell</span></div>
+          <div class="c-row-right"><span class="c-role">Director of Photography</span><span class="c-name">Matt Smith</span></div>
+          <div class="c-row"><span class="c-role">Art Director</span><span class="c-name">Jess Gilliam</span></div>
+          <div class="c-row-right"><span class="c-role">Writers</span><span class="c-name">Andrew Cano, Dawnie Marie</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-bytesyzetv.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="mw-foot"><h3>@ByteSyzeTV</h3><span>Digital Series</span></div></a>
+    <a href="project-giphy-studios.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif" alt="Studios Originals"><div class="mw-foot"><h3>Studios Originals</h3><span>Giphy Studios</span></div></a>
+    <a href="project-usc.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/USC/CHELSEA%20JOHNSON.mp4"></video><div class="mw-foot"><h3>USC Spotlight</h3><span>Digital Series</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+const vids = [
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/Original_KAMK_rizz.MP4", title: "Rizz" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals_kamk_mewing.MP4", title: "Mewing" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals_kamk_situationship.MP4", title: "Situationship" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-DINK.MP4", title: "DINK" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-ghosted.MP4", title: "Ghosted" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-skibidi.MP4", title: "Skibidi" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-the-ick.MP4", title: "The Ick" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-girl-dinner.MP4", title: "Girl Dinner" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-ENM.MP4", title: "Ethical Non-Monogamy" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-trauma-bond.MP4", title: "Trauma Bond" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Kaleb_and_Ms_Kelsey/originals-kamk-BTS.MP4", title: "Behind The Scenes" }
+];
+let curIdx = 0;
+const n = vids.length;
+const videoEl = document.getElementById('mainVideo');
+const srcEl = document.getElementById('mainSrc');
+const labelEl = document.getElementById('gLabel');
+const dotsEl = document.getElementById('gDots');
+
+function update() {
+  srcEl.src = vids[curIdx].src;
+  videoEl.load();
+  labelEl.textContent = vids[curIdx].title;
+  dotsEl.innerHTML = vids.map((_, i) =>
+    `<div class="g-dot${i === curIdx ? ' on' : ''}" onclick="go(${i})"></div>`
+  ).join('');
+}
+function go(i) { curIdx = (i + n) % n; update(); }
+document.getElementById('prevBtn').addEventListener('click', () => go(curIdx - 1));
+document.getElementById('nextBtn').addEventListener('click', () => go(curIdx + 1));
+update();
+  </script>
+</body>
+</html>

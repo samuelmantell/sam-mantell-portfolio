@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Giphy Studios — Sam Mantell</title>
+  <meta name="description" content="Sam Mantell's full body of work at Giphy Studios — 200K+ assets managed, 20B+ views delivered across 6 original and branded series.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="Giphy Studios — Sam Mantell">
+  <meta property="og:description" content="Sam Mantell's full body of work at Giphy Studios — 200K+ assets managed, 20B+ views delivered across 6 original and branded series.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-giphy-umbrella.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--bg3:#D8D4E8;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border:rgba(124,92,191,0.16);--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+  .page-header{position:relative;z-index:1;padding:5.5rem 2.5rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .label{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;opacity:0.9;}
+  .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
+  .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
+  /* STATS BAR */
+  .stats-bar{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(6px);}
+  .stat{padding:1.5rem 2rem;border-right:1px solid var(--border-pale);}
+  .stat:last-child{border-right:none;}
+  .stat-num{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;margin-bottom:0.3rem;}
+  .stat-label{font-size:0.68rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;line-height:1.5;}
+  .stats-note{position:relative;z-index:1;padding:0.85rem 2.5rem;font-size:0.78rem;color:var(--muted);border-bottom:1px solid var(--border-pale);font-weight:300;font-style:italic;}
+  /* SUB-PROJECT CARDS */
+  .sub-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:3px;}
+  .sub-card{position:relative;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);aspect-ratio:1/1;}
+  .sub-card img,.sub-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .sub-card:hover img,.sub-card:hover video{transform:scale(1.06);}
+  .sub-foot{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.1rem;background:linear-gradient(to top,rgba(10,8,20,0.82),transparent);}
+  .sub-foot h3{font-family:var(--fd);font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.2rem;}
+  .sub-foot span{font-size:0.65rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+  @media(max-width:640px){
+    nav{padding:0.85rem 1.1rem;}
+    .page-header{padding:4.5rem 1.25rem 1.75rem;}
+    .stats-bar{grid-template-columns:repeat(2,1fr);}
+    .stat{padding:1rem 1.25rem;}
+    .stats-note{padding:0.75rem 1.25rem;}
+    .sub-grid{grid-template-columns:1fr;}
+  }
+  </style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
+
+  <div class="page-header">
+    <div class="label">Digital · Giphy Studios</div>
+    <h1>Giphy Studios</h1>
+    <p>Four years of production work at Giphy Studios — original series, branded campaigns, live coverage, and artist commissions spanning 6 distinct content pipelines.</p>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">200K+</div><div class="stat-label">Assets managed</div></div>
+    <div class="stat"><div class="stat-num">15K+</div><div class="stat-label">Assets built</div></div>
+    <div class="stat"><div class="stat-num">20B+</div><div class="stat-label">Views delivered</div></div>
+    <div class="stat"><div class="stat-num">552M+</div><div class="stat-label">Brand campaign impressions</div></div>
+  </div>
+  <div class="stats-note">"Assets managed" includes the full partnerships + live GIF pipeline. "Assets built" = personally created from scratch.</div>
+
+  <div class="sub-grid">
+    <a href="project-giphy-studios.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif" alt="Studios Originals">
+      <div class="sub-foot"><h3>Studios Originals</h3><span>S.W.A.G. · Original Series</span></div>
+    </a>
+    <a href="project-giphy-artist-commissions.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif" alt="Artist Commissions">
+      <div class="sub-foot"><h3>Artist Commissions</h3><span>Independent artists · Worldwide</span></div>
+    </a>
+    <a href="project-giphy-stamps.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Stamps">
+      <div class="sub-foot"><h3>Stamps</h3><span>6.7B+ views · 5 languages</span></div>
+    </a>
+    <a href="project-giphy-ads.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Giphy Ads">
+      <div class="sub-foot"><h3>Giphy Ads</h3><span>552M+ impressions · Branded campaigns</span></div>
+    </a>
+    <a href="project-giphy-livegif.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="Live GIF">
+      <div class="sub-foot"><h3>Live GIF</h3><span>13K+ assets · 89+ events</span></div>
+    </a>
+    <a href="project-giphy-partnerships.html" class="sub-card">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Brand Partnerships">
+      <div class="sub-foot"><h3>Brand Partnerships</h3><span>200K+ assets · Publisher series</span></div>
+    </a>
+  </div>
+
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+</body>
+</html>

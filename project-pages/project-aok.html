@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>AOK YouTube — Sam Mantell</title>
+  <meta name="description" content="AOK YouTube — original short-form content produced by Sam Mantell for The Jackal Group.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="AOK YouTube — Sam Mantell">
+  <meta property="og:description" content="AOK YouTube — original short-form content produced by Sam Mantell for The Jackal Group.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/PRIMITIVE TECHNOLOGY.mp4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-aok.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+
+  /* CAROUSEL */
+  .gallery-hero{background:#12101C;padding-top:68px;position:relative;z-index:1;}
+  .gallery-inner{padding:28px 0 18px;}
+  .gallery-wrap{position:relative;display:flex;align-items:stretch;overflow:hidden;padding:0 52px;gap:4px;}
+  .g-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(10,8,20,0.65);border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;z-index:10;line-height:1;transition:all 0.2s;}
+  .g-arrow:hover{background:var(--accent);color:#12101C;}
+  .g-arrow.prev{left:4px;}.g-arrow.next{right:4px;}
+  .g-slot-active{flex:0 0 72%;overflow:hidden;}
+  .g-slot-side{flex:0 0 12%;opacity:0.28;transform:scale(0.93);cursor:pointer;overflow:hidden;transition:opacity 0.3s;}
+  .g-slot-side:hover{opacity:0.42;}
+  .side-ph{width:100%;background:#1E1A2E;display:flex;align-items:center;justify-content:center;padding:8px;}
+  .side-ph span{color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .main-frame-wrap iframe{width:100%;border:none;display:block;}
+  .g-meta{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0;}
+  .g-label{color:rgba(255,255,255,0.45);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;min-height:14px;}
+  .g-dots{display:flex;gap:7px;}
+  .g-dot{width:6px;height:6px;background:rgba(255,255,255,0.18);border-radius:50%;cursor:pointer;transition:background 0.2s;}
+  .g-dot.on{background:var(--accent);}
+
+  /* ── MAIN LAYOUT GRID ──
+     Left col: header, blurb, credits stacked
+     Right col: poster spanning all three rows
+  */
+  .page-grid{
+    position:relative;z-index:1;
+    display:grid;
+    grid-template-columns:1fr 500px;
+    grid-template-areas:
+      "header  poster"
+      "blurb   poster"
+      "credits poster";
+  }
+
+  /* HEADER */
+  .header-cell{
+    grid-area:header;
+    padding:32px 36px;
+    background:rgba(236,234,244,0.55);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    -webkit-mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+
+  /* POSTER */
+  .poster-cell{
+    grid-area:poster;
+    border-left:1px solid var(--border-pale);
+    padding:16px;
+    display:flex;
+    align-items:flex-start;
+  }
+  .poster-cell img{width:100%;height:auto;display:block;object-fit:contain;}
+
+  /* BLURB */
+  .blurb-cell{
+    grid-area:blurb;
+    padding:32px 36px 24px;
+  }
+  .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-cell p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  /* CREDITS */
+  .credits-cell{
+    grid-area:credits;
+    padding:0 36px 48px;
+  }
+  .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .c-row{display:grid;grid-template-columns:160px 1fr;padding:9px 0;border-bottom:1px solid var(--border-pale);}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
+
+  <div class="gallery-hero">
+    <div class="gallery-inner">
+      <div class="gallery-wrap">
+        <button class="g-arrow prev" id="prevBtn">&#8249;</button>
+        <div id="prevSlot" class="g-slot-side" onclick="go(curIdx-1)">
+          <div class="side-ph" style="aspect-ratio:16/9;"><span id="prevTitle"></span></div>
+        </div>
+        <div class="g-slot-active">
+          <div class="main-frame-wrap">
+            <iframe id="mainFrame" style="aspect-ratio:16/9;" src="" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div id="nextSlot" class="g-slot-side" onclick="go(curIdx+1)">
+          <div class="side-ph" style="aspect-ratio:16/9;"><span id="nextTitle"></span></div>
+        </div>
+        <button class="g-arrow next" id="nextBtn">&#8250;</button>
+      </div>
+      <div class="g-meta">
+        <div class="g-label" id="gLabel"></div>
+        <div class="g-dots" id="gDots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-grid">
+
+    <div class="header-cell">
+      <div class="breadcrumb">Digital · The Jackal Group</div>
+      <h1 class="proj-title">AOK YouTube</h1>
+    </div>
+
+    <div class="poster-cell">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/aok_poster.png" alt="AOK YouTube">
+    </div>
+
+    <div class="blurb-cell">
+      <div class="blurb-head">About the project</div>
+      <p>Partnered with The Grimes Brothers and The Jackal Group to produce 6 live-action short films for AOK YouTube channel. Plugged production and budget management capacity into Grimes Brothers' creative engine. Delivered one short film per month under strict $5,000 budgets. Primitive Technology (Parody) became one of the most-viewed live-action videos on the channel.</p>
+    </div>
+
+    <div class="credits-cell">
+      <div class="credits-head">Credits</div>
+      <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
+      <div class="c-row"><span class="c-role">Director</span><span class="c-name">The Grimes Brothers</span></div>
+      <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Aaron Grimes</span></div>
+      <div class="c-row"><span class="c-role">Production Co.</span><span class="c-name">The Jackal Group</span></div>
+      <div class="c-row"><span class="c-role">Writer</span><span class="c-name">Eric Moneypenny</span></div>
+      <div class="c-row"><span class="c-role">Key Talent</span><span class="c-name">Heather Anne Campbell, Katie Molinaro, Alex Walters, Alex Vaughan, Curt Neill</span></div>
+    </div>
+
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-bytesyzetv.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="mw-foot"><h3>@ByteSyzeTV</h3><span>Digital Series</span></div></a>
+    <a href="project-usc.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/USC/CHELSEA%20JOHNSON.mp4"></video><div class="mw-foot"><h3>USC Spotlight</h3><span>Digital Series</span></div></a>
+    <a href="project-giphy-artist-commissions.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif" alt="Artist Commissions"><div class="mw-foot"><h3>Artist Commissions</h3><span>Giphy Studios</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+const vids=[
+  {id:"VcBF3Y3fJL4",title:"Primitive Technology: Rock Sling"},
+  {id:"QrUpCZdhw6g",title:"The Unknown"},
+  {id:"rgFlDPnS_UQ",title:"Awesome Naked Guy"},
+  {id:"7GcpopdXD4g",title:"Self Help Podcast: Designed Just for You"},
+  {id:"6c-46ze1YvQ",title:"If Family Christmas Was Honest"},
+  {id:"vBlctFtUtTM",title:"Green Apron (Blue Apron Parody)"}
+];
+let curIdx=0;const n=vids.length;
+function getUrl(id){return "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1";}
+function update(){
+  const p=(curIdx-1+n)%n,nx=(curIdx+1)%n;
+  document.getElementById('prevTitle').textContent=vids[p].title;
+  document.getElementById('nextTitle').textContent=vids[nx].title;
+  document.getElementById('mainFrame').src=getUrl(vids[curIdx].id);
+  document.getElementById('gLabel').textContent=vids[curIdx].title;
+  document.getElementById('gDots').innerHTML=vids.map((_,i)=>'<div class="g-dot'+(i===curIdx?' on':'')+'" onclick="go('+i+')"></div>').join('');
+}
+function go(i){curIdx=(i+n)%n;update();}
+document.getElementById('prevBtn').addEventListener('click',()=>go(curIdx-1));
+document.getElementById('nextBtn').addEventListener('click',()=>go(curIdx+1));
+update();
+  </script>
+</body>
+</html>

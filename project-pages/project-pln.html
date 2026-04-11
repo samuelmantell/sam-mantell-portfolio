@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Premio Lo Nuestro — Sam Mantell</title>
+  <meta name="description" content="Premio Lo Nuestro — real-time social content production for T-Mobile's sponsorship of Latin music's premier awards show.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="Premio Lo Nuestro — Sam Mantell">
+  <meta property="og:description" content="Premio Lo Nuestro — real-time social content production for T-Mobile's sponsorship of Latin music's premier awards show.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-pln.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+
+  .page-wrap{
+    position:relative;z-index:1;
+    padding-top:68px;
+    display:grid;
+    grid-template-columns:40% 60%;
+    min-height:100vh;
+  }
+
+  /* LEFT — video column */
+  .video-col{
+    border-right:1px solid var(--border-pale);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 24px 24px;
+  }
+  .video-wrap{width:100%;background:#000;overflow:hidden;}
+  .video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
+  .v-controls{display:flex;align-items:center;gap:14px;margin-top:14px;}
+  .v-arrow{width:34px;height:34px;background:transparent;border:1px solid var(--border-pale);color:var(--dim);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;transition:all 0.2s;}
+  .v-arrow:hover{border-color:var(--accent);color:var(--accent);}
+  .g-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:120px;}
+  .g-dot{width:5px;height:5px;background:var(--border-pale);border-radius:50%;cursor:pointer;transition:background 0.2s;}
+  .g-dot.on{background:var(--accent);}
+  .g-label{font-size:9px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-top:8px;text-align:center;}
+
+  /* RIGHT */
+  .content-col{display:flex;flex-direction:column;}
+
+  .title-block{padding:32px 36px;border-bottom:1px solid var(--border-pale);}
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
+
+  /* STATS GRID — replaces laurels */
+  .stats-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
+  .stats-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;margin-bottom:20px;}
+  .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-pale);}
+  .stat-cell{background:var(--bg);padding:20px 24px;}
+  .stat-n{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;margin-bottom:4px;}
+  .stat-l{font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;}
+
+  .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
+  .section-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-block p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  .credits-block{padding:28px 36px 48px;}
+  .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .c-row{display:grid;grid-template-columns:140px 1fr;padding:9px 0;border-bottom:1px solid var(--border-pale);}
+  .c-row-right{display:grid;grid-template-columns:140px 1fr;padding:9px 0 9px 24px;border-bottom:1px solid var(--border-pale);}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+  
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/brands.html" class="back">← Brands</a></nav>
+
+  <div class="page-wrap">
+
+    <div class="video-col">
+      <div class="video-wrap" id="videoWrap">
+        <video id="mainVideo" controls playsinline>
+          <source id="mainSrc" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="v-controls">
+        <button class="v-arrow" id="prevBtn">&#8249;</button>
+        <div class="g-dots" id="gDots"></div>
+        <button class="v-arrow" id="nextBtn">&#8250;</button>
+      </div>
+      <div class="g-label" id="gLabel"></div>
+    </div>
+
+    <div class="content-col">
+
+      <div class="title-block">
+        <div class="breadcrumb">Brands · T-Mobile</div>
+        <h1 class="proj-title">Premio Lo Nuestro</h1>
+      </div>
+
+      <div class="stats-block">
+        <div class="stats-head">By the Numbers</div>
+        <div class="stats-grid">
+          <div class="stat-cell"><div class="stat-n">#1</div><div class="stat-l">Latin Music Awards Show</div></div>
+          <div class="stat-cell"><div class="stat-n">40M+</div><div class="stat-l">Annual Viewers</div></div>
+          <div class="stat-cell"><div class="stat-n">2 Nights</div><div class="stat-l">Live Production</div></div>
+          <div class="stat-cell"><div class="stat-n">Real-Time</div><div class="stat-l">Social Delivery</div></div>
+        </div>
+      </div>
+
+      <div class="blurb-block">
+        <div class="section-head">About the project</div>
+        <p>Social content production for T-Mobile's sponsorship of Premio Lo Nuestro — Latin music's premier awards show. Fast-turnaround live event content captured and delivered across social platforms in real time across two nights of live programming.</p>
+      </div>
+
+      <div class="credits-block">
+        <div class="section-head">Credits</div>
+        <div class="credits-grid">
+          <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
+          <div class="c-row-right"><span class="c-role">Client</span><span class="c-name">T-Mobile</span></div>
+          <div class="c-row"><span class="c-role">Event</span><span class="c-name">Premio Lo Nuestro</span></div>
+          <div class="c-row-right"><span class="c-role">Format</span><span class="c-name">Live Social Content</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-giphy-ads.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Giphy Ads"><div class="mw-foot"><h3>Giphy Ads</h3><span>Branded Campaigns</span></div></a>
+    <a href="project-giphy-livegif.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="Live GIF"><div class="mw-foot"><h3>Live GIF</h3><span>Giphy Studios</span></div></a>
+    <a href="project-giphy-partnerships.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Brand Partnerships"><div class="mw-foot"><h3>Brand Partnerships</h3><span>Giphy Studios</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+const vids = [
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4", title: "Rapid Fire", ratio: "9/16" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Xavi_BTS.MP4", title: "Xavi BTS", ratio: "9/16" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Xavi_BTS_SL.MP4", title: "Xavi BTS — SL", ratio: "9/16" },
+  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_image-highlight.mp4", title: "Image Highlights", ratio: "1/1" },
+];
+let curIdx = 0;
+const n = vids.length;
+const videoEl = document.getElementById('mainVideo');
+const srcEl = document.getElementById('mainSrc');
+const labelEl = document.getElementById('gLabel');
+const dotsEl = document.getElementById('gDots');
+const wrapEl = document.getElementById('videoWrap');
+
+function update() {
+  const v = vids[curIdx];
+  srcEl.src = v.src;
+  videoEl.load();
+  wrapEl.style.aspectRatio = v.ratio;
+  labelEl.textContent = v.title;
+  dotsEl.innerHTML = vids.map((_, i) =>
+    `<div class="g-dot${i === curIdx ? ' on' : ''}" onclick="go(${i})"></div>`
+  ).join('');
+}
+function go(i) { curIdx = (i + n) % n; update(); }
+document.getElementById('prevBtn').addEventListener('click', () => go(curIdx - 1));
+document.getElementById('nextBtn').addEventListener('click', () => go(curIdx + 1));
+update();
+  </script>
+</body>
+</html>

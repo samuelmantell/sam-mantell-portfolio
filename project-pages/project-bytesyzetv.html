@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>@ByteSyzeTV — Sam Mantell</title>
+  <meta name="description" content="ByteSyzeTV — producing original short-form digital series for a multi-platform creator brand.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="ByteSyzeTV — Sam Mantell">
+  <meta property="og:description" content="ByteSyzeTV — producing original short-form digital series for a multi-platform creator brand.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-bytesyzetv.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+  .gallery-hero{background:#12101C;padding-top:68px;}
+  .gallery-inner{padding:28px 0 18px;}
+  .gallery-wrap{position:relative;display:flex;align-items:stretch;overflow:hidden;padding:0 52px;gap:4px;}
+  .g-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(10,8,20,0.65);border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;z-index:10;line-height:1;transition:all 0.2s;}
+  .g-arrow:hover{background:var(--accent);color:#12101C;}
+  .g-arrow.prev{left:4px;}.g-arrow.next{right:4px;}
+  .g-slot-active{flex:0 0 72%;overflow:hidden;}
+  .g-slot-side{flex:0 0 12%;opacity:0.28;transform:scale(0.93);cursor:pointer;overflow:hidden;transition:opacity 0.3s;}
+  .g-slot-side:hover{opacity:0.42;}
+  .side-ph{width:100%;background:#1E1A2E;display:flex;align-items:center;justify-content:center;padding:8px;}
+  .side-ph span{color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .main-frame-wrap iframe{width:100%;border:none;display:block;}
+  .single-wrap{padding:28px 0 18px;display:flex;justify-content:center;}
+  .single-wrap iframe{width:72%;aspect-ratio:16/9;border:none;display:block;}
+  .g-meta{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0;}
+  .g-label{color:rgba(255,255,255,0.45);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;min-height:14px;}
+  .g-dots{display:flex;gap:7px;}
+  .g-dot{width:6px;height:6px;background:rgba(255,255,255,0.18);border-radius:50%;cursor:pointer;transition:background 0.2s;}
+  .g-dot.on{background:var(--accent);}
+  .info-sec{position:relative;z-index:1;padding:32px 40px 28px;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .info-row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;}
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,5vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:12px;}
+  .principals{font-size:12px;color:var(--dim);line-height:1.9;}
+  .social-col{display:flex;flex-direction:column;gap:8px;align-items:flex-end;flex-shrink:0;padding-top:6px;}
+  .soc-btn{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);border:1px solid var(--border-pale);padding:7px 14px;text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+  .soc-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .stats-bar{position:relative;z-index:1;display:flex;border-bottom:1px solid var(--border-pale);}
+  .stat{flex:1;padding:20px 32px;border-right:1px solid var(--border-pale);}
+  .stat:last-child{border-right:none;}
+  .stat-n{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--text);letter-spacing:-0.02em;line-height:1;}
+  .stat-l{font-size:9px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-top:5px;}
+  .blurb{position:relative;z-index:1;padding:32px 40px;border-bottom:1px solid var(--border-pale);}
+  .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb p{font-size:14px;color:var(--dim);line-height:1.85;max-width:680px;font-weight:300;}
+  .credits{position:relative;z-index:1;padding:32px 40px 48px;}
+  .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .c-row{display:grid;grid-template-columns:160px 1fr;padding:9px 0;border-bottom:1px solid var(--border-pale);}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+  footer{position:relative;z-index:1;padding:2rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
+  <div class="gallery-hero">
+  <div class="gallery-inner">
+    <div class="gallery-wrap">
+      <button class="g-arrow prev" id="prevBtn">&#8249;</button>
+      <div id="prevSlot" class="g-slot-side" onclick="go(curIdx-1)">
+        <div class="side-ph" style="aspect-ratio:16/9;"><span id="prevTitle"></span></div>
+      </div>
+      <div class="g-slot-active">
+        <div class="main-frame-wrap">
+          <iframe id="mainFrame" style="aspect-ratio:16/9;" src="" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+      <div id="nextSlot" class="g-slot-side" onclick="go(curIdx+1)">
+        <div class="side-ph" style="aspect-ratio:16/9;"><span id="nextTitle"></span></div>
+      </div>
+      <button class="g-arrow next" id="nextBtn">&#8250;</button>
+    </div>
+    <div class="g-meta">
+      <div class="g-label" id="gLabel"></div>
+      <div class="g-dots" id="gDots"></div>
+    </div>
+  </div>
+</div>
+  <div class="info-sec">
+    <div class="info-row">
+      <div>
+        <div class="breadcrumb">Digital · @ByteSyzeTV</div>
+        <h1 class="proj-title">@ByteSyzeTV</h1>
+        <div class="principals">Creator, Producer &amp; Editor — Sam Mantell</div>
+      </div>
+      <div class="social-col"><a href="BYTESYZE_YOUTUBE_URL" target="_blank" class="soc-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube ↗</a><a href="BYTESYZE_TIKTOK_URL" target="_blank" class="soc-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.53V6.77a4.85 4.85 0 01-1.02-.08z"/></svg> TikTok ↗</a></div>
+    </div>
+  </div>
+  <div class="stats-bar"><div class="stat"><div class="stat-n">10.7M+</div><div class="stat-l">Total Views</div></div><div class="stat"><div class="stat-n">100+</div><div class="stat-l">Videos</div></div><div class="stat"><div class="stat-n">YouTube / TikTok</div><div class="stat-l">Platforms</div></div><div class="stat"><div class="stat-n">2019–</div><div class="stat-l">Active Since</div></div></div>
+  <div class="blurb">
+    <div class="blurb-head">About the project</div>
+    <p>Placeholder — update in VS Code.</p>
+  </div>
+  <div class="credits"><div class="credits-head">Credits</div><div class="credits-grid"><div class="c-row"><span class="c-role">Creator</span><span class="c-name">Sam Mantell</span></div><div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div><div class="c-row"><span class="c-role">Editor</span><span class="c-name">Sam Mantell</span></div><div class="c-row"><span class="c-role">[Role]</span><span class="c-name">[Name]</span></div><div class="c-row"><span class="c-role">[Role]</span><span class="c-name">[Name]</span></div><div class="c-row"><span class="c-role">[Role]</span><span class="c-name">[Name]</span></div></div></div>
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-kamk.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/KAMK_Situationship_GIF.mp4"></video><div class="mw-foot"><h3>Kaleb & Ms. Kelsey</h3><span>Digital Series</span></div></a>
+    <a href="project-giphy-ads.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif" alt="Giphy Ads"><div class="mw-foot"><h3>Giphy Ads</h3><span>Branded Campaigns</span></div></a>
+    <a href="project-zips.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ZIPS_Teaser_Vertical_V3_3.mp4"></video><div class="mw-foot"><h3>Zips</h3><span>Short Film</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+  <script>
+const vids=[
+  {id:"BYTESYZE_YT_01",title:"[Video 1 Title]"},
+  {id:"BYTESYZE_YT_02",title:"[Video 2 Title]"},
+  {id:"BYTESYZE_YT_03",title:"[Video 3 Title]"},
+  {id:"BYTESYZE_YT_04",title:"[Video 4 Title]"},
+  {id:"BYTESYZE_YT_05",title:"[Video 5 Title]"},
+  {id:"BYTESYZE_YT_06",title:"[Video 6 Title]"},
+  {id:"BYTESYZE_YT_07",title:"[Video 7 Title]"},
+  {id:"BYTESYZE_YT_08",title:"[Video 8 Title]"},
+  {id:"BYTESYZE_YT_09",title:"[Video 9 Title]"},
+  {id:"BYTESYZE_YT_10",title:"[Video 10 Title]"}
+];
+let curIdx=0;const n=vids.length;
+function getUrl(id){return "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1";}
+function update(){
+  const p=(curIdx-1+n)%n,nx=(curIdx+1)%n;
+  document.getElementById('prevTitle').textContent=vids[p].title;
+  document.getElementById('nextTitle').textContent=vids[nx].title;
+  document.getElementById('mainFrame').src=getUrl(vids[curIdx].id);
+  document.getElementById('gLabel').textContent=vids[curIdx].title;
+  document.getElementById('gDots').innerHTML=vids.map((_,i)=>'<div class="g-dot'+(i===curIdx?' on':'')+'" onclick="go('+i+')"></div>').join('');
+}
+function go(i){curIdx=(i+n)%n;update();}
+document.getElementById('prevBtn').addEventListener('click',()=>go(curIdx-1));
+document.getElementById('nextBtn').addEventListener('click',()=>go(curIdx+1));
+update();
+</script>
+</body>
+</html>

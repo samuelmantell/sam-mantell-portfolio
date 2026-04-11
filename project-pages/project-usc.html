@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Fellowship Spotlight — Sam Mantell</title>
+  <meta name="description" content="USC Fellowship Spotlight — digital explainer series produced by Sam Mantell for the USC Graduate School.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="USC Fellowship Spotlight — Sam Mantell">
+  <meta property="og:description" content="USC Fellowship Spotlight — digital explainer series produced by Sam Mantell for the USC Graduate School.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/USC/CHELSEA JOHNSON.mp4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-usc.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+
+  /* CAROUSEL */
+  .gallery-hero{background:#12101C;padding-top:68px;position:relative;z-index:1;}
+  .gallery-inner{padding:28px 0 18px;}
+  .gallery-wrap{position:relative;display:flex;align-items:stretch;overflow:hidden;padding:0 52px;gap:4px;}
+  .g-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(10,8,20,0.65);border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;z-index:10;line-height:1;transition:all 0.2s;}
+  .g-arrow:hover{background:var(--accent);color:#12101C;}
+  .g-arrow.prev{left:4px;}.g-arrow.next{right:4px;}
+  .g-slot-active{flex:0 0 72%;overflow:hidden;}
+  .g-slot-side{flex:0 0 12%;opacity:0.28;transform:scale(0.93);cursor:pointer;overflow:hidden;transition:opacity 0.3s;}
+  .g-slot-side:hover{opacity:0.42;}
+  .side-ph{width:100%;background:#1E1A2E;display:flex;align-items:center;justify-content:center;padding:8px;}
+  .side-ph span{color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .main-frame-wrap iframe{width:100%;border:none;display:block;}
+  .g-meta{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0;}
+  .g-label{color:rgba(255,255,255,0.45);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;min-height:14px;}
+  .g-dots{display:flex;gap:7px;}
+  .g-dot{width:6px;height:6px;background:rgba(255,255,255,0.18);border-radius:50%;cursor:pointer;transition:background 0.2s;}
+  .g-dot.on{background:var(--accent);}
+
+  /* PAGE */
+  .page-wrap{position:relative;z-index:1;}
+
+  /* HEADER */
+  .header-cell{
+    padding:32px 36px;
+    background:rgba(236,234,244,0.55);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    -webkit-mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+
+  /* BOTTOM ROW: blurb + credits side by side */
+  .bottom-row{
+    display:grid;
+    grid-template-columns:1fr 400px;
+    padding:32px 36px 48px;
+    gap:48px;
+  }
+  .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-cell p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+  .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .c-row{display:grid;grid-template-columns:140px 1fr;padding:9px 0;border-bottom:1px solid var(--border-pale);}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
+
+  <div class="gallery-hero">
+    <div class="gallery-inner">
+      <div class="gallery-wrap">
+        <button class="g-arrow prev" id="prevBtn">&#8249;</button>
+        <div id="prevSlot" class="g-slot-side" onclick="go(curIdx-1)">
+          <div class="side-ph" style="aspect-ratio:16/9;"><span id="prevTitle"></span></div>
+        </div>
+        <div class="g-slot-active">
+          <div class="main-frame-wrap">
+            <iframe id="mainFrame" style="aspect-ratio:16/9;" src="" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          </div>
+        </div>
+        <div id="nextSlot" class="g-slot-side" onclick="go(curIdx+1)">
+          <div class="side-ph" style="aspect-ratio:16/9;"><span id="nextTitle"></span></div>
+        </div>
+        <button class="g-arrow next" id="nextBtn">&#8250;</button>
+      </div>
+      <div class="g-meta">
+        <div class="g-label" id="gLabel"></div>
+        <div class="g-dots" id="gDots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <div class="header-cell">
+      <div class="breadcrumb">Digital · USC Marshall</div>
+      <h1 class="proj-title">USC Graduate School Fellowship Spotlight</h1>
+    </div>
+    <div class="bottom-row">
+      <div class="blurb-cell">
+        <div class="blurb-head">About the project</div>
+        <p>In 2016 I was approached by the USC Graduate School about creating video content for YouTube. Together with administrators and production vendor Midnight Hour Studios, I developed the explainer series 'Fellowship Spotlight." The series highlights the incredible research of USC graduate fellows pursuing their PhDs. A PhD thesis must be a significant contribution to the field, and some fellows research for several years before completing their work, meaning the topics can become quite complex! This presents an interesting challenge for a producer. All of the research was incredible - but casting the series was also about which topics would resonate with audiences, and choosing fellows who could communicate those concepts in an engaging manner. Through the process of screening different candidates, interviewing them about their work, and editing the interviews down into concise, informative segments, I learned SO MUCH. But more importantly, it was extremely gratifying to shine a spotlight on their hard work, and encapsulate their achievements for audiences to enjoy.</p>
+      </div>
+      <div class="credits-cell">
+        <div class="credits-head">Credits</div>
+        <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
+        <div class="c-row"><span class="c-role">Executive Producer</span><span class="c-name">Meredith Drake Reitan - Vice Dean, Fellowships</span></div>
+        <div class="c-row"><span class="c-role">Client</span><span class="c-name">USC Marshall School of Business</span></div>
+        <div class="c-row"><span class="c-role">Production Co.</span><span class="c-name">Midnight Hour Studios</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-aok.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/PRIMITIVE%20TECHNOLOGY.mp4"></video><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
+    <a href="project-giphy-stamps.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Stamps"><div class="mw-foot"><h3>Stamps</h3><span>Giphy Studios</span></div></a>
+    <a href="project-pln.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4"></video><div class="mw-foot"><h3>Premio Lo Nuestro</h3><span>T-Mobile</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+
+  <script>
+const vids=[
+  {id:"SuZQiPeVUkg",title:"Each New Curl Howling A War Cry"},
+  {id:"0TAk86uqtY8",title:"Savant Garde: Translating The Untranslatable"},
+  {id:"iXrVmuDtyIo",title:"Watching Your Language"},
+  {id:"xriYcG0NRbE",title:"Zebrafishing For Answers"},
+  {id:"eZ-ZwEltLgc",title:"The Future Of The Cloud"},
+  {id:"dubBwyWI_UI",title:"Antidepressants And Pregnancy"},
+  {id:"EZKtVA3Mw6g",title:"All The News That's Fit To Post"},
+  {id:"ZH6fElOlA1Y",title:"Wireless As A Second Language"},
+  {id:"ZIUb__6prd0",title:"Drawing The Line"},
+  {id:"ZrRr1YCibO8",title:"A Fellowship Spotlight (Pilot)"}
+];
+let curIdx=0;const n=vids.length;
+function getUrl(id){return "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1";}
+function update(){
+  const p=(curIdx-1+n)%n,nx=(curIdx+1)%n;
+  document.getElementById('prevTitle').textContent=vids[p].title;
+  document.getElementById('nextTitle').textContent=vids[nx].title;
+  document.getElementById('mainFrame').src=getUrl(vids[curIdx].id);
+  document.getElementById('gLabel').textContent=vids[curIdx].title;
+  document.getElementById('gDots').innerHTML=vids.map((_,i)=>'<div class="g-dot'+(i===curIdx?' on':'')+'" onclick="go('+i+')"></div>').join('');
+}
+function go(i){curIdx=(i+n)%n;update();}
+document.getElementById('prevBtn').addEventListener('click',()=>go(curIdx-1));
+document.getElementById('nextBtn').addEventListener('click',()=>go(curIdx+1));
+update();
+  </script>
+</body>
+</html>

@@ -1,269 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
   <title>Live GIF — Sam Mantell</title>
+  <meta name="description" content="Live GIF production at Giphy Studios — 13,257 assets across 89+ cultural events, published in real time.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="Live GIF — Sam Mantell">
+  <meta property="og:description" content="Live GIF production at Giphy Studios — 13,257 assets across 89+ cultural events, published in real time.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-giphy-livegif.html">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-    :root {
-      --bg:#0A0A0A; --bg2:#141414; --text:#E8E8E8; --dim:#8A8A8A;
-      --accent:#00FF94; --border:#2A2A2A;
-      --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:var(--fb); background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; }
-
-    nav { position:fixed; top:0; width:100%; background:rgba(10,10,10,0.95); backdrop-filter:blur(12px); z-index:100; border-bottom:1px solid var(--border); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-family:var(--fd); font-size:1rem; font-weight:700; color:var(--accent); text-decoration:none; letter-spacing:0.05em; }
-    .back { font-size:0.85rem; color:var(--dim); text-decoration:none; font-weight:500; transition:color 0.2s; }
-    .back:hover { color:var(--accent); }
-
-    .page-header { padding:5.5rem 2.5rem 2.5rem; border-bottom:1px solid var(--border); }
-    .label { font-size:0.72rem; color:var(--accent); font-weight:600; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.5rem; }
-    .page-header h1 { font-family:var(--fd); font-size:clamp(2rem,5vw,3.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1.05; margin-bottom:0.75rem; }
-    .page-header p { font-size:0.95rem; color:var(--dim); max-width:560px; line-height:1.7; }
-
-    .campaign { border-top:1px solid var(--border); }
-    .campaign-header { display:flex; justify-content:space-between; align-items:flex-end; padding:1.25rem 2.5rem 1rem; border-bottom:1px solid var(--border); }
-    .campaign-name { font-family:var(--fd); font-size:clamp(1.5rem,3vw,2.5rem); font-weight:700; letter-spacing:-0.02em; line-height:1; }
-    .campaign-meta { font-size:0.72rem; color:var(--dim); letter-spacing:0.08em; text-transform:uppercase; text-align:right; line-height:1.7; }
-
-    .cat-carousel { position:relative; overflow:hidden; }
-    .cat-carousel-track { display:flex; transition:transform 0.45s ease; }
-
-    .grid-card { position:relative; aspect-ratio:16/9; overflow:hidden; flex:0 0 33.333%; display:block; text-decoration:none; color:inherit; }
-    .grid-card-square { aspect-ratio:1/1; }
-    .grid-card:not(:last-child) { border-right:1px solid rgba(255,255,255,0.06); }
-    .grid-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; }
-    .grid-card:hover img { transform:scale(1.05); }
-
-    .grid-card-foot { position:absolute; top:0.75rem; left:0.75rem; opacity:0; transition:opacity 0.3s ease; }
-    .grid-card:hover .grid-card-foot { opacity:1; }
-    .label-block { background:rgba(0,0,0,0.72); padding:0.35rem 0.75rem; border-top:2px solid var(--accent); }
-    .label-block h3 { font-family:var(--fd); font-size:0.85rem; font-weight:700; color:#fff; letter-spacing:-0.01em; }
-
-    .cat-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background:rgba(10,10,10,0.75); border:2px solid var(--accent); color:var(--accent); width:56px; height:56px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:2rem; transition:all 0.2s ease; line-height:1; }
-    .cat-arrow:hover { background:var(--accent); color:var(--bg); }
-    .cat-arrow.cat-prev { left:0.75rem; }
-    .cat-arrow.cat-next { right:0.75rem; }
-
-    footer { padding:2.5rem 2rem; text-align:center; color:var(--dim); font-size:0.8rem; border-top:1px solid var(--border); margin-top:3px; }
-  </style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--bg3:#D8D4E8;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border:rgba(124,92,191,0.16);--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+  .page-header{position:relative;z-index:1;padding:5.5rem 2.5rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .label{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;opacity:0.9;}
+  .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
+  .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
+  .campaign{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .campaign-header{display:flex;justify-content:space-between;align-items:flex-end;padding:1.25rem 2.5rem 1rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
+  .campaign-name{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.02em;line-height:1;}
+  .campaign-meta{font-size:0.68rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:right;line-height:1.7;font-weight:400;}
+  .cat-carousel{position:relative;overflow:hidden;}
+  .cat-carousel-track{display:flex;transition:transform 0.45s ease;}
+  .grid-card{position:relative;overflow:hidden;flex:0 0 33.333%;display:block;text-decoration:none;color:inherit;}
+  .grid-card:not(:last-child){border-right:1px solid rgba(255,255,255,0.06);}
+  .grid-card img{width:100%;height:auto;display:block;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);}
+  .grid-card:hover img{transform:scale(1.05);}
+  .grid-card-foot{position:absolute;top:0.85rem;left:0.85rem;opacity:0;transition:opacity 0.3s ease;}
+  .grid-card:hover .grid-card-foot{opacity:1;}
+  .label-block{background:rgba(10,8,20,0.80);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:0.35rem 0.75rem;border-top:2px solid var(--accent);}
+  .label-block h3{font-family:var(--fb);font-size:0.82rem;font-weight:500;color:#fff;letter-spacing:0.02em;}
+  .cat-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(10,8,20,0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--accent);color:var(--accent);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.75rem;transition:all 0.25s ease;line-height:1;}
+  .cat-arrow:hover{background:var(--accent);color:var(--bg);}
+  .cat-arrow.cat-prev{left:0.75rem;}.cat-arrow.cat-next{right:0.75rem;}
+  footer{position:relative;z-index:1;padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+  
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-
-  <nav>
-    <a href="../../index.html" class="logo">SAM MANTELL</a>
-    <a href="../../index.html" class="back">← Portfolio</a>
-  </nav>
-
-  <div class="page-header">
-    <div class="label">Brands · Giphy Studios</div>
-    <h1>Live GIF</h1>
-    <p>Real-time GIF production at Giphy Studios — capturing live moments from major cultural events and publishing within minutes for instant platform distribution.</p>
-  </div>
-
-  <!-- ── NFL ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">NFL</div>
-      <div class="campaign-meta">National Football League · Live GIF</div>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../project-pages/project-giphy-umbrella.html" class="back">← Giphy Studios</a></nav>
+  <div class="page-header"><div class="label">Digital · Giphy Studios</div><h1>Live GIF</h1><p>I produced and managed real-time live GIF production at Giphy Studios, capturing live moments from major cultural events and publishing within minutes for instant platform distribution. The examples below showcase just a small fraction of the nearly 15,000 live gifs I produced, which yielded billions of views.</p></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">NFL</div><div class="campaign-meta">National Football League · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="NFL 01"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-02.gif" alt="NFL 02"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-03.gif" alt="NFL 03"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-04.gif" alt="NFL 04"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-05.gif" alt="NFL 05"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-06.gif" alt="NFL 06"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-07.gif" alt="NFL 07"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">NBC Paris Olympics</div><div class="campaign-meta">NBC · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-01.gif" alt="Olympics 01"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-02.gif" alt="Olympics 02"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-03.gif" alt="Olympics 03"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-04.gif" alt="Olympics 04"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-05.gif" alt="Olympics 05"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Saturday Night Live</div><div class="campaign-meta">NBC · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-01.gif" alt="SNL 01"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-02.gif" alt="SNL 02"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-03.gif" alt="SNL 03"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-04.gif" alt="SNL 04"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-06.gif" alt="SNL 06"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">The Oscars</div><div class="campaign-meta">Academy Awards · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-01.gif" alt="Oscars 01"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-02.gif" alt="Oscars 02"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-03.gif" alt="Oscars 03"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-04.gif" alt="Oscars 04"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-06.gif" alt="Oscars 06"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Big Brother</div><div class="campaign-meta">CBS · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-01.gif" alt="Big Brother 01"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-02.gif" alt="Big Brother 02"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-03.gif" alt="Big Brother 03"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Eurovision</div><div class="campaign-meta">Eurovision Song Contest · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-01.gif" alt="Eurovision 01"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-02.gif" alt="Eurovision 02"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-03.gif" alt="Eurovision 03"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-04.gif" alt="Eurovision 04"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-05.gif" alt="Eurovision 05"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Indian Super League</div><div class="campaign-meta">ISL · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-01.gif" alt="ISL 01"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-02.gif" alt="ISL 02"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-03.gif" alt="ISL 03"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-04.gif" alt="ISL 04"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-05.gif" alt="ISL 05"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Latin Grammys</div><div class="campaign-meta">Latin Recording Academy · Live GIF</div></div>
+  <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-01.gif" alt="Latin Grammys 01"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-02.gif" alt="Latin Grammys 02"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-03.gif" alt="Latin Grammys 03"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-04.gif" alt="Latin Grammys 04"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+    <div class="grid-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-05.gif" alt="Latin Grammys 05"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
+  </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-giphy-partnerships.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif" alt="Brand Partnerships"><div class="mw-foot"><h3>Brand Partnerships</h3><span>Giphy Studios</span></div></a>
+    <a href="project-zips.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ZIPS_Teaser_Vertical_V3_3.mp4"></video><div class="mw-foot"><h3>Zips</h3><span>Short Film</span></div></a>
+    <a href="project-discod.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Discod_trailer_1x1.mp4"></video><div class="mw-foot"><h3>Disco'd</h3><span>Feature Documentary</span></div></a>
     </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="NFL 01"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-02.gif" alt="NFL 02"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-03.gif" alt="NFL 03"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-04.gif" alt="NFL 04"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-05.gif" alt="NFL 05"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-06.gif" alt="NFL 06"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/NFL/NFL-live-gif-07.gif" alt="NFL 07"><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── NBC PARIS OLYMPICS ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">NBC Paris Olympics</div>
-      <div class="campaign-meta">NBC · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-01.gif" alt="Olympics 01"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-02.gif" alt="Olympics 02"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-03.gif" alt="Olympics 03"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-04.gif" alt="Olympics 04"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-05.gif" alt="Olympics 05"><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── SNL ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">Saturday Night Live</div>
-      <div class="campaign-meta">NBC · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-01.gif" alt="SNL 01"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-02.gif" alt="SNL 02"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-03.gif" alt="SNL 03"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-04.gif" alt="SNL 04"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-05.gif" alt="SNL 05"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/SNL/SNL-live-gif-06.gif" alt="SNL 06"><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── THE OSCARS ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">The Oscars</div>
-      <div class="campaign-meta">Academy Awards · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-01.gif" alt="Oscars 01"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-02.gif" alt="Oscars 02"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-03.gif" alt="Oscars 03"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-04.gif" alt="Oscars 04"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-05.gif" alt="Oscars 05"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-06.gif" alt="Oscars 06"><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── BIG BROTHER ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">Big Brother</div>
-      <div class="campaign-meta">CBS · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-01.gif" alt="Big Brother 01"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-02.gif" alt="Big Brother 02"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-03.gif" alt="Big Brother 03"><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── EUROVISION ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">Eurovision</div>
-      <div class="campaign-meta">Eurovision Song Contest · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-01.gif" alt="Eurovision 01"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-02.gif" alt="Eurovision 02"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-03.gif" alt="Eurovision 03"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-04.gif" alt="Eurovision 04"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-05.gif" alt="Eurovision 05"><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── INDIAN SUPER LEAGUE ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">Indian Super League</div>
-      <div class="campaign-meta">ISL · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-01.gif" alt="ISL 01"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-02.gif" alt="ISL 02"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-03.gif" alt="ISL 03"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-04.gif" alt="ISL 04"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
-        <div class="grid-card"><img src="../images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-05.gif" alt="ISL 05"><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
-  <!-- ── LATIN GRAMMYS ── -->
-  <div class="campaign">
-    <div class="campaign-header">
-      <div class="campaign-name">Latin Grammys</div>
-      <div class="campaign-meta">Latin Recording Academy · Live GIF</div>
-    </div>
-    <div class="cat-carousel">
-      <button class="cat-arrow cat-prev">&#8249;</button>
-      <div class="cat-carousel-track">
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-01.gif" alt="Latin Grammys 01"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-02.gif" alt="Latin Grammys 02"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-03.gif" alt="Latin Grammys 03"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-04.gif" alt="Latin Grammys 04"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
-        <div class="grid-card grid-card-square"><img src="../images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-05.gif" alt="Latin Grammys 05"><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
-      </div>
-      <button class="cat-arrow cat-next">&#8250;</button>
-    </div>
-  </div>
-
+  </section>
   <footer><p>&copy; 2026 Sam Mantell</p></footer>
-
   <script>
-    function initCarousels() {
-      document.querySelectorAll('.cat-carousel').forEach(carousel => {
-        const track = carousel.querySelector('.cat-carousel-track');
-        const origCards = [...track.querySelectorAll('.grid-card')];
-        const n = origCards.length;
-        let pos = 0;
-
-        origCards.forEach(card => {
-          const clone = card.cloneNode(true);
-          track.appendChild(clone);
-        });
-
-        function cardWidth() { return carousel.offsetWidth / 3; }
-
-        function go(animated) {
-          track.style.transition = animated ? 'transform 0.45s ease' : 'none';
-          track.style.transform = 'translateX(-' + (pos * cardWidth()) + 'px)';
-        }
-
-        function next() {
-          pos++;
-          go(true);
-          if (pos >= n) {
-            setTimeout(() => { pos = 0; go(false); }, 460);
-          }
-        }
-
-        function prev() {
-          if (pos <= 0) {
-            pos = n; go(false);
-            requestAnimationFrame(() => requestAnimationFrame(() => { pos--; go(true); }));
-          } else { pos--; go(true); }
-        }
-
-        carousel.querySelector('.cat-prev').addEventListener('click', prev);
-        carousel.querySelector('.cat-next').addEventListener('click', next);
-        window.addEventListener('resize', () => go(false));
-        go(false);
-      });
-    }
-
-    initCarousels();
+  function initCarousels(){document.querySelectorAll(".cat-carousel").forEach(car=>{const track=car.querySelector(".cat-carousel-track");const orig=[...track.querySelectorAll(".grid-card")];const n=orig.length;let p=0;orig.forEach(c=>{track.appendChild(c.cloneNode(true));});function cw(){return car.offsetWidth/3;}function go(a){track.style.transition=a?"transform 0.45s ease":"none";track.style.transform="translateX(-"+(p*cw())+"px)";}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector(".cat-prev").addEventListener("click",prev);car.querySelector(".cat-next").addEventListener("click",next);window.addEventListener("resize",()=>go(false));go(false);});}
+  initCarousels();
   </script>
-
 </body>
 </html>

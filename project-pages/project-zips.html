@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Zips — Sam Mantell</title>
+  <meta name="description" content="Zips — original short film produced by Sam Mantell.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="Zips — Sam Mantell">
+  <meta property="og:description" content="Zips — original short film produced by Sam Mantell.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ZIPS_Teaser_Vertical_V3_3.mp4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-zips.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+
+  /* HERO */
+  .gallery-hero{background:#12101C;padding-top:68px;position:relative;z-index:1;}
+  .single-wrap{padding:28px 0 18px;display:flex;justify-content:center;}
+  .single-wrap iframe{width:72%;aspect-ratio:16/9;border:none;display:block;}
+
+  /* ── MAIN LAYOUT GRID ── */
+  .page-grid{
+    position:relative;z-index:1;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 500px;
+    grid-template-areas:
+      "header  header  header  poster"
+      "blurb   blurb   credits poster";
+  }
+
+  /* HEADER */
+  .header-cell{
+    grid-area:header;
+    display:flex;
+    align-items:stretch;
+    background:rgba(236,234,244,0.55);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    -webkit-mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image:linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .title-block{
+    padding:32px 36px;
+    flex:0 0 240px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+  .festival-note{font-size:11px;color:var(--accent);letter-spacing:0.08em;margin-top:8px;font-weight:400;}
+  .social-links{display:flex;gap:12px;margin-top:14px;}
+  .social-links a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--border-pale);color:var(--dim);text-decoration:none;transition:all 0.2s;}
+  .social-links a:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* LAURELS — placeholder, ready for images */
+  .laurels-block{
+    flex:1;
+    padding:32px 48px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .laurels-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;align-self:flex-start;}
+  .laurels-row{display:flex;align-items:flex-start;justify-content:center;gap:48px;width:100%;}
+  .laurel-item{display:flex;flex-direction:column;align-items:center;gap:8px;width:150px;}
+  .laurel-item img{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.08));}
+  .laurel-caption{font-size:9px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:center;line-height:1.55;}
+  .laurel-winner .laurel-caption{color:var(--accent);}
+  .laurels-pending{font-size:10px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;}
+
+  /* POSTER */
+  .poster-cell{
+    grid-area:poster;
+    padding:16px;
+    display:flex;
+    align-items:flex-start;
+  }
+  .poster-cell img{width:100%;height:auto;display:block;object-fit:contain;}
+
+  /* BLURB */
+  .blurb-cell{
+    grid-area:blurb;
+    padding:32px 36px;
+  }
+  .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-cell p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  /* CREDITS */
+  .credits-cell{
+    grid-area:credits;
+    padding:32px 28px;
+  }
+  .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .c-row{display:grid;grid-template-columns:140px 1fr;padding:9px 0;}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.single-wrap{padding:14px 0 8px;}.single-wrap iframe{width:100%;}.page-grid{grid-template-columns:1fr;grid-template-areas:"header" "poster" "blurb" "credits";}.header-cell{flex-direction:column;}.title-block{flex:none;padding:24px 20px 16px;}.laurels-block{padding:0 20px 24px;align-items:center;}.laurels-row{gap:24px;justify-content:center;}.laurel-item{width:90px;}.poster-cell{padding:0 20px 8px;}.poster-cell img{max-width:320px;margin:0 auto;display:block;}.blurb-cell{padding:24px 20px;}.blurb-cell p{font-size:13px;}.credits-cell{padding:24px 20px 32px;}.c-row{grid-template-columns:120px 1fr;}}
+  @media(max-width:480px){.laurels-row{gap:16px;}.laurel-item{width:72px;}.poster-cell img{max-width:260px;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/original.html" class="back">← Original</a></nav>
+
+  <div class="gallery-hero">
+    <div class="single-wrap">
+      <iframe src="https://www.youtube.com/embed/iHnkyl2H7e8?rel=0&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+
+  <div class="page-grid">
+
+    <!-- HEADER: title + laurels placeholder -->
+    <div class="header-cell">
+      <div class="title-block">
+        <div class="breadcrumb">Original Content · Short Film</div>
+        <h1 class="proj-title">Zips</h1>
+        <div class="social-links">
+          <a href="https://www.instagram.com/zipsmovie/" target="_blank" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCyXj5JWNi12pP0HY4WmwlOA" target="_blank" title="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="laurels-block">
+        <div class="laurels-pending">Laurels coming soon</div>
+      </div>
+    </div>
+
+    <!-- POSTER -->
+    <div class="poster-cell">
+      <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Original-Content/Zips/Zips_Title_Still_1x1.jpeg" alt="Zips">
+    </div>
+
+    <!-- BLURB -->
+    <div class="blurb-cell">
+      <div class="blurb-head">About the project</div>
+      <p>Brooklyn, disco era.
+
+Felice "Felix" Bolsoniro has just been made Capo of the Galliano crime family. In his world, reputation is everything, and mistakes can be deadly. But Felix is harboring a secret that could destroy him: he's in love with Johnny, a bartender at the city’s hottest discotheque.
+
+Over the course of one night, Felix dodges the demands of his volatile mob boss uncle, Carmello Galliano, while Johnny pushes for a peaceful life together, out of harm’s way. When their worlds violently collide in a moment of reckless abandon, Felix is forced to make a terrible choice. One that may haunt him forever.
+
+Starring Fabrizio Brienza and Mike Starr. Based on a true story.
+
+Sex, drugs, and disco dancing. With a body in the trunk.</p>
+    </div>
+
+    <!-- CREDITS -->
+    <div class="credits-cell">
+      <div class="credits-head">Credits</div>
+      <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell</span></div>
+      <div class="c-row"><span class="c-role">Writer, Director</span><span class="c-name">Zebedee Row</span></div>
+      <div class="c-row"><span class="c-role">Director of Photography</span><span class="c-name">Dominick Sivilli</span></div>
+      <div class="c-row"><span class="c-role">Starring</span><span class="c-name">Fabrizio Brienza, Mike Starr, Zebedee Row, Elizabeth Cook, Adam Budron, Jacopo Constantini, Steve Stanulis, Jill Zmolek, Billy Pezzollo</span></div>
+      <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Dominick Sivilli</span></div>
+      <div class="c-row"><span class="c-role">Prod. Co.</span><span class="c-name">Zero Daze</span></div>
+    </div>
+
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-discod.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Discod_trailer_1x1.mp4"></video><div class="mw-foot"><h3>Disco'd</h3><span>Feature Documentary</span></div></a>
+    <a href="project-influence.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Trlr_Influence_2025_1x1.mp4"></video><div class="mw-foot"><h3>Influence</h3><span>Feature Film</span></div></a>
+    <a href="project-pln.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4"></video><div class="mw-foot"><h3>Premio Lo Nuestro</h3><span>T-Mobile</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+</body>
+</html>

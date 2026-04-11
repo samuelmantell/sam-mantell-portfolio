@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Disco'd — Sam Mantell</title>
+  <meta name="description" content="Disco'd — award-winning feature documentary produced by Sam Mantell.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sam Mantell">
+  <meta property="og:title" content="Disco'd — Sam Mantell">
+  <meta property="og:description" content="Disco'd — award-winning feature documentary produced by Sam Mantell.">
+  <meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Discod_trailer_1x1.mp4">
+  <meta property="og:url" content="https://samuelmantell.com/project-pages/project-discod.html">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+  :root{--bg:#ECEAF4;--bg2:#E3E0EF;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--fb);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
+  nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
+  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+  .social-links{display:flex;gap:12px;margin-top:14px;}
+  .social-links a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--border-pale);color:var(--dim);text-decoration:none;transition:all 0.2s;font-size:13px;}
+  .social-links a:hover{border-color:var(--accent);color:var(--accent);}  
+  /* HERO */
+  .gallery-hero{background:#12101C;padding-top:68px;position:relative;z-index:1;}
+  .single-wrap{padding:28px 0 18px;display:flex;justify-content:center;}
+  .single-wrap iframe{width:72%;aspect-ratio:16/9;border:none;display:block;}
+
+  /* ── MAIN LAYOUT GRID ──
+     3 equal content cols + poster col
+     Reviews, blurb, credits all snap to same column edges
+  */
+  .page-grid{
+    position:relative;z-index:1;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 500px;
+    grid-template-areas:
+      "header  header  header  poster"
+      "reviews reviews reviews poster"
+      "blurb   blurb   credits poster";
+  }
+
+  /* HEADER */
+  .header-cell{
+    grid-area:header;
+    display:flex;
+    align-items:stretch;
+    background:rgba(236,234,244,0.55);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .title-block{
+    padding:32px 36px;
+    flex:0 0 240px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;}
+
+  /* LAURELS — centered in remaining header space */
+  .laurels-block{
+    flex:1;
+    padding:32px 48px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+  }
+  .laurels-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;align-self:flex-start;}
+  .laurels-row{display:flex;align-items:flex-start;justify-content:center;gap:48px;width:100%;}
+  .laurel-item{display:flex;flex-direction:column;align-items:center;gap:8px;width:150px;}
+  .laurel-item img{width:110%;height:auto;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.08));}
+  .laurel-caption{font-size:9px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:center;line-height:1.55;}
+  .laurel-winner .laurel-caption{color:var(--accent);}
+
+  /* POSTER — spans all rows, padded top + right */
+  .poster-cell{
+    grid-area:poster;
+    padding:16px;
+    display:flex;
+    align-items:flex-start;
+  }
+  .poster-cell img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+  }
+
+  /* REVIEWS — 3 equal internal columns */
+  .reviews-cell{
+    grid-area:reviews;
+  }
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .review-card{
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:160px;
+  }
+  .review-quote{
+    font-family:var(--fd);
+    font-size:clamp(16px,1.3vw,20px);
+    font-weight:800;
+    color:var(--text);
+    line-height:1.3;
+    margin-bottom:12px;
+    font-style:italic;
+    flex:1;
+  }
+  .review-card--large .review-quote{
+    font-size:clamp(26px,2.2vw,36px);
+  }
+  .review-source{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s;align-self:flex-start;}
+  .review-source:hover{border-bottom-color:var(--accent);}
+
+  /* BLURB — spans first 2 of 3 content cols */
+  .blurb-cell{
+    grid-area:blurb;
+    padding:32px 36px;
+  }
+  .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+  .blurb-cell p{font-size:20px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  /* CREDITS — snaps to 3rd content col, aligns with Provocative */
+  .credits-cell{
+    grid-area:credits;
+    padding:32px 28px;
+  }
+  .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .c-row{display:grid;grid-template-columns:120px 1fr;padding:9px 0;}
+  .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
+  .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
+
+  footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
+
+  /* MORE WORK */
+  .more-work{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .more-work-label{padding:0.85rem 1.5rem 0.6rem;font-size:0.68rem;color:var(--accent);letter-spacing:0.22em;text-transform:uppercase;font-weight:500;opacity:0.9;}
+  .more-work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:0 3px 3px;}
+  .mw-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;background:var(--bg2);}
+  .mw-card img,.mw-card video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);}
+  .mw-card:hover img,.mw-card:hover video{transform:scale(1.06);}
+  .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
+  .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
+  .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.single-wrap{padding:14px 0 8px;}.single-wrap iframe{width:100%;}.page-grid{grid-template-columns:1fr;grid-template-areas:"header" "poster" "reviews" "blurb" "credits";}.header-cell{flex-direction:column;}.title-block{flex:none;padding:24px 20px 16px;}.laurels-block{padding:0 20px 24px;align-items:center;}.laurels-row{gap:20px;justify-content:center;}.laurel-item{width:90px;}.laurel-item img{width:110%;}.poster-cell{padding:0 20px 8px;}.poster-cell img{max-width:320px;margin:0 auto;display:block;}.reviews-grid{grid-template-columns:1fr;}.review-card{padding:20px;min-height:auto;}.review-card--large .review-quote{font-size:clamp(20px,5vw,28px);}.blurb-cell{padding:24px 20px;}.blurb-cell p{font-size:15px;}.credits-cell{padding:24px 20px 32px;}.c-row{grid-template-columns:110px 1fr;}}
+  @media(max-width:480px){.laurels-row{flex-wrap:wrap;gap:16px;}.laurel-item{width:72px;}.poster-cell img{max-width:260px;}}
+</style>
+</head>
+<body>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/original.html" class="back">← Original</a></nav>
+
+  <div class="gallery-hero">
+    <div class="single-wrap">
+      <iframe src="https://www.youtube.com/embed/HHCMMFmOqOk?rel=0&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+
+  <div class="page-grid">
+
+    <!-- HEADER: title + laurels -->
+    <div class="header-cell">
+      <div class="title-block">
+        <div class="breadcrumb">Original Content · Feature Documentary</div>
+        <h1 class="proj-title">Disco'd</h1>
+        <div class="social-links">
+          <a href="https://www.instagram.com/discodmovie/" target="_blank" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://x.com/discodmovie" target="_blank" title="Twitter/X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/DiscodMovie" target="_blank" title="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@smmsfilms327/videos" target="_blank" title="YouTube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="laurels-block">
+        <div class="laurels-row">
+          <div class="laurel-item">
+            <img src="../images/Original-Content/Disco_d/Laurels/discod-laurel-belfast.png" alt="Belfast Film Festival 2018">
+            <div class="laurel-caption">Maysles Competition<br>Belfast · 2018</div>
+          </div>
+          <div class="laurel-item laurel-winner">
+            <img src="../images/Original-Content/Disco_d/Laurels/discod-laurel-brooklyn.png" alt="Audience Award — Brooklyn Film Festival 2017">
+            <div class="laurel-caption">★ Audience Award<br>Brooklyn · 2017</div>
+          </div>
+          <div class="laurel-item">
+            <img src="../images/Original-Content/Disco_d/Laurels/discod-laurel-visions.png" alt="Visions du Réel 2018">
+            <div class="laurel-caption">Doc Outlook<br>Visions du Réel · 2018</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSTER -->
+    <div class="poster-cell">
+      <img src="../images/Original-Content/Disco_d/discod-poster.jpg" alt="Disco'd poster">
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews-cell">
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="review-quote">"An unvarnished, moving look at the lives affected by the rising crisis of homelessness."</p>
+          <a class="review-source" href="https://www.latimes.com/entertainment-arts/movies/story/2019-11-06/discod-review-homeless-los-angeles" target="_blank">LA Times</a>
+        </div>
+        <div class="review-card review-card--large">
+          <p class="review-quote">"Terrifyingly great."</p>
+          <a class="review-source" href="https://www.disappointmentmedia.com/reviews/discod-an-emotional-look-at-the-human-impact-of-the-homelessness-crisis" target="_blank">Disappointment Media</a>
+        </div>
+        <div class="review-card review-card--large">
+          <p class="review-quote">"Provocative."</p>
+          <a class="review-source" href="https://moveablefest.com/matthew-siretta-sam-mantell-discod/" target="_blank">The Moveable Fest</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLURB -->
+    <div class="blurb-cell">
+      <div class="blurb-head">About the project</div>
+      <p>A cinematic portrait of people experiencing homelessness in Los Angeles. Disco'd is a documentary that captures the moment-to-moment uncertainty and endless instability of life on the streets. Immersive and intimate, highlighting issues of displacement, affordable housing, addiction, consumerism, and sanitation, Disco’d examines the nature and complexities of homelessness.</p>
+    </div>
+
+    <!-- CREDITS -->
+    <div class="credits-cell">
+      <div class="credits-head">Credits</div>
+      <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
+      <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
+      <div class="c-row"><span class="c-role">Director</span><span class="c-name">Matthew Siretta</span></div>
+      <div class="c-row"><span class="c-role">Director of Photography</span><span class="c-name">Matthew Siretta</span></div>
+      <div class="c-row"><span class="c-role">Location Sound</span><span class="c-name">Sam Mantell</span></div>
+      <div class="c-row"><span class="c-role">Post Sound</span><span class="c-name">Rob Marshall</span></div>
+    </div>
+
+  </div>
+
+  <section class="more-work">
+    <div class="more-work-label">More Work</div>
+    <div class="more-work-grid">
+    <a href="project-influence.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Trlr_Influence_2025_1x1.mp4"></video><div class="mw-foot"><h3>Influence</h3><span>Feature Film</span></div></a>
+    <a href="project-giphy-livegif.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif" alt="Live GIF"><div class="mw-foot"><h3>Live GIF</h3><span>Giphy Studios</span></div></a>
+    <a href="project-pln.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4"></video><div class="mw-foot"><h3>Premio Lo Nuestro</h3><span>T-Mobile</span></div></a>
+    </div>
+  </section>
+  <footer><p>&copy; 2026 Sam Mantell</p></footer>
+</body>
+</html>
