@@ -34,20 +34,21 @@
   .hero-gradient{display:none;}
   .strip-clip{position:relative;display:flex;flex-shrink:0;border-right:3px solid rgba(236,234,244,0.35);}
   .strip-label{position:absolute;top:1rem;left:1rem;font-family:var(--fb);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);line-height:1.7;pointer-events:none;}
-  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);scroll-margin-top:68px;}
+  .hero-scroll{position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none;}
+  .hero-scroll span{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:500;opacity:0.8;}
+  .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse-line 2s ease-in-out infinite;}
+  @keyframes pulse-line{0%,100%{opacity:0.3;}50%{opacity:0.9;}}
+  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
   .about-text{flex:1;}
   .about-eyebrow{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;opacity:0.9;margin-bottom:0.5rem;}
   .about-headline{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.85rem;}
-  .about-bio{font-size:1.3rem;color:var(--dim);line-height:1.8;font-weight:300;max-width:600px;}
-  .about-photo{flex:0 0 400px;width:400px;height:400px;overflow:hidden;align-self:center;}
-  .about-photo img{width:400px;height:400px;object-fit:cover;display:block;}
-  .about-stats{display:flex;gap:4rem;margin-top:1.25rem;flex-wrap:wrap;border-top:1px solid var(--border-pale);padding-top:1.1rem;}
-  .about-stat-n{font-family:var(--fd);font-size:3rem;font-weight:700;color:var(--text);line-height:1;}
-  .about-stat-l{font-size:1.00rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.25rem;}
-  .projects{position:relative;z-index:1;scroll-margin-top:68px;}
+  .about-bio{font-size:0.9rem;color:var(--dim);line-height:1.8;font-weight:300;max-width:600px;}
+  .about-photo{flex:0 0 110px;width:110px;height:110px;overflow:hidden;align-self:center;}
+  .about-photo img{width:110px;height:110px;object-fit:cover;display:block;}
+  .projects{position:relative;z-index:1;}
   .cat-header{padding:0.9rem 1.25rem 0.75rem 0.85rem;border-top:1px solid var(--border-pale);border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
   .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--text);display:block;margin-bottom:0.3rem;}
-  .cat-projects{font-size:0.65rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;font-weight:400;line-height:1.6;display:block;}
+  .cat-projects{font-size:0.65rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;font-weight:400;line-height:1.6;display:block;}
   .cat-carousel{position:relative;overflow:hidden;}
   .cat-carousel-track{display:flex;transition:transform 0.45s ease;}
   .grid-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;color:inherit;flex:0 0 33.333%;}
@@ -61,7 +62,7 @@
   .grid-card-hover{position:absolute;inset:0;background:rgba(0,0,0,0.08);opacity:0;transition:opacity 0.3s ease;}
   .grid-card:hover .grid-card-hover{opacity:1;}
   .grid-card:not(:last-child){border-right:1px solid rgba(255,255,255,0.06);}
-  .contact-section{position:relative;z-index:1;padding:5rem 2rem;text-align:center;border-top:1px solid var(--border-pale);scroll-margin-top:68px;}
+  .contact-section{position:relative;z-index:1;padding:5rem 2rem;text-align:center;border-top:1px solid var(--border-pale);}
   .contact-section h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem;}
   .contact-section h2 .accent{color:var(--accent);}
   .contact-framing{font-size:0.9rem;color:var(--dim);line-height:1.75;font-weight:300;margin:0 auto 1.75rem;max-width:480px;}
@@ -73,7 +74,7 @@
   .btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
   footer{position:relative;z-index:1;padding:1.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.05em;}
   @media(max-width:900px){.grid-card{flex:0 0 50%;}}
-  @media(max-width:640px){nav{padding:0 1.1rem;}.nav-logo{font-size:1.1rem;letter-spacing:0.04em;}nav ul a{font-size:0.6rem;letter-spacing:0.1em;}nav ul li+li::before{padding:0 0.4rem;}.hero{height:44vh;}.hero-strip img,.hero-strip video{height:44vh;}.grid-card{flex:0 0 100%;}.cat-arrow{width:38px;height:38px;font-size:1.35rem;}.cat-header{padding:0.75rem 1rem 0.65rem;}.cat-label{font-size:clamp(1.4rem,6vw,2.2rem);}.about-section{flex-direction:column-reverse;gap:1rem;padding:1.5rem 1.25rem;}.about-photo{align-self:flex-start;flex:0 0 280px;width:280px;height:280px;}.about-photo img{width:280px;height:280px;}.contact-section{padding:3.5rem 1.25rem;}.contact-links{flex-direction:column;align-items:center;gap:0.75rem;}.btn{width:100%;max-width:280px;text-align:center;}}
+  @media(max-width:640px){nav{padding:0 1.1rem;}.nav-logo{font-size:1.1rem;letter-spacing:0.04em;}nav ul a{font-size:0.6rem;letter-spacing:0.1em;}nav ul li+li::before{padding:0 0.4rem;}.hero{height:44vh;}.hero-strip img,.hero-strip video{height:44vh;}.grid-card{flex:0 0 100%;}.cat-arrow{width:38px;height:38px;font-size:1.35rem;}.cat-header{padding:0.75rem 1rem 0.65rem;}.cat-label{font-size:clamp(1.4rem,6vw,2.2rem);}.about-section{flex-direction:column-reverse;gap:1rem;padding:1.5rem 1.25rem;}.about-photo{align-self:flex-start;}.contact-section{padding:3.5rem 1.25rem;}.contact-links{flex-direction:column;align-items:center;gap:0.75rem;}.btn{width:100%;max-width:280px;text-align:center;}}
   html{scroll-behavior:smooth;}
 </style>
 </head>
@@ -91,18 +92,13 @@
 <section class="hero" id="home">
 <div class="hero-strip-wrap"><div class="hero-strip" id="heroStrip"></div></div>
 <div class="hero-gradient"></div>
+<div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 <section class="about-section" id="about">
   <div class="about-text">
     <div class="about-eyebrow">About</div>
-    <h2 class="about-headline">Producer &amp; Creative Project Manager</h2>
-    <p class="about-bio">Sam Mantell is an award-winning master of creative production and business administration. He specializes in team leadership and cross-functional collaboration. Since 2007, he has worked across a wide variety of formats, scales, and capacities, delivering billions of views and numerous awards to his creative partnerships.</p>
-    <div class="about-stats">
-      <div><div class="about-stat-n">15+</div><div class="about-stat-l">Years</div></div>
-      <div><div class="about-stat-n">200K+</div><div class="about-stat-l">Assets Delivered</div></div>
-      <div><div class="about-stat-n">20B+</div><div class="about-stat-l">Views</div></div>
-      <div><div class="about-stat-n">6</div><div class="about-stat-l">Languages</div></div>
-    </div>
+    <h2 class="about-headline">Multi-disciplinary Producer &amp; Project Manager</h2>
+    <p class="about-bio">Sam Mantell is a master of creative production and business administration. He specializes in team leadership and cross-functional collaboration. Since 2007, he has worked across a wide variety of formats, scales, and capacities, delivering billions of views and numerous awards to his creative partnerships.</p>
   </div>
   <div class="about-photo">
     <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How%20Ya%20Doing%20Its%20Me%20GIF.gif" alt="Sam Mantell">
@@ -113,11 +109,11 @@
 <div class="cat-carousel">
 <button class="cat-arrow cat-prev">&#8249;</button>
 <div class="cat-carousel-track">
-<a class="grid-card" href="project-pages/project-giphy-ads.html"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/giphy-ads-bachelorette-rose.mp4"></video><div class="grid-card-foot"><h3>ABC's Bachelorette</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-pln.html" style="border-left:1px solid rgba(255,255,255,0.06);"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_image-highlight.mp4"></video><div class="grid-card-foot"><h3>T-Mobile</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-ads.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Starbucks" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif"/><div class="grid-card-foot"><h3>Starbucks</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-ads.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Pure Leaf" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_letsdance_v1.gif"/><div class="grid-card-foot"><h3>Pure Leaf</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-ads.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hulu Live TV" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Hulu%20%2B%20Live%20TV/Hulu%20Live%20Tv%20GIF%20by%20HULU.gif"/><div class="grid-card-foot"><h3>Hulu Live TV</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="brands.html"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/giphy-ads-bachelorette-rose.mp4"></video><div class="grid-card-foot"><h3>ABC's Bachelorette</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="brands.html" style="border-left:1px solid rgba(255,255,255,0.06);"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_image-highlight.mp4"></video><div class="grid-card-foot"><h3>T-Mobile</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="brands.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Starbucks" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Starbucks-Monday/Giphy_ads_starbucks_confetti.gif"/><div class="grid-card-foot"><h3>Starbucks</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="brands.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Pure Leaf" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Pure-Leaf/PL_letsdance_v1.gif"/><div class="grid-card-foot"><h3>Pure Leaf</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="brands.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hulu Live TV" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Giphy-Ads/Hulu%20%2B%20Live%20TV/Hulu%20Live%20Tv%20GIF%20by%20HULU.gif"/><div class="grid-card-foot"><h3>Hulu Live TV</h3></div><div class="grid-card-hover"></div></a>
 </div>
 <button class="cat-arrow cat-next">&#8250;</button>
 </div>
@@ -125,12 +121,12 @@
 <div class="cat-carousel">
 <button class="cat-arrow cat-prev">&#8249;</button>
 <div class="cat-carousel-track">
-<a class="grid-card" href="project-pages/project-bytesyzetv.html"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="grid-card-foot"><h3>ByteSyzeTV</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-artist-commissions.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Artist Commissions" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif"/><div class="grid-card-foot"><h3>Artist Commissions</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-stamps.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Stamps" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif"/><div class="grid-card-foot"><h3>Stamps</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-studios.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="S.W.A.G." decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif"/><div class="grid-card-foot"><h3>S.W.A.G.</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-livegif.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="NFL Live GIF" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif"/><div class="grid-card-foot"><h3>NFL</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-partnerships.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hot Ones Partnerships" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif"/><div class="grid-card-foot"><h3>Hot Ones</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="grid-card-foot"><h3>ByteSyzeTV</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Artist Commissions" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif"/><div class="grid-card-foot"><h3>Artist Commissions</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Stamps" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif"/><div class="grid-card-foot"><h3>Stamps</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="S.W.A.G." decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif"/><div class="grid-card-foot"><h3>S.W.A.G.</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="NFL Live GIF" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif"/><div class="grid-card-foot"><h3>NFL</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="digital.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hot Ones Partnerships" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif"/><div class="grid-card-foot"><h3>Hot Ones</h3></div><div class="grid-card-hover"></div></a>
 </div>
 <button class="cat-arrow cat-next">&#8250;</button>
 </div>
@@ -156,18 +152,19 @@
 </section>
 <footer><p>© 2026 Sam Mantell. Built with Claude AI.</p></footer>
 <script>
+  const R2="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/";
   const stripClips=[
-    {src:"images/strip/Giphy_ads_starbucks_confetti.mp4",label:"Starbucks, Giphy Studios"},
-    {src:"images/strip/giphy-ads-bachelorette-rose.mp4",label:"ABC's The Bachelorette, Giphy Studios"},
-    {src:"images/strip/giphy-ads-hulu.mp4",label:"Hits-on-Hulu, Giphy Studios"},
-    {src:"images/strip/TMO_PLN_Rapid-Fire.MP4",label:"T-Mobile, Premio Lo Nuestro Social"},
-    {src:"images/strip/ByteSyze_Speed_Memphis.MOV",label:"IShowSpeed, @ByteSyzeTV"},
-    {src:"images/strip/ByteSyze_Subway-Takes_Rosalia.MP4",label:"Subway Takes, @ByteSyzeTV"},
-    {src:"images/strip/ByteSyze_The-Voice_Reba-McEntire.MP4",label:"NBC's The Voice, @ByteSyzeTV"},
-    {src:"images/strip/Original_KAMK_rizz.MP4",label:"\"Rizz\", Kaleb & Ms. Kelsey"},
-    {src:"images/strip/ZIPS_Teaser_Vertical_V3_3.mp4",label:"Zips (2026)"},
-    {src:"images/strip/Trlr_Influence_2025_1x1.mp4",label:"Influence (2023)"},
-    {src:"images/strip/Discod_trailer_1x1.mp4",label:"Disco'd (2019)"},
+    {src:R2+"ByteSyze_Genius-Verified_Samara-Cyn.MP4",label:"Genius Verified, @ByteSyzeTV"},
+    {src:R2+"ByteSyze_Subway-Takes_Rosalia.MP4",label:"Subway Takes, @ByteSyzeTV"},
+    {src:R2+"ByteSyze_The-Voice_Reba-McEntire.MP4",label:"NBC's The Voice, @ByteSyzeTV"},
+    {src:R2+"Giphy_ads_starbucks_confetti.mp4",label:"Starbucks, Giphy Studios"},
+    {src:R2+"giphy-ads-bachelorette-rose.mp4",label:"ABC's The Bachelorette, Giphy Studios"},
+    {src:R2+"giphy-ads-hulu.mp4",label:"Hits-on-Hulu, Giphy Studios"},
+    {src:R2+"TMO_PLN_Rapid-Fire.MP4",label:"T-Mobile, Premio Lo Nuestro Social"},
+    {src:R2+"Original_KAMK_rizz.MP4",label:"\"Rizz\", Kaleb & Ms. Kelsey"},
+    {src:R2+"ZIPS_Teaser_Vertical_V3_3.mp4",label:"Zips (2026)"},
+    {src:R2+"Trlr_Influence_2025_1x1.mp4",label:"Influence (2023)"},
+    {src:R2+"Discod_trailer_1x1.mp4",label:"Disco'd (2019)"},
   ];
   function renderLabel(s){const i=s.indexOf(',');if(i===-1)return s;return s.slice(0,i).trim()+'<br>'+s.slice(i+1).trim();}
   function buildStrip(){const strip=document.getElementById('heroStrip');[...stripClips,...stripClips].forEach((c,i)=>{const w=document.createElement('div');w.className='strip-clip';const v=document.createElement('video');v.src=c.src;v.autoplay=true;v.loop=true;v.muted=true;v.setAttribute('playsinline','');v.setAttribute('decoding','async');if(i>=stripClips.length)v.setAttribute('loading','lazy');const l=document.createElement('div');l.className='strip-label';l.innerHTML=renderLabel(c.label);w.appendChild(v);w.appendChild(l);strip.appendChild(w);});}
