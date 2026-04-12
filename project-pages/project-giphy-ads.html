@@ -55,7 +55,7 @@
   .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
-  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+  @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}.grid-card{flex:0 0 100%;}}
 </style>
 </head>
 <body>
@@ -104,8 +104,8 @@
   </section>
   <footer><p>&copy; 2026 Sam Mantell</p></footer>
   <script>
-  function initCarousels(){document.querySelectorAll(".cat-carousel").forEach(car=>{const track=car.querySelector(".cat-carousel-track");const orig=[...track.querySelectorAll(".grid-card")];const n=orig.length;let p=0;orig.forEach(c=>{track.appendChild(c.cloneNode(true));});function cw(){return car.offsetWidth/3;}function go(a){track.style.transition=a?"transform 0.45s ease":"none";track.style.transform="translateX(-"+(p*cw())+"px)";}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector(".cat-prev").addEventListener("click",prev);car.querySelector(".cat-next").addEventListener("click",next);window.addEventListener("resize",()=>go(false));go(false);});}
-  initCarousels();
+  function initCarousels(){document.querySelectorAll(".cat-carousel").forEach(car=>{const track=car.querySelector(".cat-carousel-track");const orig=[...track.querySelectorAll(".grid-card")];const n=orig.length;let p=0;orig.forEach(c=>{track.appendChild(c.cloneNode(true));});function go(a){track.style.transition=a?"transform 0.45s ease":"none";track.style.transform="translateX(-"+(p*cw())+"px)";}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector(".cat-prev").addEventListener("click",prev);car.querySelector(".cat-next").addEventListener("click",next);window.addEventListener("resize",()=>go(false));go(false);});}
+  initCarousels();function cols(){return window.innerWidth<=640?1:3;}function cw(){return car.offsetWidth/cols();}
   </script>
 </body>
 </html>
