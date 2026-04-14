@@ -48,11 +48,25 @@
     @media(max-width: 640px) {
       nav { padding: 0 1.1rem; }
       .nav-logo { font-size: 1.1rem; }
-      .nav-right a { font-size: 0.6rem; letter-spacing: 0.1em; }
-      .nav-right li+li::before { padding: 0 0.4rem; }
+      .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-drawer { display: block; }
       .nav-download-inline { display: none; }
       .nav-download-float { display: flex; }
     }
+    /* ── HAMBURGER ── */
+    .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;margin-right:-6px;flex-direction:column;gap:5px;align-items:center;justify-content:center;}
+    .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--accent-site);transition:transform 0.3s ease,opacity 0.3s ease,width 0.3s ease;}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .nav-hamburger.open span:nth-child(2){opacity:0;width:0;}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    .nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;z-index:999;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);border-bottom:1px solid var(--border-pale);overflow:hidden;max-height:0;transition:max-height 0.35s ease;}
+    .nav-drawer.open{max-height:300px;}
+    .nav-drawer ul{list-style:none;padding:0.5rem 1.1rem 1rem;display:flex;flex-direction:column;gap:0;}
+    .nav-drawer ul li{border-bottom:1px solid var(--border-pale);}
+    .nav-drawer ul li:last-child{border-bottom:none;}
+    .nav-drawer ul a{display:block;padding:0.85rem 0;color:var(--dim);text-decoration:none;font-family:var(--fb);font-size:0.72rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-drawer ul a:hover{color:var(--accent-site);}
     .nav-download-inline {
       display: inline-block;
       margin-left: 1rem;
@@ -256,10 +270,21 @@
       <li><a href="index.html#contact">Contact</a></li>
       <li><a class="active" href="resume-creative.html">Résumé</a></li>
     </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <button class="nav-download-inline" onclick="window.print()">↓ Download</button>
   </nav>
 
-  <button class="nav-download-float" onclick="window.print()">↓ Download PDF</button>
+  <div class="nav-drawer" id="navDrawer">
+    <ul>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="resume-creative.html">Résumé</a></li>
+      <li><a href="#" onclick="window.print();return false;">↓ Download PDF</a></li>
+    </ul>
+  </div>
 
   <div class="page">
 
@@ -481,6 +506,18 @@
   (function(){
     const a=document.getElementById('resumeEmail');
     if(a){a.href=['mai','lto:samuel.mantell@','gmail.com'].join('');}
+  })();
+  (function(){
+    const btn=document.getElementById('navHamburger');
+    const drawer=document.getElementById('navDrawer');
+    if(!btn||!drawer)return;
+    function close(){btn.classList.remove('open');drawer.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    btn.addEventListener('click',function(){
+      const opening=!drawer.classList.contains('open');
+      opening?(btn.classList.add('open'),drawer.classList.add('open'),btn.setAttribute('aria-expanded','true')):close();
+    });
+    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+    document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!drawer.contains(e.target))close();});
   })();
 </script>
 </body>
