@@ -10,8 +10,12 @@
 <meta property="og:site_name" content="Sam Mantell">
 <meta property="og:title" content="Sam Mantell — Creative Producer & Project Manager">
 <meta property="og:description" content="Sam Mantell is a Creative Producer and Project Manager with 15+ years across branded content, digital series, and original film.">
-<meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ZIPS_Teaser_Vertical_V3_3.mp4">
-<meta property="og:url" content="https://samuelmantell.com/index.html">
+<meta property="og:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How%20Ya%20Doing%20Its%20Me%20GIF.gif">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How%20Ya%20Doing%20Its%20Me%20GIF.gif">
+<meta property="og:url" content="https://samuelmantell.com/">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
   :root{--bg:#ECEAF4;--bg2:#E3E0EF;--bg3:#D8D4E8;--text:#1E1C2C;--dim:#524E64;--muted:#8A8698;--accent:#7C5CBF;--accent-dim:rgba(124,92,191,0.18);--border:rgba(124,92,191,0.16);--border-pale:rgba(100,80,160,0.12);--glass-nav:rgba(236,234,244,0.62);--fd:'Playfair Display',serif;--fb:'DM Sans',sans-serif;}
@@ -30,7 +34,7 @@
   nav ul li+li::before{content:'·';color:var(--accent);padding:0 0.65rem;font-size:0.65rem;opacity:0.7;}
   nav ul a{color:var(--dim);text-decoration:none;font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;transition:color 0.25s;}
   nav ul a:hover,nav ul a.active{color:var(--accent);}
-  nav ul a.active{border-bottom:1.5px solid var(--accent);padding-bottom:2px;}
+  nav ul a.active{}
 
   /* ── HERO — text identity block ── */
   .hero{position:relative;z-index:1;}
@@ -59,10 +63,10 @@
   .hero-strip img,.hero-strip video{height:50vh;min-height:280px;width:auto;object-fit:cover;display:block;flex-shrink:0;}
   .strip-clip{position:relative;display:flex;flex-shrink:0;}
   .strip-label{position:absolute;top:1rem;left:1rem;font-family:var(--fb);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);line-height:1.7;pointer-events:none;}
-  /* Scroll prompt — absolutely positioned at filmstrip bottom, no layout height */
-  .hero-scroll{position:absolute;bottom:0;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:0.6rem 0;pointer-events:none;transition:opacity 0.5s ease;z-index:2;}
+  /* Scroll prompt — in-flow bar below filmstrip on opal background */
+  .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0.85rem 0 0.9rem;pointer-events:none;transition:opacity 0.5s ease;position:relative;z-index:1;}
   .hero-scroll.hidden{opacity:0;}
-  .hero-scroll span{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.75);font-weight:500;}
+  .hero-scroll span{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500;}
   .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse-line 2s ease-in-out infinite;}
   @keyframes pulse-line{0%,100%{opacity:0.3;}50%{opacity:1;}}
   /* Brands header — invisible until jump lands */
@@ -76,8 +80,7 @@
   .cat-header{padding:1.4rem 1.25rem 1rem;background:rgba(236,234,244,0.32);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center;}
   /* Brands header only — gradual top fade matching AOK project page style */
   .cat-header.brands-header{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 30%);mask-image:linear-gradient(to bottom,transparent 0%,black 30%);}
-  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;text-decoration:none;}
-  .cat-label:hover{color:var(--accent);}
+  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;}
   .cat-projects{font-size:clamp(0.95rem,1.6vw,1.45rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;line-height:1.2;display:block;}
   .cat-view-all{font-size:0.6rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:0.85;transition:opacity 0.2s;display:inline-block;margin-top:0.45rem;}
   .cat-view-all:hover{opacity:1;}
@@ -193,9 +196,10 @@
   <!-- Filmstrip — below stats -->
   <div class="hero-filmstrip">
     <div class="hero-strip-wrap"><div class="hero-strip" id="heroStrip"></div></div>
-    <!-- Scroll prompt — absolutely positioned at filmstrip bottom, no layout height -->
-    <div class="hero-scroll" id="heroScroll"><span>Scroll</span><div class="scroll-line"></div></div>
   </div>
+
+  <!-- Scroll prompt — on opal background, below filmstrip -->
+  <div class="hero-scroll" id="heroScroll"><span>Scroll</span><div class="scroll-line"></div></div>
 
 </section>
 
@@ -203,7 +207,7 @@
 <section class="projects" id="portfolio">
 
 <div class="cat-header brands-header" id="brandsHeader">
-  <a class="cat-label" href="content-pages/brands.html">Brands</a>
+  <span class="cat-label">Brands</span>
   <div class="cat-header-row">
     <span class="cat-projects">Ads, Social Content &amp; Brand Partnerships</span>
   </div>
@@ -221,7 +225,7 @@
 </div>
 
 <div class="cat-header">
-  <a class="cat-label" href="content-pages/digital.html">Digital</a>
+  <span class="cat-label">Digital</span>
   <div class="cat-header-row">
     <span class="cat-projects">GIFs, Animation, Short  &amp; Long Form Content</span>
     <a class="cat-view-all" href="project-pages/project-giphy-umbrella.html">All Giphy Studios Work →</a>
@@ -241,7 +245,7 @@
 </div>
 
 <div class="cat-header">
-  <a class="cat-label" href="content-pages/original.html">Original</a>
+  <span class="cat-label">Original</span>
   <div class="cat-header-row">
     <span class="cat-projects">Shorts, Features, Docs &amp; Series</span>
   </div>
@@ -373,22 +377,13 @@
     });
   })();
 
-  /* Active nav link highlight — scroll-position based, handles bfcache restore */
+  /* Active nav link highlight */
   (function(){
     const ids=['portfolio','about','contact'];
     const links={};
     document.querySelectorAll('nav ul a').forEach(a=>{links[a.getAttribute('href')]=a;});
-    function setActive(id){Object.values(links).forEach(a=>a.classList.remove('active'));if(id&&links['#'+id])links['#'+id].classList.add('active');}
-    function updateActive(){
-      const mid=window.scrollY+window.innerHeight*0.5;
-      let current=null;
-      for(const id of ids){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top+window.scrollY<=mid)current=id;}
-      setActive(current);
-    }
-    window.addEventListener('scroll',updateActive,{passive:true});
-    window.addEventListener('hashchange',function(){setTimeout(updateActive,50);});
-    /* pageshow fires on initial load AND on bfcache restore (back/forward nav) */
-    window.addEventListener('pageshow',function(){setTimeout(updateActive,100);});
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){Object.values(links).forEach(a=>a.classList.remove('active'));const l=links['#'+e.target.id];if(l)l.classList.add('active');}});},{rootMargin:'-30% 0px -60% 0px'});
+    ids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
   })();
 
   /* Email — assembled in JS to prevent Cloudflare script injection */
