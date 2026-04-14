@@ -19,13 +19,16 @@
     position:relative;z-index:1;
     padding-top:68px;
     display:grid;
-    grid-template-columns:40% 60%;
+    grid-template-columns:60% 40%;
     min-height:100vh;
   }
 
-  /* LEFT */
+  /* LEFT — content */
+  .content-col{display:flex;flex-direction:column;}
+
+  /* RIGHT — video */
   .video-col{
-    border-right:1px solid var(--border-pale);
+    border-left:1px solid var(--border-pale);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -61,7 +64,7 @@
   }
   .laurel-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
   .laurel-item img{width:100%;max-width:160px;height:auto;object-fit:contain;filter:drop-shadow(0 1px 6px rgba(0,0,0,0.1));}
-  .laurel-caption{font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .laurel-caption{font-size:9px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;text-align:center;line-height:1.5;}
   .laurel-winner .laurel-caption{color:var(--accent);}
 
   .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
@@ -89,7 +92,7 @@
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 
-  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-right:none;border-bottom:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.laurels-block{padding:20px;}.laurels-grid{grid-template-columns:repeat(3,1fr);gap:16px 20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-left:none;border-top:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.laurels-block{padding:20px;}.laurels-grid{grid-template-columns:repeat(3,1fr);gap:16px 20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
   @media(max-width:480px){.video-wrap{max-width:260px;}.laurels-grid{grid-template-columns:repeat(2,1fr);}.c-row,.c-row-right{grid-template-columns:110px 1fr;}}
 </style>
 </head>
@@ -98,24 +101,10 @@
 
   <div class="page-wrap">
 
-    <div class="video-col">
-      <div class="video-wrap">
-        <video id="mainVideo" controls playsinline>
-          <source id="mainSrc" src="" type="video/mp4">
-        </video>
-      </div>
-      <div class="v-controls">
-        <button class="v-arrow" id="prevBtn">&#8249;</button>
-        <div class="g-dots" id="gDots"></div>
-        <button class="v-arrow" id="nextBtn">&#8250;</button>
-      </div>
-      <div class="g-label" id="gLabel"></div>
-    </div>
-
     <div class="content-col">
 
       <div class="title-block">
-        <div class="breadcrumb">Original Content · Digital Series</div>
+        <div class="breadcrumb">Original Content · Digital Series · 2026</div>
         <h1 class="proj-title">Kaleb &amp; Ms. Kelsey</h1>
         <div class="social-links">
           <a href="https://www.instagram.com/kalebandmskelsey/" target="_blank" title="Instagram">
@@ -180,6 +169,21 @@
       </div>
 
     </div>
+
+    <div class="video-col">
+      <div class="video-wrap">
+        <video id="mainVideo" controls playsinline>
+          <source id="mainSrc" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="v-controls">
+        <button class="v-arrow" id="prevBtn">&#8249;</button>
+        <div class="g-dots" id="gDots"></div>
+        <button class="v-arrow" id="nextBtn">&#8250;</button>
+      </div>
+      <div class="g-label" id="gLabel"></div>
+    </div>
+
   </div>
 
   <section class="more-work">

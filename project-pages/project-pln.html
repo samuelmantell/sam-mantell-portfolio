@@ -25,13 +25,16 @@
     position:relative;z-index:1;
     padding-top:68px;
     display:grid;
-    grid-template-columns:40% 60%;
+    grid-template-columns:60% 40%;
     min-height:100vh;
   }
 
-  /* LEFT — video column */
+  /* LEFT — content column */
+  .content-col{display:flex;flex-direction:column;}
+
+  /* RIGHT — video column */
   .video-col{
-    border-right:1px solid var(--border-pale);
+    border-left:1px solid var(--border-pale);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -55,10 +58,9 @@
   .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
 
   /* STATS GRID — replaces laurels */
-  .stats-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
-  .stats-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;margin-bottom:20px;}
-  .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-pale);}
-  .stat-cell{background:var(--bg);padding:20px 24px;}
+  .stats-block{padding:24px 36px;border-bottom:1px solid var(--border-pale);}
+  .stats-grid{display:flex;gap:2.5rem;}
+  .stat-cell{padding:0;}
   .stat-n{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;margin-bottom:4px;}
   .stat-l{font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;}
 
@@ -85,7 +87,7 @@
   .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
-  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-right:none;border-bottom:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-left:none;border-top:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px;}.credits-block{padding:20px 20px 40px;}.credits-grid{grid-template-columns:1fr;}.c-row-right{padding-left:0;border-bottom:1px solid var(--border-pale);}.c-row{grid-template-columns:130px 1fr;}.c-row-right{grid-template-columns:130px 1fr;}}
   @media(max-width:480px){.video-wrap{max-width:260px;}.c-row,.c-row-right{grid-template-columns:110px 1fr;}}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 </style>
@@ -94,6 +96,28 @@
   <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/brands.html" class="back">← Brands</a></nav>
 
   <div class="page-wrap">
+
+    <div class="content-col">
+
+      <div class="title-block">
+        <div class="breadcrumb">Brands · T-Mobile · 2026</div>
+        <h1 class="proj-title">Premio Lo Nuestro</h1>
+      </div>
+
+      <div class="stats-block">
+        <div class="stats-grid">
+          <div class="stat-cell"><div class="stat-n">7</div><div class="stat-l">Social Assets</div></div>
+          <div class="stat-cell"><div class="stat-n">17M+</div><div class="stat-l">Views</div></div>
+          <div class="stat-cell"><div class="stat-n">2</div><div class="stat-l">Languages</div></div>
+        </div>
+      </div>
+
+      <div class="blurb-block">
+        <div class="section-head">About the project</div>
+        <p>Social activations featured artist Xavi and select influencers for T-Mobile's sponsorship of Latin music's premiere awards show: Premio Lo Nuestro. Fast-turnaround BTS and fomo-inducing event coverage captured and rapidly distributed across social platforms during the lead up to the main event. Xavi BTS was produced in English and Spanish language. Delivered 16.5M video views across Instagram and TikTok.</p>
+      </div>
+
+    </div>
 
     <div class="video-col">
       <div class="video-wrap" id="videoWrap">
@@ -109,19 +133,6 @@
       <div class="g-label" id="gLabel"></div>
     </div>
 
-    <div class="content-col">
-
-      <div class="title-block">
-        <div class="breadcrumb">Brands · T-Mobile</div>
-        <h1 class="proj-title">Premio Lo Nuestro</h1>
-      </div>
-
-      <div class="blurb-block">
-        <div class="section-head">About the project</div>
-        <p>Social activations featured artist Xavi and select influencers for T-Mobile's sponsorship of Latin music's premiere awards show: Premio Lo Nuestro. Fast-turnaround BTS and fomo-inducing event coverage captured and rapidly distributed across social platforms during the lead up to the main event. Xavi BTS was produced in English and Spanish language. Delivered 16.5M video views across Instagram and TikTok.</p>
-      </div>
-
-    </div>
   </div>
 
   <section class="more-work">

@@ -74,8 +74,8 @@
   .laurels-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;opacity:0.9;align-self:flex-start;}
   .laurels-row{display:flex;align-items:flex-start;justify-content:center;gap:48px;width:100%;}
   .laurel-item{display:flex;flex-direction:column;align-items:center;gap:8px;width:150px;}
-  .laurel-item img{width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.08));}
-  .laurel-caption{font-size:9px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:center;line-height:1.55;}
+  .laurel-item img{width:100%;height:auto;object-fit:contain;filter:invert(1) drop-shadow(0 2px 6px rgba(0,0,0,0.12));}
+  .laurel-caption{font-size:9px;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;text-align:center;line-height:1.55;}
   .laurel-winner .laurel-caption{color:var(--accent);}
   .win-badge{display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:5px 12px;align-self:center;margin-top:4px;}
 
@@ -145,7 +145,29 @@
   .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:860px){
+    nav{padding:0.9rem 1.25rem;}
+    .single-wrap{padding:14px 0 8px;}
+    .single-wrap video{width:100%;}
+    .page-grid{grid-template-columns:1fr;grid-template-areas:"header" "poster" "reviews" "blurb" "credits";}
+    .header-cell{flex-direction:column;}
+    .title-block{flex:none;padding:24px 20px 16px;}
+    .laurels-block{padding:0 20px 24px;align-items:center;}
+    .laurels-row{gap:20px;justify-content:center;}
+    .laurel-item{width:90px;}
+    .laurel-item img{width:110%;}
+    .poster-cell{padding:0 20px 8px;}
+    .poster-cell img{max-width:320px;margin:0 auto;display:block;}
+    .reviews-grid{grid-template-columns:1fr;}
+    .review-card{padding:20px;min-height:auto;}
+    .review-card--large .review-quote{font-size:clamp(20px,5vw,28px);}
+    .blurb-cell{padding:24px 20px;}
+    .blurb-cell p{font-size:15px;}
+    .credits-cell{padding:24px 20px 32px;}
+    .c-row{grid-template-columns:110px 1fr;}
+  }
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+  @media(max-width:480px){.laurels-row{flex-wrap:wrap;gap:16px;}.laurel-item{width:72px;}.poster-cell img{max-width:260px;}}
 </style>
 </head>
 <body>
@@ -164,7 +186,7 @@
     <!-- HEADER -->
     <div class="header-cell">
       <div class="title-block">
-        <div class="breadcrumb">Original Content · Feature Film</div>
+        <div class="breadcrumb">Original Content · Feature Film · 2023</div>
         <h1 class="proj-title">Influence</h1>
       </div>
       <div class="laurels-block">
@@ -233,7 +255,7 @@
     <div class="more-work-grid">
     <a href="project-kamk.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/KAMK_Situationship_GIF.mp4"></video><div class="mw-foot"><h3>Kaleb & Ms. Kelsey</h3><span>Digital Series</span></div></a>
     <a href="project-discod.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Discod_trailer_1x1.mp4"></video><div class="mw-foot"><h3>Disco'd</h3><span>Feature Documentary</span></div></a>
-    <a href="project-aok.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/PRIMITIVE%20TECHNOLOGY.mp4"></video><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
+    <a href="project-aok.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Primitive-Technology-GIF.gif"></img><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
     </div>
   </section>
   <footer><p>&copy; 2026 Sam Mantell</p></footer>

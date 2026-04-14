@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
+  <title>Résumé — Sam Mantell</title>
+  <meta name="description" content="Résumé — Sam Mantell, Creative Producer & Project Manager.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap');
+
+    /* ── SITE NAV ── */
+    :root {
+      --glass-nav: rgba(236,234,244,0.62);
+      --accent-site: #7C5CBF;
+      --border-pale: rgba(100,80,160,0.12);
+      --dim: #524E64;
+      --fd: 'Playfair Display', serif;
+      --fb: 'DM Sans', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      height: 68px; padding: 0 2.5rem;
+      background: var(--glass-nav);
+      backdrop-filter: blur(28px) saturate(1.6);
+      -webkit-backdrop-filter: blur(28px) saturate(1.6);
+      border-bottom: 1px solid var(--border-pale);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--fd); font-size: 1.55rem; font-weight: 700;
+      color: var(--accent-site); text-decoration: none;
+      letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+    }
+    .nav-right { display: flex; gap: 0; list-style: none; align-items: center; }
+    .nav-right li { display: flex; align-items: center; }
+    .nav-right li+li::before { content: '·'; color: var(--accent-site); padding: 0 0.65rem; font-size: 0.65rem; opacity: 0.7; }
+    .nav-right a {
+      color: var(--dim); text-decoration: none; font-family: var(--fb);
+      font-size: 0.68rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase;
+      padding-bottom: 2px; border-bottom: 1.5px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .nav-right a:hover { color: var(--accent-site); }
+    .nav-right a.active { color: var(--accent-site); border-bottom-color: var(--accent-site); }
+    @media(max-width: 640px) {
+      nav { padding: 0 1.1rem; }
+      .nav-logo { font-size: 1.1rem; }
+      .nav-right a { font-size: 0.6rem; letter-spacing: 0.1em; }
+      .nav-right li+li::before { padding: 0 0.4rem; }
+    }
+
+    /* ── RESUME ── */
+    :root {
+      --resume-accent: #FF6B35;
+      --dark: #0A0A0A;
+      --mid: #444444;
+      --light: #888888;
+      --rule: #E0E0E0;
+      --bg: #FFFFFF;
+      --sidebar-bg: #F7F7F7;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #DADADA;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+      font-size: 20px;
+      padding-top: calc(68px + 2rem);
+    }
+
+    .page {
+      width: 8.5in;
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 2.4in 1fr;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: var(--sidebar-bg);
+      padding: 0.3in 0.3in 0.3in 0.2in;
+      display: flex;
+      flex-direction: column;
+      gap: 0.12in;
+      border-right: 3px solid var(--resume-accent);
+    }
+
+    .name-block {
+      padding-bottom: 0.12in;
+      border-bottom: 1px solid var(--rule);
+    }
+    .name-block .first {
+      font-family: var(--font-display); font-size: 24px; font-weight: 800;
+      color: var(--dark); letter-spacing: -0.02em; line-height: 1;
+    }
+    .name-block .last {
+      font-family: var(--font-display); font-size: 24px; font-weight: 800;
+      color: var(--resume-accent); letter-spacing: -0.02em; line-height: 1.1;
+    }
+
+    .sidebar-section h3 {
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--resume-accent); margin-bottom: 8px;
+    }
+
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .contact-list li { font-size: 10px; color: var(--mid); line-height: 1.4; font-weight: 400; }
+    .contact-list li span {
+      display: block; font-weight: 600; color: var(--dark);
+      font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1px;
+    }
+    .contact-list a { color: var(--mid); text-decoration: none; }
+    .contact-list a:hover { color: var(--resume-accent); }
+
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .skill-list li { font-size: 10px; color: var(--mid); padding-left: 10px; position: relative; line-height: 1.5; }
+    .skill-list li::before { content: '→'; position: absolute; left: 0; color: var(--resume-accent); font-size: 9px; }
+
+    .format-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .tag {
+      display: inline-block; font-size: 7.5px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--mid); border: 1px solid var(--rule);
+      padding: 2px 6px; background: white; line-height: 1.6;
+    }
+
+    .edu-item { margin-bottom: 10px; }
+    .edu-item .degree { font-size: 10px; font-weight: 600; color: var(--dark); line-height: 1.4; }
+    .edu-item .school { font-size: 9px; color: var(--mid); line-height: 1.4; }
+    .edu-item .year { font-size: 9px; color: var(--resume-accent); font-weight: 600; margin-top: 2px; }
+
+    /* ── MAIN ── */
+    .main { padding: 0.3in 0.4in 0.3in; display: flex; flex-direction: column; gap: 0.08in; }
+    .main-header { padding-bottom: 0; }
+    .main-header .tagline {
+      font-family: var(--font-display); font-size: 11px; font-weight: 700;
+      color: var(--light); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .main-header .summary {
+      font-size: 10px; color: var(--mid); line-height: 1.5;
+      margin-top: 4px; max-width: 5in;
+    }
+
+    .section-label {
+      font-family: var(--font-display); font-size: 8.5px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--resume-accent); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+    .job { margin-bottom: 7px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-header { display: grid; grid-template-columns: 1fr auto; align-items: baseline; margin-bottom: 2px; }
+    .job-title { font-family: var(--font-display); font-size: 11.5px; font-weight: 700; color: var(--dark); letter-spacing: -0.01em; }
+    .job-date { font-size: 10px; color: var(--resume-accent); font-weight: 600; white-space: nowrap; }
+    .job-company { font-size: 10px; color: var(--mid); font-weight: 500; margin-bottom: 3px; font-style: italic; }
+    .job-bullets { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .job-bullets li { font-size: 11px; color: var(--mid); padding-left: 10px; position: relative; line-height: 1.55; }
+    .job-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--resume-accent); font-size: 7px; top: 2px; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; padding: 0; flex-direction: column; }
+      nav { display: none !important; }
+      .page { box-shadow: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Sam Mantell</a>
+    <ul class="nav-right">
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a class="active" href="resume-creative.html">Résumé</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="name-block">
+        <div class="first">SAM</div>
+        <div class="last">MANTELL</div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li><span>Location</span>Los Angeles, CA</li>
+          <li><span>Email</span><a id="resumeEmail" href="#">samuel.mantell@<!-- -->gmail.com</a></li>
+          <li><span>LinkedIn</span><a href="https://linkedin.com/in/sam-mantell" target="_blank">linkedin.com/in/sam-mantell</a></li>
+          <li><span>Portfolio</span><a href="https://samuelmantell.com" target="_blank">samuelmantell.com</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Core Skills</h3>
+        <ul class="skill-list">
+          <li>End-to-end production management</li>
+          <li>Production roadmaps &amp; scheduling</li>
+          <li>Creative review facilitation</li>
+          <li>Agency &amp; vendor management</li>
+          <li>Stakeholder alignment</li>
+          <li>Budget &amp; timeline ownership</li>
+          <li>Cross-functional team leadership</li>
+          <li>Post-production coordination</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Tools</h3>
+        <ul class="skill-list">
+          <li>Asana · Confluence</li>
+          <li>Google Workspace</li>
+          <li>Adobe Creative Suite</li>
+          <li>DaVinci Resolve</li>
+          <li>Tableau · Google Analytics</li>
+          <li>Claude AI · Claude Code</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Formats</h3>
+        <div class="format-tags">
+          <span class="tag">Digital</span>
+          <span class="tag">Branded</span>
+          <span class="tag">Social</span>
+          <span class="tag">Short-Form</span>
+          <span class="tag">Documentary</span>
+          <span class="tag">Narrative</span>
+          <span class="tag">Animated</span>
+          <span class="tag">Live Events</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Independent Projects</h3>
+        <ul class="skill-list">
+          <li>Multi-Platform Creator: @ByteSyzeTV</li>
+          <li>Producer: <em>No Borders</em> (WIP doc)</li>
+          <li>Associate Producer: <em>Influence</em> (2023)</li>
+          <li>Consultant: Imminent Films</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="degree">MBA, Business of Entertainment</div>
+          <div class="school">USC Marshall School of Business</div>
+          <div class="year">2021</div>
+        </div>
+        <div class="edu-item">
+          <div class="degree">BA, Communications: TV/Film</div>
+          <div class="school">Marist University</div>
+          <div class="year">2010</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+      <div class="main-header">
+        <div class="tagline">Creative Producer &amp; Project Manager</div>
+        <p class="summary">
+          Creative producer and project manager with 15+ years of experience driving end-to-end production across agency, platform, and brand environments. Equally fluent in creative development and production operations — I own roadmaps, facilitate creative reviews, align cross-functional stakeholders, and keep complex multi-track campaigns on schedule and on budget.
+        </p>
+      </div>
+
+      <div>
+        <div class="section-label">Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer / Post-producer</div>
+            <div class="job-date">2026</div>
+          </div>
+          <div class="job-company">.Monks · Los Angeles, CA / Miami, FL</div>
+          <ul class="job-bullets">
+            <li>Stepped into an agency production workflow on two days' notice; managed real-time run of show and post-production logistics for social activations during a major brand sponsorship, relaying continuous status updates across creative, account, client, and production teams.</li>
+            <li>Owned end-to-end deliverable distribution under nightly deadlines — coordinated rapid edit turnarounds, shepherded client feedback, and managed version control and final asset delivery.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer</div>
+            <div class="job-date">2025 – Present</div>
+          </div>
+          <div class="job-company">Zips (Short Film) · New York, NY</div>
+          <ul class="job-bullets">
+            <li>Produce short film on location in New York City; deliver on schedule and under microbudget despite wrangling 45-person cast, period-specific production design, and complex VFX/stunt sequence.</li>
+            <li>Manage end-to-end production pipeline; budget and vendor contracts, SAG compliance, NYC permitting; through post-production, marketing, and festival exhibition; provide creative oversight throughout.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Short-Form Content Creator &amp; Editor</div>
+            <div class="job-date">2025 – Present</div>
+          </div>
+          <div class="job-company">Clip.Tech / @ByteSyzeTV · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Create short-form vertical content for Clip.Tech clients across YouTube Shorts, TikTok, and Instagram Reels, primarily focusing on the music/podcast niche, consistently driving 300K+ views per month.</li>
+            <li>Grow @ByteSyzeTV to 3,400+ followers and 11M+ views across YouTube and TikTok by prioritizing editorial quality; cutting long-form content into narrative-driven short clips rather than simple highlight cuts.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer</div>
+            <div class="job-date">2024 – Present</div>
+          </div>
+          <div class="job-company">Kaleb &amp; Ms. Kelsey (Digital Series) · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Design vertical short production workflow for comedic puppet show; optimized for multi-platform social delivery.</li>
+            <li>Over-achieve social engagement — 14% on TikTok, 4.6% on Reels — across 130K+ organic views.</li>
+            <li>Develop and create social media, email marketing content for a crowdfunding campaign; raised 150% of goal.</li>
+            <li>Create and manage on-target microbudget, coordinate logistics, staff and vendors on long-form pilot.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer</div>
+            <div class="job-date">2021 – 2024</div>
+          </div>
+          <div class="job-company">Giphy Studios · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Produced branded ad campaigns for major streaming, broadcast, and hospitality clients, generating 552M+ total impressions, including one campaign as producer of record achieving 91% organic reach.</li>
+            <li>Scaled post-production capacity 100x year-over-year across 150K+ digital asset deliveries; built and owned workflow infrastructure including editorial calendars, approval cycles, asset tracking, and archive systems that scaled across concurrent media partner projects within a matrixed, platform-scale organization.</li>
+            <li>Analyzed Tableau and Google Analytics data to inform creative strategy, and produced original live-action and animated content for previously underserved keywords that topped 10B views.</li>
+            <li>Produced real-time GIF content for culture's biggest live events: Super Bowl, The Oscars, Saturday Night Live, and more, managing production budgets and creative personnel to deliver 10B+ total views.</li>
+            <li>Embedded with cross-functional product development sprints, translating production realities into feature decisions across product, partnerships, and editorial teams.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer, Editor</div>
+            <div class="job-date">2015 – 2020</div>
+          </div>
+          <div class="job-company">Disco'd (Feature Documentary) · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Owned all aspects of a 5-year independent documentary production — principal photography, post-production, marketing, business administration, and festival exhibition — with a two-man team on $0 budget.</li>
+            <li>Navigated rapidly-evolving production environment on Los Angeles streets, built strong relationships with unhoused individuals at the time of filming, and captured their stories in an unfiltered, verité style.</li>
+            <li>Completed an Oscar-qualifying theatrical run; Documentary Audience Award, Brooklyn Film Festival; Maysles Brothers Competition, Belfast Film Festival.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Producer</div>
+            <div class="job-date">2016 – 2019</div>
+          </div>
+          <div class="job-company">University of Southern California · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Distilled doctorate-level research into engaging documentary-style explainer series for USC YouTube.</li>
+            <li>Managed a $150K production budget across 10 episodes, delivering on target, while coordinating with external production vendors, USC administrators, fellowship recipients, and social media strategists.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Freelance Producer</div>
+            <div class="job-date">2017 – 2018</div>
+          </div>
+          <div class="job-company">AOK YouTube Channel (The Jackal Group) · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Produced monthly live-action comedy shorts, managing creatives, budgets, schedules, permits, and contracts.</li>
+            <li>Collectively drove 450K+ views across 6 films, with 2 each surpassing 160K views, including a Primitive Technology parody that became one of the channel's top-performing live-action pieces.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Early Experience</div>
+            <div class="job-date">2009 – 2015</div>
+          </div>
+          <div class="job-company">Various · Los Angeles, CA</div>
+          <ul class="job-bullets">
+            <li>Mastered production support roles in broadcast, digital media, and branded content at FOX Animation Domination High-Def, CBS Television, FX Networks, and Freestyle Picture Company, among others.</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+<script>
+  (function(){
+    const a=document.getElementById('resumeEmail');
+    if(a){a.href=['mai','lto:samuel.mantell@','gmail.com'].join('');}
+  })();
+</script>
+</body>
+</html>

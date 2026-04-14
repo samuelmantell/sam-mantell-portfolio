@@ -21,10 +21,13 @@
   .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
   .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
 
-  .page-wrap{position:relative;z-index:1;padding-top:68px;display:grid;grid-template-columns:40% 60%;min-height:100vh;}
+  .page-wrap{position:relative;z-index:1;padding-top:68px;display:grid;grid-template-columns:60% 40%;min-height:100vh;}
 
-  /* LEFT */
-  .video-col{border-right:1px solid var(--border-pale);display:flex;flex-direction:column;align-items:center;padding:28px 24px 24px;}
+  /* LEFT — content */
+  .content-col{display:flex;flex-direction:column;}
+
+  /* RIGHT — video */
+  .video-col{border-left:1px solid var(--border-pale);display:flex;flex-direction:column;align-items:center;padding:28px 24px 24px;}
   .video-wrap{width:100%;aspect-ratio:9/16;background:#000;overflow:hidden;}
   .video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
   .v-controls{display:flex;align-items:center;gap:14px;margin-top:14px;}
@@ -40,6 +43,11 @@
   .title-block{padding:32px 36px;border-bottom:1px solid var(--border-pale);}
   .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
   .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
+  .stats-block{padding:24px 36px;border-bottom:1px solid var(--border-pale);}
+  .stats-grid{display:flex;gap:2.5rem;}
+  .stat-cell{padding:0;}
+  .stat-n{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;margin-bottom:4px;}
+  .stat-l{font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;}
   .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
   .section-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
   .blurb-block p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
@@ -58,7 +66,7 @@
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 
-  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-right:none;border-bottom:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.blurb-block{padding:20px 20px 40px;}}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{border-left:none;border-top:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px 20px 40px;}}
   @media(max-width:480px){.video-wrap{max-width:260px;}}
   </style>
 </head>
@@ -66,6 +74,26 @@
   <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../content-pages/digital.html" class="back">← Digital</a></nav>
 
   <div class="page-wrap">
+
+    <div class="content-col">
+      <div class="title-block">
+        <div class="breadcrumb">Digital · @ByteSyzeTV · 2026</div>
+        <h1 class="proj-title">@ByteSyzeTV</h1>
+      </div>
+
+      <div class="stats-block">
+        <div class="stats-grid">
+          <div class="stat-cell"><div class="stat-n">100+</div><div class="stat-l">Short-Form Videos</div></div>
+          <div class="stat-cell"><div class="stat-n">3,400</div><div class="stat-l">Subscribers</div></div>
+          <div class="stat-cell"><div class="stat-n">11M+</div><div class="stat-l">Views &amp; Counting</div></div>
+        </div>
+      </div>
+      <div class="blurb-block">
+        <div class="section-head">About the project</div>
+        <p>Freelance short-form content editor and creator of @ByteSyzeTV. I've created over 100 short-form videos for clients such as IShowSpeed, NBC's The Voice, and global pop artist Rosalía for mass distribution across social video channels. In just under 3 months, I amassed 11 million views and 3400 subscribers across YouTube and TikTok. As an advanced editor, my short-form product goes beyond simple clipping to incorporate storytelling, editorial perspective, and client requests.</p>
+      </div>
+    </div>
+
     <div class="video-col">
       <div class="video-wrap" id="videoWrap">
         <video id="mainVideo" controls playsinline>
@@ -80,16 +108,6 @@
       <div class="g-label" id="gLabel"></div>
     </div>
 
-    <div class="content-col">
-      <div class="title-block">
-        <div class="breadcrumb">Digital · @ByteSyzeTV</div>
-        <h1 class="proj-title">@ByteSyzeTV</h1>
-      </div>
-      <div class="blurb-block">
-        <div class="section-head">About the project</div>
-        <p>Freelance short-form content editor and creator of @ByteSyzeTV. I've created over 100 short-form videos for clients such as IShowSpeed, NBC's The Voice, and global pop artist Rosalía for mass distribution across social video channels. In just under 3 months, I amassed 11 million views and 3400 subscribers across YouTube and TikTok. As an advanced editor, my short-form product goes beyond simple clipping to incorporate storytelling, editorial perspective, and client requests.</p>
-      </div>
-    </div>
   </div>
 
   <section class="more-work">

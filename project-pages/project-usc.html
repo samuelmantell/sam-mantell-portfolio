@@ -81,7 +81,16 @@
   .mw-foot{position:absolute;bottom:0;left:0;right:0;padding:0.75rem;background:linear-gradient(to top,rgba(10,8,20,0.75),transparent);}
   .mw-foot h3{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:0.12rem;}
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
+  @media(max-width:860px){
+    nav{padding:0.9rem 1.25rem;}
+    .gallery-wrap{padding:0 40px;}
+    .g-slot-side{display:none;}
+    .g-slot-active{flex:0 0 100%;}
+    .header-cell{padding:24px 20px 16px;}
+    .bottom-row{grid-template-columns:1fr;padding:24px 20px 32px;gap:24px;}
+  }
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
+  @media(max-width:480px){.gallery-wrap{padding:0 32px;}}
 </style>
 </head>
 <body>
@@ -113,7 +122,7 @@
 
   <div class="page-wrap">
     <div class="header-cell">
-      <div class="breadcrumb">Digital · USC Marshall</div>
+      <div class="breadcrumb">Digital · USC Marshall · 2019</div>
       <h1 class="proj-title">USC Graduate School Fellowship Spotlight</h1>
     </div>
     <div class="bottom-row">
@@ -134,7 +143,7 @@
   <section class="more-work">
     <div class="more-work-label">More Work</div>
     <div class="more-work-grid">
-    <a href="project-aok.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/AOK/PRIMITIVE%20TECHNOLOGY.mp4"></video><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
+    <a href="project-aok.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/Primitive-Technology-GIF.gif"><div class="mw-foot"><h3>AOK YouTube</h3><span>Digital Series</span></div></a>
     <a href="project-giphy-stamps.html" class="mw-card"><img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif" alt="Stamps"><div class="mw-foot"><h3>Stamps</h3><span>Giphy Studios</span></div></a>
     <a href="project-pln.html" class="mw-card"><video autoplay loop muted playsinline src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/T-Mobile/TMO_PLN_Rapid-Fire.MP4"></video><div class="mw-foot"><h3>Premio Lo Nuestro</h3><span>T-Mobile</span></div></a>
     </div>

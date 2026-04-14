@@ -18,7 +18,11 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
   body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
-  nav{position:fixed;top:0;width:100%;z-index:1000;height:68px;padding:0 2.5rem;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);border-bottom:1px solid var(--border-pale);display:flex;align-items:center;}
+  html{scroll-behavior:smooth;scroll-padding-top:68px;}
+
+  /* ── FIXED NAV — hidden on load, fades in after hero-nav scrolls out ── */
+  nav{position:fixed;top:0;width:100%;z-index:1000;height:68px;padding:0 2.5rem;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);border-bottom:1px solid var(--border-pale);display:flex;align-items:center;opacity:0;pointer-events:none;transition:opacity 0.45s ease;}
+  nav.nav-visible{opacity:1;pointer-events:auto;}
   nav .nav-inner{width:100%;display:flex;justify-content:space-between;align-items:center;}
   .nav-logo{font-family:var(--fd);font-size:1.55rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;line-height:1;}
   nav ul{display:flex;gap:0;list-style:none;align-items:center;}
@@ -27,61 +31,127 @@
   nav ul a{color:var(--dim);text-decoration:none;font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:color 0.25s,border-color 0.25s;}
   nav ul a:hover,nav ul a.active{color:var(--accent);}
   nav ul a.active{border-bottom-color:var(--accent);}
-  .hero{position:relative;margin-top:68px;height:50vh;min-height:280px;overflow:hidden;}
+
+  /* ── HERO — text identity block ── */
+  .hero{position:relative;z-index:1;}
+
+  /* Inline nav — centered above title; triggers fixed nav when it scrolls out */
+  .hero-nav{display:flex;justify-content:center;align-items:center;gap:0;list-style:none;padding:2rem 2rem 0;}
+  .hero-nav li{display:flex;align-items:center;}
+  .hero-nav li+li::before{content:'·';color:var(--accent);padding:0 0.75rem;font-size:0.65rem;opacity:0.7;}
+  .hero-nav a{color:var(--dim);text-decoration:none;font-size:0.68rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding-bottom:2px;border-bottom:1.5px solid transparent;transition:color 0.25s,border-color 0.25s;}
+  .hero-nav a:hover{color:var(--accent);}
+
+  /* Identity */
+  .hero-identity{padding:2rem 2rem 0;text-align:center;}
+  .hero-title{font-family:var(--fd);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:#2E2150;letter-spacing:-0.02em;line-height:1;margin-bottom:0.5rem;}
+  .hero-role{font-size:clamp(0.72rem,1.5vw,1rem);color:var(--dim);letter-spacing:0.22em;text-transform:uppercase;font-weight:300;}
+
+  /* Stats — centered, no border dividers */
+  .hero-stats{display:flex;justify-content:center;gap:clamp(1.5rem,4vw,4rem);padding:2rem 2rem 2.25rem;text-align:center;}
+  .hs-n{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--accent);line-height:1;display:block;}
+  .hs-l{font-size:0.65rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;margin-top:0.3rem;display:block;}
+
+  /* Filmstrip — hard edge */
+  .hero-filmstrip{position:relative;z-index:1;height:50vh;min-height:280px;overflow:hidden;border-top:1px solid var(--border-pale);border-bottom:1px solid var(--border-pale);}
   .hero-strip-wrap{position:absolute;inset:0;display:flex;align-items:center;overflow:hidden;}
   .hero-strip{display:flex;align-items:center;will-change:transform;}
   .hero-strip img,.hero-strip video{height:50vh;min-height:280px;width:auto;object-fit:cover;display:block;flex-shrink:0;}
-  .hero-gradient{display:none;}
   .strip-clip{position:relative;display:flex;flex-shrink:0;border-right:3px solid rgba(236,234,244,0.35);}
-  .strip-label{position:absolute;top:1rem;left:1rem;font-family:var(--fb);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.9);line-height:1.7;pointer-events:none;}
-  .hero-scroll{position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:5px;pointer-events:none;}
-  .hero-scroll span{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);font-weight:500;opacity:0.8;}
+  .strip-label{position:absolute;top:1rem;left:1rem;font-family:var(--fb);font-size:9px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);line-height:1.7;pointer-events:none;}
+  /* Scroll prompt — in-flow bar below filmstrip on opal background */
+  .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0.85rem 0 0.9rem;pointer-events:none;transition:opacity 0.5s ease;position:relative;z-index:1;border-bottom:1px solid var(--border-pale);}
+  .hero-scroll.hidden{opacity:0;}
+  .hero-scroll span{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500;}
   .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse-line 2s ease-in-out infinite;}
-  @keyframes pulse-line{0%,100%{opacity:0.3;}50%{opacity:0.9;}}
-  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;padding:2rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-  .about-text{flex:1;}
-  .about-eyebrow{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;opacity:0.9;margin-bottom:0.5rem;}
-  .about-headline{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.85rem;}
-  .about-bio{font-size:1.3rem;color:var(--dim);line-height:1.8;font-weight:300;max-width:900px;}
-  .about-photo{flex:0 0 400px;width:400px;height:400px;overflow:hidden;align-self:center;}
-  .about-photo img{width:400px;height:400px;object-fit:cover;display:block;}
-  .about-stats{display:flex;gap:3rem;margin-top:1.25rem;flex-wrap:wrap;border-top:1px solid var(--border-pale);padding-top:1.1rem;}
-  .about-stat-n{font-family:var(--fd);font-size:3.00rem;font-weight:700;color:var(--accent);line-height:1;}
-  .about-stat-l{font-size:1.00rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.25rem;}
+  @keyframes pulse-line{0%,100%{opacity:0.3;}50%{opacity:1;}}
+  /* Brands header — invisible until jump lands */
+  .cat-header.brands-header{opacity:0;transition:opacity 0.35s ease;}
+  .cat-header.brands-header.revealed{opacity:1;}
+
+  /* ── PORTFOLIO ── */
   .projects{position:relative;z-index:1;}
-  .cat-header{padding:0.9rem 1.25rem 0.75rem 0.85rem;border-top:1px solid var(--border-pale);border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--text);display:block;margin-bottom:0.3rem;}
-  .cat-projects{font-size:0.65rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;font-weight:400;line-height:1.6;display:block;}
+
+  /* Category headers — no mask, increased transparency */
+  .cat-header{padding:1.4rem 1.25rem 1rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.32);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center;}
+  /* Brands header only — gradual top fade matching AOK project page style */
+  .cat-header.brands-header{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 30%);mask-image:linear-gradient(to bottom,transparent 0%,black 30%);}
+  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;}
+  .cat-projects{font-size:clamp(0.95rem,1.6vw,1.45rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;line-height:1.2;display:block;}
+  .cat-view-all{font-size:0.6rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:0.85;border-bottom:1px solid transparent;transition:opacity 0.2s,border-color 0.2s;display:inline-block;margin-top:0.45rem;}
+  .cat-view-all:hover{opacity:1;border-bottom-color:var(--accent);}
+  .cat-header-row{display:flex;flex-direction:column;align-items:center;}
+
   .cat-carousel{position:relative;overflow:hidden;}
   .cat-carousel-track{display:flex;transition:transform 0.45s ease;}
   .grid-card{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;text-decoration:none;color:inherit;flex:0 0 33.333%;}
   .cat-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(10,8,20,0.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--accent);color:var(--accent);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.75rem;transition:all 0.25s ease;line-height:1;}
   .cat-arrow:hover{background:var(--accent);color:var(--bg);}
   .cat-arrow.cat-prev{left:0.75rem;}.cat-arrow.cat-next{right:0.75rem;}
+  .carousel-dots{position:absolute;bottom:0.75rem;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5;pointer-events:auto;}
+  .c-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.35);border:none;padding:0;cursor:pointer;transition:background 0.25s,transform 0.25s;flex-shrink:0;}
+  .c-dot.active{background:rgba(255,255,255,0.95);transform:scale(1.25);}
   .grid-card img,.grid-card video{width:100%;height:100%;object-fit:cover;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);display:block;}
   .grid-card:hover img,.grid-card:hover video{transform:scale(1.07);}
   .grid-card-foot{position:absolute;top:0.85rem;left:0.85rem;padding:0;background:none;}
-  .grid-card-foot h3{font-family:var(--fd);font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.15rem;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,0.7);}
+  .grid-card-foot h3{font-family:var(--fd);font-size:1.25rem;font-weight:700;letter-spacing:-0.01em;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,0.7);}
   .grid-card-hover{position:absolute;inset:0;background:rgba(0,0,0,0.08);opacity:0;transition:opacity 0.3s ease;}
   .grid-card:hover .grid-card-hover{opacity:1;}
   .grid-card:not(:last-child){border-right:1px solid rgba(255,255,255,0.06);}
-  .contact-section{position:relative;z-index:1;padding:5rem 2rem;text-align:center;border-top:1px solid var(--border-pale);}
+
+  /* ── ABOUT ── */
+  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:stretch;gap:2rem;padding:2rem 2.5rem;background:rgba(236,234,244,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .about-text{flex:1;display:flex;flex-direction:column;}
+  .about-eyebrow{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;opacity:0.9;margin-bottom:0.5rem;}
+  .about-headline{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.85rem;}
+  .about-bio{font-size:1.3rem;color:var(--dim);line-height:1.8;font-weight:300;}
+  .about-bio .forward-signal{display:block;margin-top:0.9rem;font-size:1.05rem;color:var(--muted);font-style:italic;line-height:1.7;}
+  .about-photo{flex:0 0 400px;width:400px;height:400px;overflow:hidden;align-self:center;}
+  .about-photo img{width:400px;height:400px;object-fit:cover;display:block;}
+  /* Fade bridge — starts at bottom of about, dissolves downward into contact */
+  .section-fade{height:70px;position:relative;z-index:1;background:linear-gradient(to bottom,rgba(236,234,244,0.45),transparent);}
+
+  /* ── CONTACT ── */
+  .contact-section{position:relative;z-index:1;padding:5rem 2rem;text-align:center;}
   .contact-section h2{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem;}
   .contact-section h2 .accent{color:var(--accent);}
   .contact-framing{font-size:0.9rem;color:var(--dim);line-height:1.75;font-weight:300;margin:0 auto 1.75rem;max-width:480px;}
-  .contact-links{display:flex;justify-content:center;gap:1rem;}
-  .btn{display:inline-block;padding:0.85rem 2.25rem;font-family:var(--fb);font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border:1px solid;transition:all 0.25s ease;}
+  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:0.85rem 2.25rem;font-family:var(--fb);font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border:1px solid;transition:all 0.25s ease;cursor:pointer;}
   .btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);}
   .btn-primary:hover{background:transparent;color:var(--accent);}
   .btn-secondary{background:transparent;color:var(--text);border-color:rgba(124,92,191,0.3);}
   .btn-secondary:hover{border-color:var(--accent);color:var(--accent);}
-  footer{position:relative;z-index:1;padding:1.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.05em;}
+  footer{position:relative;z-index:1;padding:1.5rem 2rem;text-align:center;color:var(--muted);font-size:0.75rem;font-weight:300;letter-spacing:0.05em;}
+
+  /* ── RESPONSIVE ── */
   @media(max-width:900px){.grid-card{flex:0 0 50%;}}
-  @media(max-width:640px){nav{padding:0 1.1rem;}.nav-logo{font-size:1.1rem;letter-spacing:0.04em;}nav ul a{font-size:0.6rem;letter-spacing:0.1em;}nav ul li+li::before{padding:0 0.4rem;}.hero{height:44vh;}.hero-strip img,.hero-strip video{height:44vh;}.grid-card{flex:0 0 100%;}.cat-arrow{width:38px;height:38px;font-size:1.35rem;}.cat-header{padding:0.75rem 1rem 0.65rem;}.cat-label{font-size:clamp(1.4rem,6vw,2.2rem);}.about-section{flex-direction:column-reverse;gap:1rem;padding:1.5rem 1.25rem;}.about-photo{align-self:flex-start;}.contact-section{padding:3.5rem 1.25rem;}.contact-links{flex-direction:column;align-items:center;gap:0.75rem;}.btn{width:100%;max-width:280px;text-align:center;}}
-  html{scroll-behavior:smooth;}
+  @media(max-width:640px){
+    nav{padding:0 1.1rem;}
+    .nav-logo{font-size:1.1rem;letter-spacing:0.04em;white-space:nowrap;}
+    nav ul a{font-size:0.6rem;letter-spacing:0.1em;}
+    nav ul li+li::before{padding:0 0.4rem;}
+    .hero-nav{padding:1.5rem 1.25rem 0;}
+    .hero-identity{padding:1.5rem 1.25rem 0;}
+    .hero-stats{gap:1.25rem;padding:1.5rem 1.25rem 1.75rem;flex-wrap:wrap;}
+    .hero-stats .hs{flex:0 0 40%;text-align:center;}
+    .hero-filmstrip{height:44vh;}
+    .hero-strip img,.hero-strip video{height:44vh;}
+    .cat-projects{font-size:0.8rem;}
+    .grid-card{flex:0 0 100%;}
+    .cat-arrow{width:44px;height:44px;font-size:1.5rem;}
+    .about-section{flex-direction:column-reverse;gap:1rem;padding:1.5rem 1.25rem;}
+    .about-photo{align-self:flex-start;flex:0 0 auto;width:100%;height:auto;}
+    .about-photo img{width:100%;height:auto;}
+    .contact-section{padding:3.5rem 1.25rem;}
+    .contact-links{flex-direction:column;align-items:center;gap:0.75rem;}
+    .btn{width:100%;max-width:280px;text-align:center;}
+  }
 </style>
 </head>
 <body>
+
+<!-- FIXED NAV — hidden on load -->
 <nav id="mainNav">
 <div class="nav-inner">
 <div><a class="nav-logo" href="#home">Sam Mantell</a></div>
@@ -89,32 +159,55 @@
 <li><a href="#portfolio">Portfolio</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
+<li><a href="resume-creative.html" target="_blank">Résumé</a></li>
 </ul>
 </div>
 </nav>
+
+<!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-strip-wrap"><div class="hero-strip" id="heroStrip"></div></div>
-<div class="hero-gradient"></div>
-<div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
-</section>
-<section class="about-section" id="about">
-  <div class="about-text">
-    <div class="about-eyebrow">About</div>
-    <h2 class="about-headline">Producer &amp; Project Manager</h2>
-    <p class="about-bio">Sam Mantell is a master of creative production and business administration. He specializes in team leadership and cross-functional collaboration. Since 2007, he has worked across a wide variety of formats, scales, and capacities, delivering billions of views and numerous awards to his creative partnerships.</p>
-    <div class="about-stats">
-      <div><div class="about-stat-n">15+</div><div class="about-stat-l">Years</div></div>
-      <div><div class="about-stat-n">200K+</div><div class="about-stat-l">Assets</div></div>
-      <div><div class="about-stat-n">20B+</div><div class="about-stat-l">Views</div></div>
-      <div><div class="about-stat-n">6</div><div class="about-stat-l">Languages</div></div>
-    </div>
+
+  <!-- Inline nav — centered above title; scrolling this out triggers fixed nav -->
+  <ul class="hero-nav" id="heroNav">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="resume-creative.html" target="_blank">Résumé</a></li>
+  </ul>
+
+  <!-- Identity -->
+  <div class="hero-identity">
+    <h1 class="hero-title">Sam Mantell</h1>
+    <p class="hero-role">Producer &amp; Project Manager</p>
   </div>
-  <div class="about-photo">
-    <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How%20Ya%20Doing%20Its%20Me%20GIF.gif" alt="Sam Mantell">
+
+  <!-- Stats — no borders -->
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-n">15+</span><span class="hs-l">Years Experience</span></div>
+    <div class="hs"><span class="hs-n">200K+</span><span class="hs-l">Assets Managed</span></div>
+    <div class="hs"><span class="hs-n">20B+</span><span class="hs-l">Views Delivered</span></div>
+    <div class="hs"><span class="hs-n">10</span><span class="hs-l">Languages Produced</span></div>
   </div>
+
+  <!-- Filmstrip — below stats -->
+  <div class="hero-filmstrip">
+    <div class="hero-strip-wrap"><div class="hero-strip" id="heroStrip"></div></div>
+  </div>
+
+  <!-- Scroll prompt — on opal background, below filmstrip -->
+  <div class="hero-scroll" id="heroScroll"><span>Scroll</span><div class="scroll-line"></div></div>
+
 </section>
+
+<!-- PORTFOLIO -->
 <section class="projects" id="portfolio">
-<div class="cat-header"><div class="cat-label">Brands</div><div class="cat-projects">Digital Ads · Brand Partnerships · Social Activations</div></div>
+
+<div class="cat-header brands-header" id="brandsHeader">
+  <span class="cat-label">Brands</span>
+  <div class="cat-header-row">
+    <span class="cat-projects">Ads, Social Content &amp; Brand Partnerships</span>
+  </div>
+</div>
 <div class="cat-carousel">
 <button class="cat-arrow cat-prev">&#8249;</button>
 <div class="cat-carousel-track">
@@ -126,20 +219,33 @@
 </div>
 <button class="cat-arrow cat-next">&#8250;</button>
 </div>
-<div class="cat-header"><div class="cat-label">Digital</div><div class="cat-projects">Short Form · Animated · Social Content · Explainer Videos</div></div>
+
+<div class="cat-header">
+  <span class="cat-label">Digital</span>
+  <div class="cat-header-row">
+    <span class="cat-projects">GIFs, Animation, Short  &amp; Long Form Content</span>
+    <a class="cat-view-all" href="project-pages/project-giphy-umbrella.html">All Giphy Studios Work →</a>
+  </div>
+</div>
 <div class="cat-carousel">
 <button class="cat-arrow cat-prev">&#8249;</button>
 <div class="cat-carousel-track">
 <a class="grid-card" href="project-pages/project-bytesyzetv.html"><video autoplay loop muted playsinline decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/ByteSyze_Subway-Takes_Rosalia.MP4"></video><div class="grid-card-foot"><h3>ByteSyzeTV</h3></div><div class="grid-card-hover"></div></a>
 <a class="grid-card" href="project-pages/project-giphy-artist-commissions.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Artist Commissions" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Artist-Commissions/artist_commission_japan_new_year.gif"/><div class="grid-card-foot"><h3>Artist Commissions</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="project-pages/project-giphy-partnerships.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hot Ones Partnerships" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif"/><div class="grid-card-foot"><h3>Hot Ones</h3></div><div class="grid-card-hover"></div></a>
+<a class="grid-card" href="project-pages/project-giphy-livegif.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="NFL Live GIF" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif"/><div class="grid-card-foot"><h3>NFL</h3></div><div class="grid-card-hover"></div></a>
 <a class="grid-card" href="project-pages/project-giphy-stamps.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Stamps" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Stamps/studios-originals-stamps.gif"/><div class="grid-card-foot"><h3>Stamps</h3></div><div class="grid-card-hover"></div></a>
 <a class="grid-card" href="project-pages/project-giphy-studios.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="S.W.A.G." decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/Giphy/Studios-Originals/S.W.A.G./studios-originals-swag.gif"/><div class="grid-card-foot"><h3>S.W.A.G.</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-livegif.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="NFL Live GIF" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.gif"/><div class="grid-card-foot"><h3>NFL</h3></div><div class="grid-card-hover"></div></a>
-<a class="grid-card" href="project-pages/project-giphy-partnerships.html" style="border-left:1px solid rgba(255,255,255,0.06);"><img alt="Hot Ones Partnerships" decoding="async" loading="lazy" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.gif"/><div class="grid-card-foot"><h3>Hot Ones</h3></div><div class="grid-card-hover"></div></a>
 </div>
 <button class="cat-arrow cat-next">&#8250;</button>
 </div>
-<div class="cat-header"><div class="cat-label">Original</div><div class="cat-projects">Shorts · Features · Docs · Series</div></div>
+
+<div class="cat-header">
+  <span class="cat-label">Original</span>
+  <div class="cat-header-row">
+    <span class="cat-projects">Shorts, Features, Docs &amp; Series</span>
+  </div>
+</div>
 <div class="cat-carousel">
 <button class="cat-arrow cat-prev">&#8249;</button>
 <div class="cat-carousel-track">
@@ -150,26 +256,47 @@
 </div>
 <button class="cat-arrow cat-next">&#8250;</button>
 </div>
+
 </section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-text">
+    <div class="about-eyebrow">About</div>
+    <h2 class="about-headline">Producer &amp; Project Manager</h2>
+    <p class="about-bio">Sam Mantell is a creative producer and project manager with 15+ years across branded, digital, social, and original content — from GIFs to feature documentaries, from social campaigns to broadcast TV. He builds structures that let creative work scale, leading cross-functional teams from brief to delivery. He holds an MBA from USC Marshall School of Business.</p>
+    <br>
+    <p class="about-bio">Currently, he's open to Senior Producer, project management, and creative ops opportunities at agencies, brand studios, and media companies.</p>
+  </div>
+  <div class="about-photo">
+    <img src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How%20Ya%20Doing%20Its%20Me%20GIF.gif" alt="Sam Mantell">
+  </div>
+</section>
+
+<div class="section-fade"></div>
+
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
 <h2>Let's Work <span class="accent">Together</span></h2>
 <p class="contact-framing">If you're a creative looking for a business partner, or a business looking for a creative partner, let's chat.</p>
 <div class="contact-links">
-<a class="btn btn-primary" href="mailto:samuel.mantell@gmail.com">Email Me</a>
+<a class="btn btn-primary" id="emailBtn">Email Me</a>
 <a class="btn btn-secondary" href="https://linkedin.com/in/sam-mantell" target="_blank">LinkedIn</a>
+<a class="btn btn-secondary" href="resume-creative.html" target="_blank">View Résumé</a>
 </div>
 </section>
 <footer><p>© 2026 Sam Mantell. Built with Claude AI.</p></footer>
+
 <script>
   const R2="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/strip/";
   const stripClips=[
-    {src:"https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_Speed_Memphis.MOV",label:"IShowSpeed, @ByteSyzeTV"},
-    {src:R2+"ByteSyze_Subway-Takes_Rosalia.MP4",label:"Subway Takes, @ByteSyzeTV"},
-    {src:R2+"ByteSyze_The-Voice_Reba-McEntire.MP4",label:"NBC's The Voice, @ByteSyzeTV"},
     {src:R2+"Giphy_ads_starbucks_confetti.mp4",label:"Starbucks, Giphy Studios"},
     {src:R2+"giphy-ads-bachelorette-rose.mp4",label:"ABC's The Bachelorette, Giphy Studios"},
     {src:R2+"giphy-ads-hulu.mp4",label:"Hits-on-Hulu, Giphy Studios"},
     {src:R2+"TMO_PLN_Rapid-Fire.MP4",label:"T-Mobile, Premio Lo Nuestro Social"},
+    {src:"https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_Speed_Memphis.mp4",label:"IShowSpeed, @ByteSyzeTV"},
+    {src:R2+"ByteSyze_Subway-Takes_Rosalia.MP4",label:"Subway Takes, @ByteSyzeTV"},
+    {src:R2+"ByteSyze_The-Voice_Reba-McEntire.MP4",label:"NBC's The Voice, @ByteSyzeTV"},
     {src:R2+"Original_KAMK_rizz.MP4",label:"\"Rizz\", Kaleb & Ms. Kelsey"},
     {src:R2+"ZIPS_Teaser_Vertical_V3_3.mp4",label:"Zips (2026)"},
     {src:R2+"Trlr_Influence_2025_1x1.mp4",label:"Influence (2023)"},
@@ -180,14 +307,85 @@
   let pos=0;
   function half(){return document.getElementById('heroStrip').scrollWidth/2;}
   function tick(){pos-=0.6;if(Math.abs(pos)>=half())pos=0;document.getElementById('heroStrip').style.transform='translateX('+pos+'px)';requestAnimationFrame(tick);}
-  function initCarousels(){document.querySelectorAll('.cat-carousel').forEach(car=>{const track=car.querySelector('.cat-carousel-track');const orig=[...track.querySelectorAll('.grid-card')];const n=orig.length;let p=0;orig.forEach(c=>{const cl=c.cloneNode(true);cl.querySelectorAll('video').forEach(v=>{v.muted=true;v.autoplay=true;v.loop=true;v.load();});track.appendChild(cl);});function cols(){const w=window.innerWidth;return w<=640?1:w<=900?2:3;}function cw(){return car.offsetWidth/cols();}function go(a){track.style.transition=a?'transform 0.45s ease':'none';track.style.transform='translateX(-'+(p*cw())+'px)';}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector('.cat-prev').addEventListener('click',prev);car.querySelector('.cat-next').addEventListener('click',next);window.addEventListener('resize',()=>{p=0;go(false);});go(false);});}
+  function initCarousels(){document.querySelectorAll('.cat-carousel').forEach(car=>{const track=car.querySelector('.cat-carousel-track');const orig=[...track.querySelectorAll('.grid-card')];const n=orig.length;let p=0;orig.forEach(c=>{const cl=c.cloneNode(true);cl.querySelectorAll('video').forEach(v=>{v.muted=true;v.autoplay=true;v.loop=true;v.load();});track.appendChild(cl);});function cols(){const w=window.innerWidth;return w<=640?1:w<=900?2:3;}function cw(){return car.offsetWidth/cols();}const dotsWrap=document.createElement('div');dotsWrap.className='carousel-dots';for(let i=0;i<n;i++){const d=document.createElement('button');d.className='c-dot'+(i===0?' active':'');d.setAttribute('aria-label','Go to slide '+(i+1));d.addEventListener('click',()=>{p=i;go(true);});dotsWrap.appendChild(d);}car.appendChild(dotsWrap);function updateDots(){dotsWrap.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===p%n));}function go(a){track.style.transition=a?'transform 0.45s ease':'none';track.style.transform='translateX(-'+(p*cw())+'px)';updateDots();}function next(){p++;go(true);if(p>=n)setTimeout(()=>{p=0;go(false);},460);}function prev(){if(p<=0){p=n;go(false);requestAnimationFrame(()=>requestAnimationFrame(()=>{p--;go(true);}));}else{p--;go(true);}}car.querySelector('.cat-prev').addEventListener('click',prev);car.querySelector('.cat-next').addEventListener('click',next);window.addEventListener('resize',()=>{p=0;go(false);});go(false);});}
   buildStrip();requestAnimationFrame(tick);initCarousels();
+
+  /* Fixed nav — appears when inline hero-nav scrolls out of view */
+  (function(){
+    const nav=document.getElementById('mainNav');
+    const trigger=document.getElementById('heroNav');
+    new IntersectionObserver(entries=>{
+      nav.classList.toggle('nav-visible',!entries[0].isIntersecting);
+    },{threshold:0}).observe(trigger);
+  })();
+
+  /* Jump-scroll + scroll prompt + brands header reveal */
+  (function(){
+    const hero=document.getElementById('home');
+    const portfolio=document.getElementById('portfolio');
+    const brandsHeader=document.getElementById('brandsHeader');
+    const prompt=document.getElementById('heroScroll');
+    let jumped=false;
+
+    function doJump(){
+      if(jumped)return;
+      jumped=true;
+      if(prompt)prompt.classList.add('hidden');
+      /* smooth scroll to portfolio — controlled landing */
+      portfolio.scrollIntoView({behavior:'smooth'});
+      /* lock body scroll for 400ms to absorb any lingering gesture momentum */
+      document.body.style.overflow='hidden';
+      setTimeout(()=>{
+        document.body.style.overflow='';
+        if(brandsHeader)brandsHeader.classList.add('revealed');
+      },400);
+      cleanup();
+    }
+
+    function onWheel(e){
+      /* only intercept downward scroll while hero is still the top view */
+      if(window.scrollY===0&&e.deltaY>0){e.preventDefault();doJump();}
+    }
+    let touchStartY=0;
+    function onTouchStart(e){touchStartY=e.touches[0].clientY;}
+    function onTouchMove(e){
+      if(window.scrollY===0&&e.touches[0].clientY<touchStartY-8){e.preventDefault();doJump();}
+    }
+
+    function cleanup(){
+      window.removeEventListener('wheel',onWheel);
+      window.removeEventListener('touchstart',onTouchStart);
+      window.removeEventListener('touchmove',onTouchMove);
+    }
+
+    window.addEventListener('wheel',onWheel,{passive:false});
+    window.addEventListener('touchstart',onTouchStart,{passive:true});
+    window.addEventListener('touchmove',onTouchMove,{passive:false});
+
+    /* Also reveal brands header if user clicks a nav link that jumps past hero */
+    document.querySelectorAll('a[href="#portfolio"]').forEach(a=>{
+      a.addEventListener('click',()=>{
+        jumped=true;
+        if(prompt)prompt.classList.add('hidden');
+        setTimeout(()=>{if(brandsHeader)brandsHeader.classList.add('revealed');},50);
+        cleanup();
+      });
+    });
+  })();
+
+  /* Active nav link highlight */
   (function(){
     const ids=['portfolio','about','contact'];
     const links={};
     document.querySelectorAll('nav ul a').forEach(a=>{links[a.getAttribute('href')]=a;});
     const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){Object.values(links).forEach(a=>a.classList.remove('active'));const l=links['#'+e.target.id];if(l)l.classList.add('active');}});},{rootMargin:'-30% 0px -60% 0px'});
     ids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+  })();
+
+  /* Email — assembled in JS to prevent Cloudflare script injection */
+  (function(){
+    const b=document.getElementById('emailBtn');
+    if(b){b.href=['mai','lto:samuel.mantell@','gmail.com'].join('');}
   })();
 </script>
 </body>
