@@ -67,6 +67,12 @@
     if(el.tagName==="VIDEO"&&el.readyState>=1)scheduleLayout();
     if(el.tagName==="IMG"&&el.complete)scheduleLayout();
   });
+  /* Bust the gap on Fellowship Spotlight specifically — its 16:9 video loads late
+     and can leave the tile over-spanned if the early layout runs before metadata arrives */
+  document.querySelectorAll("#grid .tile video").forEach(v=>{
+    v.addEventListener("loadedmetadata",function(){layout();},true);
+    v.addEventListener("canplay",function(){layout();},true);
+  });
   [50,150,300,600,1000,1800,3000].forEach(t=>setTimeout(layout,t));
   </script>
 </body>

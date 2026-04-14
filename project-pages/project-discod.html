@@ -39,7 +39,8 @@
     grid-template-areas:
       "header  header  header  poster"
       "reviews reviews reviews poster"
-      "blurb   blurb   credits poster";
+      "blurb   blurb   blurb   poster"
+      "credits credits credits poster";
   }
 
   /* HEADER */
@@ -130,12 +131,13 @@
   .blurb-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
   .blurb-cell p{font-size:20px;color:var(--dim);line-height:1.85;font-weight:300;}
 
-  /* CREDITS — snaps to 3rd content col, aligns with Provocative */
+  /* CREDITS */
   .credits-cell{
     grid-area:credits;
-    padding:32px 28px;
+    padding:0 36px 40px;
   }
   .credits-head{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;opacity:0.9;}
+  .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem;}
   .c-row{display:grid;grid-template-columns:120px 1fr;padding:9px 0;}
   .c-role{font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;align-self:center;}
   .c-name{font-size:13px;color:var(--text);font-weight:400;align-self:center;}
@@ -154,7 +156,7 @@
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 
-  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.single-wrap{padding:14px 0 8px;}.single-wrap iframe{width:100%;}.page-grid{grid-template-columns:1fr;grid-template-areas:"header" "poster" "reviews" "blurb" "credits";}.header-cell{flex-direction:column;}.title-block{flex:none;padding:24px 20px 16px;}.laurels-block{padding:0 20px 24px;align-items:center;}.laurels-row{gap:20px;justify-content:center;}.laurel-item{width:90px;}.laurel-item img{width:110%;}.poster-cell{padding:0 20px 8px;}.poster-cell img{max-width:320px;margin:0 auto;display:block;}.reviews-grid{grid-template-columns:1fr;}.review-card{padding:20px;min-height:auto;}.review-card--large .review-quote{font-size:clamp(20px,5vw,28px);}.blurb-cell{padding:24px 20px;}.blurb-cell p{font-size:15px;}.credits-cell{padding:24px 20px 32px;}.c-row{grid-template-columns:110px 1fr;}}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.single-wrap{padding:14px 0 8px;}.single-wrap iframe{width:100%;}.page-grid{grid-template-columns:1fr;grid-template-areas:"header" "poster" "reviews" "blurb" "credits";}.header-cell{flex-direction:column;}.title-block{flex:none;padding:24px 20px 16px;}.laurels-block{padding:0 20px 24px;align-items:center;}.laurels-row{gap:20px;justify-content:center;}.laurel-item{width:90px;}.laurel-item img{width:110%;}.poster-cell{padding:0 20px 8px;}.poster-cell img{max-width:320px;margin:0 auto;display:block;}.reviews-grid{grid-template-columns:1fr;}.review-card{padding:20px;min-height:auto;}.review-card--large .review-quote{font-size:clamp(20px,5vw,28px);}.blurb-cell{padding:24px 20px;}.blurb-cell p{font-size:15px;}.credits-cell{padding:24px 20px 32px;}.credits-grid{grid-template-columns:1fr;}.c-row{grid-template-columns:110px 1fr;}}
   @media(max-width:480px){.laurels-row{flex-wrap:wrap;gap:16px;}.laurel-item{width:72px;}.poster-cell img{max-width:260px;}}
 </style>
 </head>
@@ -239,12 +241,14 @@
     <!-- CREDITS -->
     <div class="credits-cell">
       <div class="credits-head">Credits</div>
-      <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
-      <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
-      <div class="c-row"><span class="c-role">Director</span><span class="c-name">Matthew Siretta</span></div>
-      <div class="c-row"><span class="c-role">Director of Photography</span><span class="c-name">Matthew Siretta</span></div>
-      <div class="c-row"><span class="c-role">Location Sound</span><span class="c-name">Sam Mantell</span></div>
-      <div class="c-row"><span class="c-role">Post Sound</span><span class="c-name">Rob Marshall</span></div>
+      <div class="credits-grid">
+        <div class="c-row"><span class="c-role">Producer</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
+        <div class="c-row"><span class="c-role">Editor</span><span class="c-name">Sam Mantell, Matthew Siretta</span></div>
+        <div class="c-row"><span class="c-role">Director</span><span class="c-name">Matthew Siretta</span></div>
+        <div class="c-row"><span class="c-role">Director of Photography</span><span class="c-name">Matthew Siretta</span></div>
+        <div class="c-row"><span class="c-role">Location Sound</span><span class="c-name">Sam Mantell</span></div>
+        <div class="c-row"><span class="c-role">Post Sound</span><span class="c-name">Rob Marshall</span></div>
+      </div>
     </div>
 
   </div>
