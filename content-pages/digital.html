@@ -19,10 +19,10 @@
   body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 70% at 20% 25%,rgba(185,55,100,0.48) 0%,transparent 65%),radial-gradient(ellipse 70% 65% at 82% 78%,rgba(95,45,195,0.40) 0%,transparent 62%);}
   nav{position:fixed;top:0;width:100%;background:var(--glass-nav);backdrop-filter:blur(28px) saturate(1.6);-webkit-backdrop-filter:blur(28px) saturate(1.6);z-index:100;border-bottom:1px solid var(--border-pale);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
   .logo{font-family:var(--fd);font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:0.01em;}
-  .back{font-size:0.82rem;color:var(--dim);text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
+  .back{font-size:0.82rem;color:#7C5CBF;text-decoration:none;font-weight:400;transition:color 0.25s;letter-spacing:0.04em;}.back:hover{color:var(--accent);}
   .page-header{position:relative;z-index:1;padding:5.5rem 2.5rem 2.5rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
   .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
-  .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
+  .page-header p{font-size:1.125rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
   .grid-wrap{padding:3px;position:relative;z-index:1;}
   .masonry-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:2px;gap:3px;}
   @media(max-width:800px){.masonry-grid{grid-template-columns:repeat(2,1fr);}}
@@ -41,7 +41,7 @@
   </style>
 </head>
 <body>
-  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../index.html" class="back">← Portfolio</a></nav>
+  <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="/#portfolio" class="back">← Portfolio</a></nav>
   <div class="page-header"><h1>Digital Content</h1><p>Short-form and long-form digital content built for platform performance — creator channels, original animation, and social-first production.</p></div>
   <div class="grid-wrap"><div class="masonry-grid" id="grid">
     <a href="../project-pages/project-giphy-partnerships.html" class="tile"><div class="tile-inner"><video autoplay loop muted playsinline title="Hot Ones — Giphy Partnerships" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Partnerships/giphy-partnerships-hot-ones.mp4"></video><div class="tile-overlay"><div class="tile-label-block"><span class="tile-title">Brand Partnerships</span><span class="tile-sub">GIFs, Stickers, Clips</span></div></div></div></a>
