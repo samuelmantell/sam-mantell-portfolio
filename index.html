@@ -76,7 +76,8 @@
   .cat-header{padding:1.4rem 1.25rem 1rem;background:rgba(236,234,244,0.32);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center;}
   /* Brands header only — gradual top fade matching AOK project page style */
   .cat-header.brands-header{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 30%);mask-image:linear-gradient(to bottom,transparent 0%,black 30%);}
-  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;}
+  .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;text-decoration:none;}
+  a.cat-label:hover{color:var(--accent);}
   .cat-projects{font-size:clamp(0.95rem,1.6vw,1.45rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;line-height:1.2;display:block;}
   .cat-view-all{font-size:0.6rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:0.85;transition:opacity 0.2s;display:inline-block;margin-top:0.45rem;}
   .cat-view-all:hover{opacity:1;}
@@ -236,7 +237,7 @@
 </div>
 
 <div class="cat-header">
-  <span class="cat-label">Brands</span>
+  <a class="cat-label" href="project-pages/brands.html">Brands</a>
   <div class="cat-header-row">
     <span class="cat-projects">Ads, Social Content &amp; Brand Partnerships</span>
   </div>
@@ -254,7 +255,7 @@
 </div>
 
 <div class="cat-header">
-  <span class="cat-label">Digital</span>
+  <a class="cat-label" href="project-pages/digital.html">Digital</a>
   <div class="cat-header-row">
     <span class="cat-projects">GIFs, Animation, Short  &amp; Long Form Content</span>
     <a class="cat-view-all" href="project-pages/project-giphy-umbrella.html">All Giphy Studios Work →</a>
@@ -274,7 +275,7 @@
 </div>
 
 <div class="cat-header">
-  <span class="cat-label">Original</span>
+  <a class="cat-label" href="project-pages/original.html">Original</a>
   <div class="cat-header-row">
     <span class="cat-projects">Shorts, Features, Docs &amp; Series</span>
   </div>
