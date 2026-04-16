@@ -1,3 +1,5 @@
+.wrangler/
+images/.wrangler/
 *.mp4
 *.MP4
 *.mov
