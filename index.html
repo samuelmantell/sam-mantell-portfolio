@@ -62,7 +62,7 @@
   /* Scroll prompt — in-flow bar below filmstrip on opal background */
   .hero-scroll{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0.85rem 0 0.9rem;pointer-events:none;transition:opacity 0.5s ease;position:relative;z-index:1;}
   .hero-scroll.hidden{opacity:0;}
-  .hero-scroll span{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+  .hero-scroll span{font-size:0.6875rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500;}
   .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse-line 2s ease-in-out infinite;}
   @keyframes pulse-line{0%,100%{opacity:0.3;}50%{opacity:1;}}
   /* Brands header — invisible until jump lands */
@@ -77,9 +77,10 @@
   /* Brands header only — gradual top fade matching AOK project page style */
   .cat-header.brands-header{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 30%);mask-image:linear-gradient(to bottom,transparent 0%,black 30%);}
   .cat-label{font-family:var(--fd);font-size:clamp(1.75rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:#2E2150;display:block;margin-bottom:0.35rem;text-decoration:none;}
+  a.cat-label{color:#7C5CBF;}
   a.cat-label:hover{color:var(--accent);}
   .cat-projects{font-size:clamp(0.95rem,1.6vw,1.45rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;line-height:1.2;display:block;}
-  .cat-view-all{font-size:0.6rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:0.85;transition:opacity 0.2s;display:inline-block;margin-top:0.45rem;}
+  .cat-view-all{font-size:0.75rem;color:var(--accent);letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:500;opacity:0.85;transition:opacity 0.2s;display:inline-block;margin-top:0.45rem;}
   .cat-view-all:hover{opacity:1;}
   .cat-header-row{display:flex;flex-direction:column;align-items:center;}
 
@@ -422,15 +423,32 @@
         cleanup();
       });
     });
+
+    /* Reveal Featured header when landing directly on #portfolio (back-nav from category pages) */
+    if(window.location.hash==='#portfolio'){
+      jumped=true;
+      if(prompt)prompt.classList.add('hidden');
+      if(featuredHeader)featuredHeader.classList.add('revealed');
+    }
   })();
 
-  /* Active nav link highlight */
+  /* Active nav link highlight — scroll-position based, handles hash navigation + bfcache */
   (function(){
     const ids=['portfolio','about','contact'];
     const links={};
-    document.querySelectorAll('nav ul a').forEach(a=>{links[a.getAttribute('href')]=a;});
-    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){Object.values(links).forEach(a=>a.classList.remove('active'));const l=links['#'+e.target.id];if(l)l.classList.add('active');}});},{rootMargin:'-30% 0px -60% 0px'});
-    ids.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+    document.querySelectorAll('#navLinks a').forEach(a=>{links[a.getAttribute('href')]=a;});
+    function setActive(id){Object.values(links).forEach(a=>a.classList.remove('active'));if(id&&links['#'+id])links['#'+id].classList.add('active');}
+    function updateActive(){
+      const mid=window.scrollY+window.innerHeight*0.5;
+      let current=null;
+      for(const id of ids){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top+window.scrollY<=mid)current=id;}
+      setActive(current);
+    }
+    function setFromHash(){const h=window.location.hash.replace('#','');if(h&&links['#'+h]){setActive(h);return true;}return false;}
+    window.addEventListener('scroll',updateActive,{passive:true});
+    window.addEventListener('hashchange',function(){setTimeout(updateActive,50);});
+    window.addEventListener('pageshow',function(){setFromHash();setTimeout(updateActive,150);});
+    if(!setFromHash())setTimeout(updateActive,0);
   })();
 
   /* Email — assembled in JS to prevent Cloudflare script injection */
