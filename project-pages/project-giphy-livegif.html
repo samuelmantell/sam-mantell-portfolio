@@ -24,7 +24,7 @@
   .label{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;margin-bottom:0.6rem;opacity:0.9;}
   .page-header h1{font-family:var(--fd);font-size:clamp(2rem,5vw,3.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.85rem;}
   .page-header p{font-size:0.92rem;color:var(--dim);max-width:560px;line-height:1.75;font-weight:300;}
-  .campaign{position:relative;z-index:1;border-top:1px solid var(--border-pale);}
+  .campaign{position:relative;z-index:1;border-top:1px solid var(--border-pale);scroll-margin-top:64px;}
   .campaign-header{display:flex;justify-content:space-between;align-items:flex-end;padding:1.25rem 2.5rem 1rem;border-bottom:1px solid var(--border-pale);background:rgba(236,234,244,0.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
   .campaign-name{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.25rem);font-weight:700;letter-spacing:-0.02em;line-height:1;}
   .campaign-meta{font-size:0.68rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:right;line-height:1.7;font-weight:400;}
@@ -60,7 +60,7 @@
 <body>
   <nav><a href="../index.html" class="logo">Sam Mantell</a><a href="../index.html#portfolio" class="back">← Portfolio</a></nav>
   <div class="page-header"><div class="label">Digital · Giphy Studios · 2024</div><h1>Live GIF</h1><p>I produced and managed real-time live GIF production at Giphy Studios, capturing live moments from major cultural events and publishing within minutes for instant platform distribution. The examples below showcase just a small fraction of the nearly 15,000 live gifs I produced, which yielded billions of views.</p><a href="project-giphy-umbrella.html" class="giphy-all-link">All Giphy Work →</a></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">NFL</div><div class="campaign-meta">National Football League · Live GIF</div></div>
+  <div class="campaign" id="NFL"><div class="campaign-header"><div class="campaign-name">NFL</div><div class="campaign-meta">National Football League · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="NFL 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="NFL 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
@@ -70,7 +70,7 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="NFL 06" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-06.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="NFL 07" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NFL/NFL-live-gif-07.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>NFL</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">NBC Paris Olympics</div><div class="campaign-meta">NBC · Live GIF</div></div>
+  <div class="campaign" id="NBCOlympics"><div class="campaign-header"><div class="campaign-name">NBC Paris Olympics</div><div class="campaign-meta">NBC · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="Olympics 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Olympics 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
@@ -78,7 +78,7 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="Olympics 04" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-04.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Olympics 05" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/NBC-Paris-Olympics/nbc-paris-olympics-gif-05.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Paris Olympics</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Saturday Night Live</div><div class="campaign-meta">NBC · Live GIF</div></div>
+  <div class="campaign" id="SNL"><div class="campaign-header"><div class="campaign-name">Saturday Night Live</div><div class="campaign-meta">NBC · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="SNL 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="SNL 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
@@ -86,7 +86,7 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="SNL 04" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-04.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="SNL 06" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/SNL/SNL-live-gif-06.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>SNL</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">The Oscars</div><div class="campaign-meta">Academy Awards · Live GIF</div></div>
+  <div class="campaign" id="Oscars"><div class="campaign-header"><div class="campaign-name">The Oscars</div><div class="campaign-meta">Academy Awards · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="Oscars 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Oscars 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
@@ -94,13 +94,13 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="Oscars 04" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-04.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Oscars 06" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/The-Oscars/Oscars-live-gif-06.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>The Oscars</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Big Brother</div><div class="campaign-meta">CBS · Live GIF</div></div>
+  <div class="campaign" id="BigBrother"><div class="campaign-header"><div class="campaign-name">Big Brother</div><div class="campaign-meta">CBS · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="Big Brother 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Big Brother 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Big Brother 03" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Big-Brother/Big-Brother-03.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Big Brother</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Eurovision</div><div class="campaign-meta">Eurovision Song Contest · Live GIF</div></div>
+  <div class="campaign" id="Eurovision"><div class="campaign-header"><div class="campaign-name">Eurovision</div><div class="campaign-meta">Eurovision Song Contest · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="Eurovision 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Eurovision 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
@@ -108,7 +108,7 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="Eurovision 04" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-04.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Eurovision 05" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Eurovision/Eurovision-gif-05.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Eurovision</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Indian Super League</div><div class="campaign-meta">ISL · Live GIF</div></div>
+  <div class="campaign" id="ISL"><div class="campaign-header"><div class="campaign-name">Indian Super League</div><div class="campaign-meta">ISL · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="ISL 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="ISL 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
@@ -116,7 +116,7 @@
     <div class="grid-card"><video autoplay loop muted playsinline title="ISL 04" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-04.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="ISL 05" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Indian-Super-League/indian-super-league-gif-05.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Indian Super League</h3></div></div></div>
   </div><button class="cat-arrow cat-next">&#8250;</button></div></div>
-  <div class="campaign"><div class="campaign-header"><div class="campaign-name">Latin Grammys</div><div class="campaign-meta">Latin Recording Academy · Live GIF</div></div>
+  <div class="campaign" id="LatinGrammys"><div class="campaign-header"><div class="campaign-name">Latin Grammys</div><div class="campaign-meta">Latin Recording Academy · Live GIF</div></div>
   <div class="cat-carousel"><button class="cat-arrow cat-prev">&#8249;</button><div class="cat-carousel-track">
     <div class="grid-card"><video autoplay loop muted playsinline title="Latin Grammys 01" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-01.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
     <div class="grid-card"><video autoplay loop muted playsinline title="Latin Grammys 02" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Branded-Content/Live-Gif/Latin-Grammys/latin-grammys-gif-02.mp4"></video><div class="grid-card-foot"><div class="label-block"><h3>Latin Grammys</h3></div></div></div>
