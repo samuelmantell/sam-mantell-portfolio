@@ -46,7 +46,7 @@
   .projects{position:relative;z-index:1;padding:2.25rem 0 0;}
   .masonry-grid{position:relative;background:var(--hairline);opacity:0;transition:opacity 0.35s ease;}
   .masonry-grid.laid-out{opacity:1;}
-  .masonry-bridge{position:relative;z-index:1;height:80px;background:linear-gradient(to bottom,transparent 0%,rgba(236,234,244,0.45) 100%);}
+
 
   .m-tile{position:absolute;overflow:hidden;display:block;text-decoration:none;color:inherit;aspect-ratio:1/1;background:var(--bg2);}
   .m-tile[data-ratio="9x16"]{aspect-ratio:9/16;}
@@ -65,7 +65,7 @@
   .m-tile-format{font-size:0.62rem;color:var(--accent);font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:0.35rem 0.9rem;border:1px solid var(--accent);display:inline-block;background:rgba(236,234,244,0.45);}
 
   /* ── ABOUT ── */
-  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:stretch;gap:2rem;padding:3rem 2.5rem;background:rgba(236,234,244,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+  .about-section{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:stretch;gap:2rem;padding:3rem 2.5rem;background:rgba(236,234,244,0.45);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,black 100px);mask-image:linear-gradient(to bottom,transparent 0%,black 100px);}
   .about-text{flex:1;display:flex;flex-direction:column;}
   .about-eyebrow{font-size:0.68rem;color:var(--accent);font-weight:500;letter-spacing:0.22em;text-transform:uppercase;opacity:0.9;margin-bottom:0.5rem;}
   .about-headline{font-family:var(--fd);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:0.85rem;}
@@ -144,8 +144,8 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <h1 class="hero-title">Sam Mantell</h1>
-  <p class="hero-role">Seasoned Production Leader, Digital Maker, MBA</p>
-  <p class="hero-scope">Branded<span class="sep">·</span>Social<span class="sep">·</span> Originals — from GIFs to features</p>
+  <p class="hero-role"> Production Leader, Systems Master, MBA</p>
+  <p class="hero-scope">Branded<span class="sep">·</span>Social<span class="sep">·</span> Series</p>
 </section>
 
 <!-- STATS -->
@@ -251,15 +251,12 @@
 </div>
 </section>
 
-<!-- Soft transition bridge -->
-<div class="masonry-bridge"></div>
-
 <!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="about-text">
     <div class="about-eyebrow">About</div>
     <h2 class="about-headline">Producer &amp; Project Manager</h2>
-    <p class="about-bio">Sam Mantell is a creative producer and project manager with 15+ years across branded, digital, social, and original content — from GIFs to feature documentaries, from social campaigns to broadcast TV. He builds structures that let creative work scale, leading cross-functional teams from brief to delivery. He holds an MBA from USC Marshall School of Business.</p>
+    <p class="about-bio">Sam Mantell is a seasoned producer and project manager with 15+ years across branded, digital, social, and original content — from GIFs to feature documentaries, from social campaigns to broadcast TV. He builds structures that let creative work scale, leading cross-functional teams from brief to delivery. He holds an MBA from USC Marshall School of Business.</p>
     <br>
     <p class="about-bio">Currently, he's open to Senior Producer, project management, and creative ops opportunities at agencies, brand studios, and media companies.</p>
   </div>
