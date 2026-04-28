@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23ECEAF4'/><text x='16' y='23' font-family='serif' font-size='17' font-weight='700' text-anchor='middle' fill='%237C5CBF'>SM</text></svg>">
-<title>Sam Mantell — Production Leader</title>
+<title>Sam Mantell — Creative Producer & Project Manager</title>
 <meta name="description" content="Sam Mantell is a Producer and Project Manager with 15+ years across branded content, digital series, and original film.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sam Mantell">
@@ -33,9 +33,13 @@
   /* ── HERO — compact identity block ── */
   .hero{position:relative;z-index:1;padding:2.5rem 2rem 1.5rem;text-align:center;}
   .hero-title{font-family:var(--fd);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:#2E2150;letter-spacing:-0.02em;line-height:1;margin-bottom:0.75rem;}
+  .hero-title a{color:inherit;text-decoration:none;transition:opacity 0.2s;}
+  .hero-title a:hover{opacity:0.75;}
   .hero-role{font-size:clamp(0.75rem,1.55vw,1.05rem);color:var(--dim);letter-spacing:0.22em;text-transform:uppercase;font-weight:400;margin-bottom:0.85rem;}
   .hero-scope{font-family:var(--fb);font-size:clamp(0.9rem,1.6vw,1.1rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;font-style:italic;max-width:640px;margin:0 auto;}
   .hero-scope .sep{color:var(--accent);padding:0 0.5rem;opacity:0.7;font-style:normal;}
+  .hero-scope a{color:var(--dim);text-decoration:none;font-style:italic;border-bottom:1px solid transparent;transition:color 0.2s,border-color 0.2s;}
+  .hero-scope a:hover{color:var(--accent);border-bottom-color:var(--accent);}
 
   /* Stats */
   .hero-stats{display:flex;justify-content:center;gap:clamp(1.5rem,4vw,4rem);padding:1.5rem 2rem 0;text-align:center;position:relative;z-index:1;}
@@ -44,7 +48,7 @@
 
   /* ── PORTFOLIO — unified masonry grid, JS-driven ── */
   .projects{position:relative;z-index:1;padding:2.25rem 0 0;}
-  .masonry-grid{position:relative;background:var(--hairline);opacity:0;transition:opacity 0.35s ease;}
+  .masonry-grid{position:relative;background:transparent;opacity:0;transition:opacity 0.35s ease;}
   .masonry-grid.laid-out{opacity:1;}
 
 
@@ -58,11 +62,11 @@
   .m-tile:hover > video,.m-tile:hover > img{transform:scale(1.06);}
 
   /* Badge — upper-left corner, appears on hover */
-  .m-tile-panel{position:absolute;top:0.75rem;left:0.75rem;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:0.4rem 0.85rem;background:rgba(10,8,20,0.80);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent);pointer-events:none;max-width:72%;opacity:0;transition:opacity 0.25s ease;}
+  .m-tile-panel{position:absolute;top:0.75rem;left:0.75rem;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:0.4rem 0.85rem;background:rgba(236,234,244,0.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:2px solid var(--accent);pointer-events:none;max-width:72%;opacity:0;transition:opacity 0.25s ease;}
   .m-tile:hover .m-tile-panel,.m-tile:focus-visible .m-tile-panel,.m-tile.panel-active .m-tile-panel{opacity:1;}
-  .m-tile-name{font-family:var(--fb);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:500;color:#fff;letter-spacing:0.01em;line-height:1.2;margin-bottom:0;transition:color 0.25s;}
+  .m-tile-name{font-family:var(--fb);font-size:clamp(0.7rem,1vw,0.9rem);font-weight:500;color:var(--text);letter-spacing:0.01em;line-height:1.2;margin-bottom:0;transition:color 0.25s;}
   .m-tile:hover .m-tile-name{color:var(--accent);}
-  .m-tile-studio{font-size:clamp(0.55rem,0.75vw,0.66rem);color:rgba(255,255,255,0.55);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:0.15rem;line-height:1.3;}
+  .m-tile-studio{font-size:clamp(0.55rem,0.75vw,0.66rem);color:var(--dim);font-weight:400;letter-spacing:0.06em;text-transform:uppercase;margin-top:0.15rem;line-height:1.3;}
   .m-tile-format{display:none;}
 
   /* ── ABOUT ── */
@@ -120,6 +124,7 @@
     .hero-stats{gap:1.25rem;padding:1.25rem 1.25rem 0;flex-wrap:wrap;}
     .hero-stats .hs{flex:0 0 40%;text-align:center;}
     .m-tile-format{font-size:0.7rem;}
+    .m-tile-panel{opacity:1;}
     .about-section{flex-direction:column-reverse;gap:1rem;padding:2rem 1.25rem;}
     .about-photo{align-self:flex-start;flex:0 0 auto;width:100%;height:auto;}
     .about-photo video{width:100%;height:auto;}
@@ -147,9 +152,9 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <h1 class="hero-title">Sam Mantell</h1>
-  <p class="hero-role"> Production Leader, Systems Master, MBA</p>
-  <p class="hero-scope">Branded<span class="sep">·</span>Social<span class="sep">·</span> Series</p>
+  <h1 class="hero-title"><a href="https://linkedin.com/in/sam-mantell" target="_blank" rel="noopener">Sam Mantell</a></h1>
+  <p class="hero-role">Creative Producer &amp; Project Manager</p>
+  <p class="hero-scope"><a href="content-pages/brands.html">Branded</a><span class="sep">·</span><a href="content-pages/digital.html">Digital</a><span class="sep">·</span><a href="content-pages/original.html">Original</a></p>
 </section>
 
 <!-- STATS -->
@@ -260,9 +265,7 @@
   <div class="about-text">
     <div class="about-eyebrow">About</div>
     <h2 class="about-headline">Producer &amp; Project Manager</h2>
-    <p class="about-bio">Sam Mantell is a seasoned producer and project manager with 15+ years across branded, digital, social, and original content — from GIFs to feature documentaries, from social campaigns to broadcast TV. He builds structures that let creative work scale, leading cross-functional teams from brief to delivery. He holds an MBA from USC Marshall School of Business.</p>
-    <br>
-    <p class="about-bio">Currently, he's open to Senior Producer, project management, and creative ops opportunities at agencies, brand studios, and media companies.</p>
+    <p class="about-bio">Sam Mantell is an award-winning creative producer and project manager with 15+ years across digital media, broadcast, branded content, animation, and film. He's built production pipelines from scratch, managed high-profile brand campaigns, and develped an elite Slack presence. He thinks at the intersection of creativity and strategy, and holds an MBA from USC Marshall School of Business. Currently, he's pursuing Senior Producer, project management, and creative ops opportunities at agencies, brand studios, and media companies.</p>
   </div>
   <div class="about-photo">
     <video autoplay loop muted playsinline aria-label="Sam Mantell" src="https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/About/How-Ya-Doing-Its-Me-GIF.mp4"></video>

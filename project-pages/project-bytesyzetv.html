@@ -24,33 +24,51 @@
   .page-wrap{position:relative;z-index:1;padding-top:68px;display:grid;grid-template-columns:60% 40%;min-height:100vh;align-items:start;}
 
   /* LEFT — content */
-  .content-col{display:flex;flex-direction:column;}
-
-  /* RIGHT — video */
-  .video-col{position:sticky;top:68px;align-self:start;max-height:calc(100vh - 68px);overflow:hidden;border-left:1px solid var(--border-pale);display:flex;flex-direction:column;align-items:center;padding:28px 24px 24px;}
-  .video-wrap{width:auto;max-width:100%;height:calc(100vh - 220px);aspect-ratio:9/16;background:#000;overflow:hidden;}
-  .video-wrap video{width:100%;height:100%;object-fit:cover;display:block;}
-  .v-controls{display:flex;align-items:center;gap:14px;margin-top:14px;}
-  .v-arrow{width:34px;height:34px;background:transparent;border:1px solid var(--border-pale);color:var(--dim);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;transition:all 0.2s;}
-  .v-arrow:hover{border-color:var(--accent);color:var(--accent);}
-  .g-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:120px;}
-  .g-dot{width:5px;height:5px;background:var(--border-pale);border-radius:50%;cursor:pointer;transition:background 0.2s;}
-  .g-dot.on{background:var(--accent);}
-  .g-label{font-size:9px;color:var(--muted);letter-spacing:0.16em;text-transform:uppercase;margin-top:8px;text-align:center;}
-
-  /* RIGHT */
-  .content-col{display:flex;flex-direction:column;}
-  .title-block{padding:32px 36px;border-bottom:1px solid var(--border-pale);}
+  .content-col{display:flex;flex-direction:column;min-width:0;}
+  .title-block{padding:32px 64px;border-bottom:1px solid var(--border-pale);}
   .breadcrumb{font-size:10px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
   .proj-title{font-family:var(--fd);font-size:clamp(26px,4vw,52px);font-weight:700;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
-  .stats-block{padding:24px 36px;border-bottom:1px solid var(--border-pale);}
+  .stats-block{padding:24px 64px;border-bottom:1px solid var(--border-pale);}
   .stats-grid{display:flex;gap:2.5rem;}
   .stat-cell{padding:0;}
   .stat-n{font-family:var(--fd);font-size:2rem;font-weight:700;color:var(--accent);letter-spacing:-0.02em;line-height:1;margin-bottom:4px;}
   .stat-l{font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:400;}
-  .blurb-block{padding:28px 36px;border-bottom:1px solid var(--border-pale);}
+  .blurb-block{padding:28px 64px;border-bottom:1px solid var(--border-pale);}
   .section-head{font-size:11px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
   .blurb-block p{font-size:14px;color:var(--dim);line-height:1.85;font-weight:300;}
+
+  /* RIGHT — YouTube embed panel */
+  .video-col{position:sticky;top:68px;align-self:start;height:calc(100vh - 68px);border-left:1px solid var(--border-pale);display:flex;flex-direction:column;overflow:hidden;}
+  .yt-col-top{padding:14px 20px;border-bottom:1px solid var(--border-pale);font-size:11px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;font-weight:500;flex-shrink:0;}
+  .yt-embed-wrap{flex:1;position:relative;background:#000;overflow:hidden;}
+  .yt-embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;}
+  .yt-col-bottom{padding:13px 20px;border-top:1px solid var(--border-pale);font-size:10px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;text-align:center;transition:opacity 0.2s;opacity:0.8;flex-shrink:0;display:block;font-weight:500;}
+  .yt-col-bottom:hover{opacity:1;}
+
+  /* THUMBNAIL STRIP — lives inside content-col */
+  .thumb-section{border-top:1px solid var(--border-pale);padding:20px 0 24px;margin-right:32px;}
+  .thumb-section-head{display:flex;justify-content:space-between;align-items:center;padding:0 64px 14px;}
+  .thumb-section-label{font-size:9px;color:var(--accent);letter-spacing:0.2em;text-transform:uppercase;font-weight:500;}
+  .thumb-section-link{font-size:10px;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:color 0.2s,opacity 0.2s;opacity:0.8;border-bottom:1px solid rgba(124,92,191,0.35);padding-bottom:1px;}
+  .thumb-section-link:hover{opacity:1;border-bottom-color:var(--accent);}
+  .thumb-strip{display:flex;gap:15px;overflow-x:auto;padding:0 0px 6px;scrollbar-width:thin;scrollbar-color:var(--border-pale) transparent;-webkit-overflow-scrolling:touch;}
+  .thumb-strip::-webkit-scrollbar{height:3px;}
+  .thumb-strip::-webkit-scrollbar-track{background:transparent;}
+  .thumb-strip::-webkit-scrollbar-thumb{background:var(--border-pale);border-radius:2px;}
+  .thumb-strip::after{content:'';display:block;min-width:24px;flex-shrink:0;}
+
+  .ts-card{flex-shrink:0;width:240px;position:relative;cursor:pointer;overflow:hidden;background:var(--bg2);border-radius:2px;}
+  .ts-card::before{content:'';display:block;padding-top:56.25%;}
+  .ts-card img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s,filter 0.2s;}
+  .ts-card:hover img{transform:scale(1.06);filter:brightness(0.7);}
+  .ts-card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;background:linear-gradient(to top,rgba(10,8,20,0.85) 0%,transparent 60%);opacity:0;transition:opacity 0.2s;}
+  .ts-card:hover .ts-card-overlay{opacity:1;}
+  .ts-card-title{font-size:9px;color:#fff;line-height:1.35;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .ts-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);width:28px;height:28px;background:rgba(220,0,0,0.9);border-radius:5px;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s,transform 0.2s;}
+  .ts-card:hover .ts-play{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  .ts-loading{padding:1rem 0;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .ts-spinner{width:14px;height:14px;border:2px solid var(--border-pale);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0;}
 
   footer{position:relative;z-index:1;padding:2rem;text-align:center;color:var(--muted);font-size:0.75rem;border-top:1px solid var(--border-pale);font-weight:300;letter-spacing:0.04em;}
 
@@ -66,9 +84,8 @@
   .mw-foot span{font-size:0.62rem;color:rgba(255,255,255,0.65);letter-spacing:0.1em;text-transform:uppercase;}
   @media(max-width:640px){.more-work-grid{grid-template-columns:1fr;}}
 
-  @media(min-width:901px){nav{padding-left:6rem;padding-right:6rem;}.page-wrap{padding-left:6rem;padding-right:6rem;}}
-  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{position:static;max-height:none;overflow:visible;border-left:none;border-top:1px solid var(--border-pale);padding:24px 20px;}.video-wrap{height:auto;width:100%;max-width:320px;margin:0 auto;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px 20px 40px;}}
-  @media(max-width:480px){.video-wrap{max-width:260px;}}
+  @media(min-width:901px){nav{padding-left:4rem;padding-right:4rem;}.page-wrap{padding-right:4rem;}}
+  @media(max-width:860px){nav{padding:0.9rem 1.25rem;}.page-wrap{grid-template-columns:1fr;min-height:auto;}.video-col{position:static;height:auto;border-left:none;border-top:1px solid var(--border-pale);}.yt-embed-wrap{aspect-ratio:16/9;position:relative;flex:none;height:auto;}.yt-embed-wrap iframe{position:absolute;}.title-block{padding:24px 20px;}.stats-block{padding:20px;}.blurb-block{padding:20px 20px 24px;}.thumb-section-head{padding-left:20px;padding-right:20px;}.thumb-strip{padding-left:20px;}}
   </style>
 </head>
 <body>
@@ -93,20 +110,30 @@
         <div class="section-head">About the project</div>
         <p>Freelance short-form content editor and creator of @ByteSyzeTV. I've created over 100 short-form videos for clients such as IShowSpeed, NBC's The Voice, and global pop artist Rosalía for mass distribution across social video channels. In just under 3 months, I amassed 11 million views and 3400 subscribers across YouTube and TikTok. As an advanced editor, my short-form product goes beyond simple clipping to incorporate storytelling, editorial perspective, and client requests.</p>
       </div>
+
+      <!-- THUMBNAIL STRIP — inside left column -->
+      <section class="thumb-section">
+        <div class="thumb-section-head">
+          <div class="thumb-section-label">More from @ByteSyzeTV</div>
+          <a class="thumb-section-link" href="https://www.youtube.com/@ByteSyzeTV" target="_blank" rel="noopener">View all on YouTube ↗</a>
+        </div>
+        <div class="thumb-strip" id="thumbStrip">
+          <div class="ts-loading"><div class="ts-spinner"></div>Loading&hellip;</div>
+        </div>
+      </section>
     </div>
 
+    <!-- RIGHT — YouTube embed -->
     <div class="video-col">
-      <div class="video-wrap" id="videoWrap">
-        <video id="mainVideo" controls playsinline>
-          <source id="mainSrc" src="" type="video/mp4">
-        </video>
+      <div class="yt-col-top">All Videos &middot; @ByteSyzeTV &middot; 100+</div>
+      <div class="yt-embed-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=UU2Xq0xF3BtGd4FuRXFcz0uA&autoplay=0&modestbranding=1&rel=0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
       </div>
-      <div class="v-controls">
-        <button class="v-arrow" id="prevBtn">&#8249;</button>
-        <div class="g-dots" id="gDots"></div>
-        <button class="v-arrow" id="nextBtn">&#8250;</button>
-      </div>
-      <div class="g-label" id="gLabel"></div>
+      <a class="yt-col-bottom" href="https://www.youtube.com/@ByteSyzeTV/videos" target="_blank" rel="noopener">View Full Channel on YouTube ↗</a>
     </div>
 
   </div>
@@ -122,31 +149,64 @@
   <footer><p>&copy; 2026 Sam Mantell</p></footer>
 
   <script>
-const vids = [
-  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_Subway-Takes_Rosalia.mp4", title: "Subway Takes" },
-  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_The-Voice_Reba-McEntire.mp4", title: "NBC's The Voice" },
-  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_Speed_Memphis_web.mp4", title: "Speed Went Slicing In Memphis with Moneybagg Yo" },
-  { src: "https://pub-3b296e40628b4f9dbbb389024b171552.r2.dev/images/Digital-Content/ByteSyzeTV/ByteSyze_Genius-Verified_Samara-Cyn.mp4", title: "Genius Verified - Sinner, Samara Cyn" },
-];
-let curIdx = 0;
-const n = vids.length;
-const videoEl = document.getElementById('mainVideo');
-const srcEl = document.getElementById('mainSrc');
-const labelEl = document.getElementById('gLabel');
-const dotsEl = document.getElementById('gDots');
+  // ── Thumbnail strip ──────────────────────────────────────────────
+  const YT_API_KEY  = 'AIzaSyDzdbERpUACvXX2rkaAZYfH6Cd8nieBLT4';
+  const UPLOADS_ID  = 'UU2Xq0xF3BtGd4FuRXFcz0uA';
+  const CHANNEL_ID  = 'UC2Xq0xF3BtGd4FuRXFcz0uA';
+  const strip       = document.getElementById('thumbStrip');
 
-function update() {
-  srcEl.src = vids[curIdx].src;
-  videoEl.load();
-  labelEl.textContent = vids[curIdx].title;
-  dotsEl.innerHTML = vids.map((_, i) =>
-    `<div class="g-dot${i === curIdx ? ' on' : ''}" onclick="go(${i})"></div>`
-  ).join('');
-}
-function go(i) { curIdx = (i + n) % n; update(); }
-document.getElementById('prevBtn').addEventListener('click', () => go(curIdx - 1));
-document.getElementById('nextBtn').addEventListener('click', () => go(curIdx + 1));
-update();
+  function buildStrip(videos) {
+    strip.innerHTML = '';
+    var leftSpacer = document.createElement('div');
+    leftSpacer.style.cssText = 'flex-shrink:0;min-width:36px;';
+    strip.appendChild(leftSpacer);
+    videos.forEach(function(v) {
+      var card = document.createElement('a');
+      card.className = 'ts-card';
+      card.href = 'https://www.youtube.com/watch?v=' + v.id;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      var safe = v.title.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      card.innerHTML =
+        '<img src="https://i.ytimg.com/vi/'+v.id+'/mqdefault.jpg" alt="'+safe+'" loading="lazy"'+
+        ' onerror="this.src=\'https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg\'">'+
+        '<div class="ts-card-overlay"><div class="ts-card-title">'+safe+'</div></div>'+
+        '<div class="ts-play"><svg width="10" height="12" viewBox="0 0 10 12" fill="white"><path d="M0 0l10 6L0 12z"/></svg></div>';
+      strip.appendChild(card);
+    });
+  }
+
+  async function loadStrip() {
+    try {
+      if (YT_API_KEY !== 'ADD_KEY_HERE') {
+        var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId='+UPLOADS_ID+'&maxResults=50&key='+YT_API_KEY;
+        var r = await fetch(url);
+        var d = await r.json();
+        if (d.error) throw new Error(d.error.message);
+        var videos = [];
+        (d.items||[]).forEach(function(item) {
+          var s = item.snippet;
+          if (s.resourceId && s.resourceId.videoId)
+            videos.push({ id: s.resourceId.videoId, title: s.title });
+        });
+        buildStrip(videos);
+      } else {
+        var proxy = 'https://api.allorigins.win/get?url=';
+        var feed  = 'https://www.youtube.com/feeds/videos.xml?channel_id='+CHANNEL_ID;
+        var r2 = await fetch(proxy + encodeURIComponent(feed));
+        var d2 = await r2.json();
+        var xml = d2.contents || '';
+        var ids    = Array.from(xml.matchAll(/<yt:videoId>([^<]+)<\/yt:videoId>/g)).map(function(m){return m[1];});
+        var titles = Array.from(xml.matchAll(/<title>([^<]*)<\/title>/g)).map(function(m){return m[1];}).slice(1);
+        if (!ids.length) throw new Error('empty');
+        buildStrip(ids.map(function(id,i){return {id:id,title:titles[i]||'Untitled'};}));
+      }
+    } catch(e) {
+      strip.innerHTML = '<a href="https://www.youtube.com/@ByteSyzeTV/videos" target="_blank" rel="noopener" style="font-size:11px;color:var(--accent);padding:8px 0;">Browse all videos on YouTube ↗</a>';
+    }
+  }
+
+  loadStrip();
   </script>
 </body>
 </html>
