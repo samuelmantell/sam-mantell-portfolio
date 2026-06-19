@@ -223,7 +223,7 @@
     }
 
     .job-bullets li {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--mid);
       line-height: 1.4;
       font-weight: 400;
@@ -255,7 +255,7 @@
     }
 
     .edu-degree {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--dark);
     }
@@ -296,22 +296,8 @@
 </head>
 <body>
 
-  <!-- CONTROL PANEL -->
+  <!-- PRINT BUTTON -->
   <div class="control-panel">
-    <span class="control-label">Show</span>
-    <button class="toggle-btn active" onclick="toggleEl('job-zips', this)">Zips</button>
-    <button class="toggle-btn active" onclick="toggleEl('job-cliptech', this)">Clip.Tech</button>
-    <button class="toggle-btn active" onclick="toggleEl('job-kamk', this)">KAMK</button>
-    <button class="toggle-btn active" onclick="toggleEl('bullet-sprint', this)">Sprint Bullet</button>
-    <button class="toggle-btn active" onclick="toggleEl('job-usc', this)">USC</button>
-    <button class="toggle-btn active" onclick="toggleEl('job-aok', this)">AOK</button>
-    <button class="toggle-btn active" onclick="toggleEl('job-early', this)">Early Exp.</button>
-    <div class="control-divider"></div>
-    <span class="control-label">Size</span>
-    <button class="toggle-btn" onclick="nudgeFont(-0.5)">A−</button>
-    <span class="control-label" id="font-size-display">11px</span>
-    <button class="toggle-btn" onclick="nudgeFont(0.5)">A+</button>
-    <div class="control-divider"></div>
     <button class="toggle-btn" onclick="printWhenReady()">Print / PDF</button>
   </div>
 
@@ -446,18 +432,6 @@
       </ul>
     </div>
 
-    <!-- Early Experience -->
-    <div class="job toggleable" id="job-early">
-      <div class="job-header">
-        <div class="job-title">Early Career</div>
-        <div class="job-date">2009 – 2015</div>
-      </div>
-      <div class="job-company">Various · Los Angeles, CA</div>
-      <ul class="job-bullets">
-        <li>Mastered production support roles in broadcast, digital media, and branded content at FOX Animation Domination High-Def, CBS Television, FX Networks, and Freestyle Picture Company, among others.</li>
-      </ul>
-    </div>
-
     <!-- EDUCATION -->
     <div class="section-label">Education</div>
 
@@ -484,22 +458,6 @@
       document.fonts.ready.then(() => {
         setTimeout(() => window.print(), 100);
       });
-    }
-
-    function toggleEl(id, btn) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.classList.toggle('hidden');
-      btn.classList.toggle('active');
-    }
-
-    let currentFontSize = 11;
-    function nudgeFont(delta) {
-      currentFontSize = Math.min(13, Math.max(8, Math.round((currentFontSize + delta) * 2) / 2));
-      document.querySelectorAll('.job-bullets li, .edu-degree, .edu-school').forEach(el => {
-        el.style.fontSize = currentFontSize + 'px';
-      });
-      document.getElementById('font-size-display').textContent = currentFontSize + 'px';
     }
   </script>
 </body>
