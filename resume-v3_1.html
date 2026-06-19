@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sam Mantell — Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap');
+
+    :root {
+      --accent: #7C5CBF;
+      --accent-light: #EDE8F7;
+      --dark: #111111;
+      --mid: #444444;
+      --light: #777777;
+      --rule: #DEDEDE;
+      --bg: #FFFFFF;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: #CECECE;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* ── CONTROL PANEL ── */
+    .control-panel {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #1A1A1A;
+      padding: 7px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      z-index: 9999;
+    }
+
+    .control-label {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #555;
+      margin-right: 2px;
+    }
+
+    .toggle-btn {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border: 1px solid #444;
+      background: transparent;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .toggle-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .control-divider {
+      width: 1px;
+      height: 18px;
+      background: #333;
+      margin: 0 2px;
+    }
+
+    .toggleable.hidden { display: none !important; }
+
+    /* ── PAGE ── */
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      background: var(--bg);
+      padding: 0.45in 0.6in;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.16);
+      margin-top: 3rem;
+    }
+
+    /* ── HEADER ── */
+    .resume-header {
+      text-align: center;
+      padding-bottom: 0.08in;
+      border-bottom: 2.5px solid var(--accent);
+      margin-bottom: 0.07in;
+    }
+
+    .name-block .first {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .name-block .last {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .name-block .title-line {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .contact-row {
+      margin-top: 4px;
+      font-family: var(--font-body);
+      font-size: 9.5px;
+      font-weight: 400;
+      color: var(--mid);
+    }
+
+    .contact-row a {
+      color: var(--mid);
+      text-decoration: none;
+    }
+
+    .contact-row a:hover { color: var(--accent); }
+
+    .contact-sep {
+      color: var(--accent);
+      margin: 0 2px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary {
+      font-size: 10px;
+      color: var(--mid);
+      line-height: 1.4;
+      font-weight: 400;
+      margin-bottom: 0.10in;
+      margin-top: 0.10in;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 5px;
+      margin-bottom: 0.09in;
+      margin-top: 0.13in;
+    }
+
+    .section-label:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ── JOB BLOCK ── */
+    .job {
+      padding-left: 0;
+      margin-bottom: 0.1in;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .job-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+    }
+
+    .job-date {
+      font-size: 11px;
+      color: var(--light);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .job-company {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 3px;
+      letter-spacing: 0.01em;
+    }
+
+    .job-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .job-bullets li {
+      font-size: 11px;
+      color: var(--mid);
+      line-height: 1.4;
+      font-weight: 400;
+      padding-left: 0;
+      position: relative;
+      margin-bottom: 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+
+    .job-bullets li::before {
+      content: '›';
+      flex-shrink: 0;
+      width: 11px;
+      color: var(--accent);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-left: 0;
+      margin-bottom: 0.07in;
+    }
+
+    .edu-degree {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .edu-school {
+      font-size: 10px;
+      color: var(--mid);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    .edu-year {
+      font-size: 9.5px;
+      color: var(--light);
+      white-space: nowrap;
+    }
+
+    /* ── PRINT STYLES ── */
+    @page { margin: 0; }
+
+    @media print {
+      body { display: block; background: white; padding: 0; }
+      .control-panel { display: none; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { width: 8.5in; box-shadow: none; margin: 0; padding: 0.35in 0.6in 0.3in; }
+      .job { margin-bottom: 0.06in; }
+      .edu-row { margin-bottom: 0.04in; }
+      .job-bullets li { padding-left: 0; line-height: 1.35; display: flex; align-items: baseline; }
+      .job-bullets li::before { flex-shrink: 0; width: 10px; display: block; line-height: 1; }
+      .summary { line-height: 1.35; }
+      .section-label { margin-top: 0.08in; margin-bottom: 0.06in; padding-bottom: 3px; }
+      .section-label:first-of-type { margin-top: 0; }
+      .job-company { margin-bottom: 2px; }
+      .job-header { margin-bottom: 0; }
+      .resume-header { padding-bottom: 0.06in; margin-bottom: 0.06in; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTROL PANEL -->
+  <div class="control-panel">
+    <span class="control-label">Show</span>
+    <button class="toggle-btn active" onclick="toggleEl('job-zips', this)">Zips</button>
+    <button class="toggle-btn active" onclick="toggleEl('job-cliptech', this)">Clip.Tech</button>
+    <button class="toggle-btn active" onclick="toggleEl('job-kamk', this)">KAMK</button>
+    <button class="toggle-btn active" onclick="toggleEl('bullet-sprint', this)">Sprint Bullet</button>
+    <button class="toggle-btn active" onclick="toggleEl('job-usc', this)">USC</button>
+    <button class="toggle-btn active" onclick="toggleEl('job-aok', this)">AOK</button>
+    <button class="toggle-btn active" onclick="toggleEl('job-early', this)">Early Exp.</button>
+    <button class="toggle-btn active" onclick="toggleEl('section-indep', this)">Indep. Projects</button>
+    <div class="control-divider"></div>
+    <span class="control-label">Size</span>
+    <button class="toggle-btn" onclick="nudgeFont(-0.5)">A−</button>
+    <span class="control-label" id="font-size-display">11px</span>
+    <button class="toggle-btn" onclick="nudgeFont(0.5)">A+</button>
+    <div class="control-divider"></div>
+    <button class="toggle-btn" onclick="printWhenReady()">Print / PDF</button>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="resume-header">
+      <div class="name-block">
+        <div class="name-line"><span class="first">Sam</span> <span class="last">Mantell</span></div>
+        <div class="title-line">Senior Producer &amp; Project Manager</div>
+        <div class="contact-row"><span>Los Angeles, CA</span><span class="contact-sep"> · </span><a href="mailto:samuel.mantell@gmail.com">samuel.mantell@gmail.com</a><span class="contact-sep"> · </span><a href="https://www.linkedin.com/in/sam-mantell" target="_blank">linkedin.com/in/sam-mantell</a><span class="contact-sep"> · </span><a href="https://sammantell.com" target="_blank">sammantell.com</a></div>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <p class="summary">
+      Full-stack producer with 15+ years driving end-to-end production across digital media, branded content, and documentary film. Specializes in designing scalable production workflows and providing connective tissue between creative, production, post, and publishing. Detail-obsessed pragmatist with efficacy rooted in communication .  MBA in the Business of Entertainment. AI-fluent: builds custom production tools and pipelines using Claude.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <div class="section-label">Experience</div>
+
+    <!-- .Monks -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Temp Producer / Post-Producer</div>
+        <div class="job-date">2026</div>
+      </div>
+      <div class="job-company">.Monks · Los Angeles, CA / Miami, FL</div>
+      <ul class="job-bullets">
+        <li>Stepped into senior producer role on short notice, rapidly mastered new production workflow and crew dynamics; managed real-time run of show and post-production logistics during a major brand sponsorship, delivering high-velocity social activations lauded by clients.</li>
+        <li>Owned client-facing deliverable distribution on Frame.io; coordinated rapid edit turnarounds, shepherded client feedback, managed version control, dual-language edits, and final asset delivery under nightly deadlines. </li>
+      </ul>
+    </div>
+
+    <!-- Zips -->
+    <div class="job toggleable" id="job-zips">
+      <div class="job-header">
+        <div class="job-title">Producer</div>
+        <div class="job-date">2025 – Present</div>
+      </div>
+      <div class="job-company">Zips (Short Film) · New York, NY</div>
+      <ul class="job-bullets"> 
+        <li>Orchestrate a complex microbudget period-piece production - 75-person cast/crew, 4 locations, 14 pages in 2 days - owning budget, schedule, office and set logistics, cast and crew contracts, vendor management, SAG and NYC permit compliance, and 1st AD duties.</li>
+        <li>Oversee post-production operations; coordinate delivery schedule, notes and revisions, vendors, and organize marketing creative deliverables.</li>
+        <li>Develop social media strategy, create and publish content, manage online community, and foment audience demand during run-up to film festival premiere.</li>
+      </ul>
+    </div>
+
+    <!-- Clip.Tech -->
+    <div class="job toggleable" id="job-cliptech">
+      <div class="job-header">
+        <div class="job-title">Clipping Content Creator &amp; Editor</div>
+        <div class="job-date">2025 – Present</div>
+      </div>
+      <div class="job-company">Clip.Tech / @ByteSyzeTV · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Create viral clipping content for music and podcasting clients across YouTube Shorts and TikTok; consistently driving 150K+ views per month.</li>
+        <li>Grow @ByteSyzeTV to 3,500+ followers, 11M views by prioritizing editorial quality and narrative-driven editing over simple highlight cuts.</li>
+      </ul>
+    </div>
+
+    <!-- KAMK -->
+    <div class="job toggleable" id="job-kamk">
+      <div class="job-header">
+        <div class="job-title">Producer</div>
+        <div class="job-date">2024 – Present</div>
+      </div>
+      <div class="job-company">Kaleb &amp; Ms. Kelsey (Digital Series) · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Design novel production workflow for short-form educational puppet series, and optimize post-production for multi-platform publication.</li>
+        <li>Develop, create, and publish social media and email marketing content for long-form pilot crowdfunding campaign; raise 150% of goal.</li>
+        <li>Own microbudget management, crew staffing, vendor management, shoot logistics, and post-production for long-form series pilot.</li>
+        <li>Exceed 14% engagement rate on TikTok, and 4.6% on Reels across 130K+ organic views, and earn numerous film festival awards.</li>
+      </ul>
+    </div>
+
+    <!-- Giphy -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Producer</div>
+        <div class="job-date">2021 – 2024</div>
+      </div>
+      <div class="job-company">Giphy Studios · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Scaled post-production capacity 100x year-over-year, supervising 150K+ brand partner deliveries; managed production requests, editor assignments, partner notes, and QC in Asana; tracked and analyzed throughput with Google Sheets, and publicly reported team wins in Slack.</li>
+        <li>Producer of record for the studio's highest-revenue operation; scoped, planned, and managed cross-functional alignment between creative and account teams; executed creative; generated 552M+ impressions, including one campaign achieving 91% organic reach.</li>
+        <li>Built the live GIF program from the ground up; designed workflow, hired and trained freelancers, migrated scheduling infrastructure; drove real-time coverage of Super Bowl LVIII, The Oscars, Paris Olympics, Saturday Night Live, and 50+ additional tentpoles; delivered 10B+ views.</li>
+        <li>Analyzed Tableau and Google Analytics, developed creative strategy for underserved international audiences, produced original live-action and animated content in 5 languages, delivering more than 15B views and eliminating service shortfalls for international evergreen keywords.</li>
+        <li id="bullet-sprint" class="toggleable">Embedded with cross-functional product development sprints; incorporated production realities into feature decisions across product, partnerships, and editorial teams.</li>
+      </ul>
+    </div>
+
+    <!-- Disco'd -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Producer, Editor</div>
+        <div class="job-date">2015 – 2020</div>
+      </div>
+      <div class="job-company">Disco'd (Feature Documentary) · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Owned all aspects of a 5-year Oscar-qualified documentary production — principal photography, post-production, marketing, business administration, and festival exhibition — with a two-man team on $0 budget.</li>
+        <li>Navigated rapidly-evolving production environment on Los Angeles streets, built strong relationships with unhoused individuals at the time of filming, and captured their stories in an unfiltered, verité style.</li>
+        <li>WINNER - Audience Award, Documentary, Brooklyn Film Festival; Official Selection: Maysles Brothers Competition - Belfast Film Festival.</li>
+      </ul>
+    </div>
+
+    <!-- USC -->
+    <div class="job toggleable" id="job-usc">
+      <div class="job-header">
+        <div class="job-title">Producer</div>
+        <div class="job-date">2016 – 2019</div>
+      </div>
+      <div class="job-company">University of Southern California · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Developed and produced a 10-episode documentary-style YouTube explainer series highlighting the cutting-edge research of USC's Graduate Fellows, transforming doctorate-level research into engaging video content.</li>
+        <li>Owned creative, budget management, and editorial responsibilities; interviewed graduate fellows; coordinated with external vendors, university administrators, and social media strategists; delivered under budget and on schedule.</li>
+      </ul>
+    </div>
+
+    <!-- AOK -->
+    <div class="job toggleable" id="job-aok">
+      <div class="job-header">
+        <div class="job-title">Freelance Producer</div>
+        <div class="job-date">2017 – 2018</div>
+      </div>
+      <div class="job-company">AOK YouTube Channel (The Jackal Group) · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Produced 6 live-action short comedy films for YouTube; managed production logistics, budgets, and contracts; wrangled complex creative dynamics.</li>
+        <li>Drove 450K+ views across projects, with two pieces each surpassing 160K views, including the channel's top-performing live-action parody.</li>
+      </ul>
+    </div>
+
+    <!-- Early Experience -->
+    <div class="job toggleable" id="job-early">
+      <div class="job-header">
+        <div class="job-title">Early Career</div>
+        <div class="job-date">2009 – 2015</div>
+      </div>
+      <div class="job-company">Various · Los Angeles, CA</div>
+      <ul class="job-bullets">
+        <li>Mastered production support roles in broadcast, digital media, and branded content at FOX Animation Domination High-Def, CBS Television, FX Networks, and Freestyle Picture Company, among others.</li>
+      </ul>
+    </div>
+
+    <!-- Independent Projects (toggleable) -->
+    <div id="section-indep" class="toggleable">
+      <div class="section-label">Independent Projects</div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Producer</div>
+          <div class="job-date">WIP</div>
+        </div>
+        <div class="job-company">No Borders (Feature Documentary) · Los Angeles, CA</div>
+        <ul class="job-bullets">
+          <li>In production on a feature-length documentary exploring life along the US-Mexico border.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Associate Producer</div>
+          <div class="job-date">2023</div>
+        </div>
+        <div class="job-company">Influence (Documentary) · Los Angeles, CA</div>
+        <ul class="job-bullets">
+          <li>Associate produced feature documentary through post-production and festival exhibition.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-title">Production Consultant</div>
+          <div class="job-date">Ongoing</div>
+        </div>
+        <div class="job-company">Imminent Films · Los Angeles, CA</div>
+        <ul class="job-bullets">
+          <li>Provide ongoing production consulting to independent film company.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section-label">Education</div>
+
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">MBA, Business of Entertainment</div>
+        <div class="edu-school">USC Marshall School of Business</div>
+      </div>
+      <div class="edu-year">2021</div>
+    </div>
+
+    <div class="edu-row">
+      <div>
+        <div class="edu-degree">BA, Communication — Radio, Television &amp; Film</div>
+        <div class="edu-school">Marist University</div>
+      </div>
+      <div class="edu-year">2010</div>
+    </div>
+
+  </div><!-- /page -->
+
+  <script>
+    function printWhenReady() {
+      document.fonts.ready.then(() => {
+        setTimeout(() => window.print(), 100);
+      });
+    }
+
+    function toggleEl(id, btn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('hidden');
+      btn.classList.toggle('active');
+    }
+
+    let currentFontSize = 11;
+    function nudgeFont(delta) {
+      currentFontSize = Math.min(13, Math.max(8, Math.round((currentFontSize + delta) * 2) / 2));
+      document.querySelectorAll('.job-bullets li, .edu-degree, .edu-school').forEach(el => {
+        el.style.fontSize = currentFontSize + 'px';
+      });
+      document.getElementById('font-size-display').textContent = currentFontSize + 'px';
+    }
+  </script>
+</body>
+</html>
