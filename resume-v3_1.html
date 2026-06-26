@@ -39,10 +39,29 @@
       padding: 7px 16px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 6px;
       flex-wrap: wrap;
       z-index: 9999;
     }
+
+    .back-link {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #BBB;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.15s ease;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .back-link .arrow { font-size: 13px; line-height: 1; }
 
     .control-label {
       font-family: var(--font-display);
@@ -296,8 +315,9 @@
 </head>
 <body>
 
-  <!-- PRINT BUTTON -->
+  <!-- CONTROL PANEL -->
   <div class="control-panel">
+    <a class="back-link" href="index.html"><span class="arrow">&larr;</span> Back to Portfolio</a>
     <button class="toggle-btn" onclick="printWhenReady()">Print / PDF</button>
   </div>
 
@@ -309,7 +329,7 @@
       <div class="name-block">
         <div class="name-line"><span class="first">Sam</span> <span class="last">Mantell</span></div>
         <div class="title-line">Senior Producer &amp; Project Manager</div>
-        <div class="contact-row"><span>Los Angeles, CA</span><span class="contact-sep"> · </span><a href="mailto:samuel.mantell@gmail.com">samuel.mantell@gmail.com</a><span class="contact-sep"> · </span><a href="https://www.linkedin.com/in/sam-mantell" target="_blank">linkedin.com/in/sam-mantell</a><span class="contact-sep"> · </span><a href="https://sammantell.com" target="_blank">sammantell.com</a></div>
+        <div class="contact-row"><span>Los Angeles, CA</span><span class="contact-sep"> · </span><a href="/cdn-cgi/l/email-protection#d3a0b2bea6b6bffdbeb2bda7b6bfbf93b4beb2babffdb0bcbe"><span class="__cf_email__" data-cfemail="087b69657d6d64266569667c6d6464486f65696164266b6765">[email&#160;protected]</span></a><span class="contact-sep"> · </span><a href="https://www.linkedin.com/in/sam-mantell" target="_blank">linkedin.com/in/sam-mantell</a><span class="contact-sep"> · </span><a href="https://sammantell.com" target="_blank">sammantell.com</a></div>
       </div>
     </header>
 
@@ -452,7 +472,7 @@
 
   </div><!-- /page -->
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function printWhenReady() {
       document.fonts.ready.then(() => {
         setTimeout(() => window.print(), 100);
