@@ -1,0 +1,17 @@
+# ----------------------------------------
+# Pages and screens: Page path and screen class
+# Account: Sam Mantell Portfolio
+# Property: sammantell.com
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260527
+# End date: 20260623
+Page path and screen class,Views,Active users,Views per active user,Average engagement time per active user,Event count,Key events,Total revenue
+/,25,11,2.272727272727273,18.727272727272727,86,0,0
+/resume-creative,7,1,7,132,19,0,0
+/project-pages/project-bytesyzetv,3,3,1,8,7,0,0
+/project-pages/project-kamk,2,1,2,34,6,0,0
+/project-pages/project-discod,1,1,1,25,4,0,0
+/project-pages/project-giphy-ads,1,1,1,15,3,0,0
+/project-pages/project-giphy-stamps,1,1,1,4,2,0,0
