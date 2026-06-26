@@ -31,12 +31,12 @@
   nav ul a:hover,nav ul a.active{color:var(--accent);}
 
   /* ── HERO — compact identity block ── */
-  .hero{position:relative;z-index:1;padding:2.5rem 2rem 1.5rem;text-align:center;}
-  .hero-title{font-family:var(--fd);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:#2E2150;letter-spacing:-0.02em;line-height:1;margin-bottom:0.75rem;}
+  .hero{position:relative;z-index:1;padding:2.25rem 2rem 0.85rem;text-align:center;}
+  .hero-title{font-family:var(--fd);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;color:#2E2150;letter-spacing:-0.02em;line-height:1;margin-bottom:0.5rem;}
   .hero-title a{color:inherit;text-decoration:none;transition:opacity 0.2s;}
   .hero-title a:hover{opacity:0.75;}
-  .hero-role{font-size:clamp(0.75rem,1.55vw,1.05rem);color:var(--dim);letter-spacing:0.22em;text-transform:uppercase;font-weight:400;margin-bottom:0.85rem;}
-  .hero-scope{font-family:var(--fb);font-size:clamp(0.9rem,1.6vw,1.1rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;font-style:italic;max-width:640px;margin:0 auto;}
+  .hero-role{font-size:clamp(0.75rem,1.55vw,1.05rem);color:var(--dim);letter-spacing:0.22em;text-transform:uppercase;font-weight:400;margin-bottom:0.3rem;}
+  .hero-scope{font-family:var(--fb);font-size:clamp(0.8rem,1.3vw,0.95rem);color:var(--dim);font-weight:300;letter-spacing:0.02em;font-style:italic;max-width:640px;margin:0 auto;}
   .hero-scope .sep{color:var(--accent);padding:0 0.5rem;opacity:0.7;font-style:normal;}
   .hero-scope a{color:var(--dim);text-decoration:none;font-style:italic;border-bottom:1px solid transparent;transition:color 0.2s,border-color 0.2s;}
   .hero-scope a:hover{color:var(--accent);border-bottom-color:var(--accent);}
@@ -52,7 +52,7 @@
   .masonry-grid.laid-out{opacity:1;}
 
   /* Hero reel */
-  .reel{position:relative;z-index:1;margin-top:1.5rem;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);}
+  .reel{position:relative;z-index:1;margin-top:0.9rem;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);}
   .reel-track{display:flex;gap:8px;width:max-content;animation:reelscroll 64s linear infinite;}
   .reel:hover .reel-track{animation-play-state:paused;}
   .reel-item{position:relative;height:215px;flex:0 0 auto;overflow:hidden;display:block;background:var(--bg2);}
@@ -542,7 +542,7 @@
     if(!grid)return;
     const CAT={'project-pln':'branded','project-giphy-ads':'branded','project-bytesyzetv':'digital','project-giphy-partnerships':'digital','project-giphy-livegif':'digital','project-giphy-artist-commissions':'digital','project-giphy-studios':'digital','project-giphy-stamps':'digital','project-usc':'digital','project-aok':'digital','project-zips':'original','project-kamk':'original','project-discod':'original','project-influence':'original'};
     const tiles=Array.from(grid.querySelectorAll('.m-tile'));
-    tiles.forEach(t=>{const m=(t.getAttribute('href')||'').match(/(project-[a-z0-9-]+)\.html/);t.dataset.cat=(m&&CAT[m[1]])||'all';});
+    tiles.forEach(t=>{const slug=(t.getAttribute('href')||'').split('#')[0].split('?')[0].replace(/\/+$/,'').split('/').pop().replace(/\.html$/,'');t.dataset.cat=CAT[slug]||'all';});
     const chips=bar?Array.from(bar.querySelectorAll('.chip')):[];
     function apply(f){
       chips.forEach(c=>c.classList.toggle('active',c.dataset.filter===f));
